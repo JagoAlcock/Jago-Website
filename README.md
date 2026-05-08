@@ -4,7 +4,7 @@ A static personal portfolio site, built as plain HTML + JS so it can be
 hosted for free on **GitHub Pages** (or any other static host) and edited
 by changing one well-commented file.
 
-Live site: _add your URL once it's published_
+Live site: https://jagoalcock.github.io/Jago-Website/
 
 ---
 
