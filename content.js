@@ -53,11 +53,11 @@ const SITE_INFO = {
 const INTRO_STATS = [
   { value: '2+',     label: 'years of R&D experience' },
   // { value: '6',       label: 'companies, 6 industries' },
-  { value: 'BE(Hons)', label: 'First-Class, University of Canterbury' },
+  { value: 'BE(Hons)', label: 'First-Class\nMechanical Major\nAerospace Minor\nUniversity of Canterbury' },
 ];
 
 const INTRO_TEXT =
-  "Kia ora — I'm a {accent}graduate mechanical engineer{/accent} based in Christchurch, New Zealand, with 22+ months of R&D experience across aerospace, robotics, and manufacturing. I work where clean design meets hands-on prototyping.";
+  "Kia ora — I'm a {accent}graduate mechanical engineer{/accent} based in Christchurch, New Zealand, with 2+ years of R&D experience across aerospace, robotics, automation and more. I like to work on the cutting edge, in fast paced, exciting environments.";
 
 
 // ── 3. About-page text ──────────────────────────────────────────────────
@@ -101,10 +101,10 @@ const ABOUT_TEXT = [
 
 const PROJECTS = [
   {
-    slug: 'coaxial-rotor', n: '01', title: 'Coaxial rotor optimisation',
+    slug: 'coaxial-rotor', n: '01', title: 'Coaxial Rotor Optimisation',
     tagline: 'Lifting more with less.',
     client: 'Masters research · University of Canterbury',
-    tag: 'Aerospace', year: '2025', featured: true,
+    tag: 'Aerospace', year: '2026', featured: true,
     image: 'images/projects-cover.png',
     gallery: [],
     pdf: null,
@@ -121,8 +121,8 @@ const PROJECTS = [
     ],
   },
   {
-    slug: 'syos', n: '02', title: 'UAS programmes & GCS redesign',
-    client: 'SYOS Aerospace · Junior Engineer (3 months)',
+    slug: 'syos', n: '02', title: 'SYOS Aerospace Projects',
+    client: 'SYOS Aerospace · Junior Engineer',
     tag: 'Aerospace', year: '2025',
     image: 'images/projects-cover.png',
     gallery: [], pdf: null,
@@ -153,7 +153,8 @@ const PROJECTS = [
     specs: [['Role', 'Team Leader'], ['Airframe', '1.4 m kit'], ['Year', '2024']],
   },
   {
-    slug: 'wand', n: '04', title: 'W.A.N.D — aerial nozzle device',
+    slug: 'wand', n: '04', title: 'W.A.N.D',
+    tagline: 'Wireless Aerial Nozzle Device',
     client: 'SPS Automation · Junior Engineer (3 months)',
     tag: 'Robotics', year: '2024',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
