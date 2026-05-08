@@ -41,7 +41,7 @@ const SITE_INFO = {
   timezone:   'GMT+12',
   email:      'jago.alcock@gmail.com',
   phone:      '+64 204 0650413',
-  linkedin:   'http://www.linkedin.com/in/jago-a-a15406201',
+  linkedin:   'https://www.linkedin.com/in/jago-alcock-a15406201/',
   siteUrl:    'https://jagoalcock.github.io/Jago-Website/',
   footerHeadline: "Open to\nroles.",
   copyright:  '© 2026 JAGO ALCOCK',
@@ -142,7 +142,8 @@ const PROJECTS = [
   },
   {
     slug: 'uc-rocket', n: '03', title: 'UC Aerospace Level 1 rocket',
-    client: 'Team Leader · UC Aerospace', tag: 'Aerospace', year: '2024',
+    client: 'Team Leader · UC Aerospace',
+    tag: 'Aerospace', year: '2024',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Led a team to build and launch a 1.4 m rocket kit, gaining practical experience in rocket aerodynamics, fabrication, and launch procedures.',
     intro: 'Team leader for the UC Aerospace Level 1 certification rocket — a 1.4 m composite-bodied high-power rocket kit assembled and flown to altitude.',
@@ -173,7 +174,8 @@ const PROJECTS = [
   },
   {
     slug: 'robo-saw', n: '05', title: '6-axis robotic sawblade',
-    client: 'Masters project', tag: 'Robotics', year: '2024',
+    client: 'QBH',
+    tag: 'Robotics', year: '2020',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Design and integration of a sawblade end-effector for a six-axis industrial robotic arm, with path planning and safety interlocks for repeatable cuts.',
     intro: 'End-effector and integration work for a six-axis robotic arm carrying a sawblade — exploring applications in timber cutting.',
