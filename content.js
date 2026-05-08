@@ -42,6 +42,9 @@ const SITE_INFO = {
   email:      'jago.alcock@gmail.com',
   phone:      '+64 204 0650413',
   linkedin:   'http://www.linkedin.com/in/jago-a-a15406201',
+  // Set this once you know your final URL (helps SEO + sitemap), e.g.
+  // 'https://<your-username>.github.io/<repo>/'  OR  'https://yourdomain.com/'
+  siteUrl:    'https://jagoalcock.github.io/Jago-Website/',
   footerHeadline: "Open to\nroles.",
   copyright:  '© 2026 JAGO ALCOCK',
   hostingNote: 'HOSTED ON GITHUB PAGES',

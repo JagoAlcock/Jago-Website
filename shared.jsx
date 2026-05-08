@@ -444,10 +444,113 @@ function usePageShell() {
   return { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode };
 }
 
+// ── SEO helpers ──────────────────────────────────────────────────────────
+function ensureMeta(attrName, attrValue) {
+  if (typeof document === 'undefined') return null;
+  const sel = `meta[${attrName}="${attrValue}"]`;
+  let el = document.head.querySelector(sel);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attrName, attrValue);
+    document.head.appendChild(el);
+  }
+  return el;
+}
+
+function setMetaName(name, content) {
+  if (!content) return;
+  const el = ensureMeta('name', name);
+  if (el) el.setAttribute('content', content);
+}
+
+function setMetaProperty(prop, content) {
+  if (!content) return;
+  const el = ensureMeta('property', prop);
+  if (el) el.setAttribute('content', content);
+}
+
+function setCanonical(href) {
+  if (!href || typeof document === 'undefined') return;
+  let el = document.head.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'canonical');
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+function upsertJsonLd(id, obj) {
+  if (typeof document === 'undefined') return;
+  const scriptId = `jsonld:${id}`;
+  let el = document.getElementById(scriptId);
+  if (!el) {
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = scriptId;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(obj, null, 0);
+}
+
+function absUrl(siteUrl, path) {
+  if (!siteUrl) return '';
+  try {
+    return new URL(path, siteUrl).toString();
+  } catch {
+    return '';
+  }
+}
+
+function applySeo({
+  title,
+  description,
+  path,
+  imagePath,
+  type = 'website',
+}) {
+  if (typeof document === 'undefined') return;
+
+  const siteUrl = (SITE_INFO && SITE_INFO.siteUrl) ? SITE_INFO.siteUrl : '';
+  const canonical = siteUrl && path ? absUrl(siteUrl, path) : '';
+  const ogImage = siteUrl && imagePath ? absUrl(siteUrl, imagePath) : '';
+
+  if (title) document.title = title;
+
+  setMetaName('description', description);
+
+  setMetaProperty('og:type', type);
+  setMetaProperty('og:title', title);
+  setMetaProperty('og:description', description);
+  setMetaProperty('og:url', canonical);
+  setMetaProperty('og:image', ogImage);
+
+  setMetaName('twitter:card', ogImage ? 'summary_large_image' : 'summary');
+  setMetaName('twitter:title', title);
+  setMetaName('twitter:description', description);
+  setMetaName('twitter:image', ogImage);
+
+  setCanonical(canonical);
+
+  // Helps Google disambiguate "Jago Alcock" as a person.
+  const person = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: SITE_INFO?.name,
+    email: SITE_INFO?.email ? `mailto:${SITE_INFO.email}` : undefined,
+    sameAs: [SITE_INFO?.linkedin].filter(Boolean),
+    jobTitle: SITE_INFO?.role,
+    homeLocation: SITE_INFO?.location,
+    url: canonical || siteUrl || undefined,
+  };
+  upsertJsonLd('person', person);
+}
+
 Object.assign(window, {
   ACCENT_OPTIONS, TWEAKS,
   theme, renderAccented, GlobalStyles,
   Eyebrow, ModeToggle, Nav, DownloadBar,
   GalleryCard, Gallery, Footer, TweaksPanel,
   usePageShell,
+  applySeo,
 });

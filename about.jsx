@@ -71,6 +71,15 @@ function Hobbies({ t, headlineFont }) {
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
+  React.useEffect(() => {
+    applySeo({
+      title: `About — ${SITE_INFO.name}`,
+      description: `About ${SITE_INFO.name} — background, experience, and interests outside engineering.`,
+      path: 'about.html',
+      imagePath: ABOUT_PHOTO || '',
+      type: 'profile',
+    });
+  }, []);
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />

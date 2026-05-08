@@ -133,6 +133,16 @@ function App() {
   if (p.pdf) downloads.push({ label: `Download ${p.title} PDF`, url: p.pdf, primary: true });
   downloads.push({ label: 'Full resume', url: RESUME.pdf, primary: !p.pdf });
 
+  React.useEffect(() => {
+    applySeo({
+      title: `${p.title} — ${SITE_INFO.name}`,
+      description: (p.summary || p.intro || '').slice(0, 170),
+      path: `projects/${p.slug}.html`,
+      imagePath: p.image || '',
+      type: 'article',
+    });
+  }, [p.slug]);
+
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />

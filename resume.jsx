@@ -140,6 +140,15 @@ function Body({ t, headlineFont }) {
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
+  React.useEffect(() => {
+    applySeo({
+      title: `Resume — ${SITE_INFO.name}`,
+      description: `Resume of ${SITE_INFO.name}: experience, education, skills, and downloadable PDF.`,
+      path: 'resume.html',
+      imagePath: '',
+      type: 'website',
+    });
+  }, []);
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />

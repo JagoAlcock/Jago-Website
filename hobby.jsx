@@ -126,6 +126,16 @@ function App() {
   const slug = currentHobbySlug();
   const h = HOBBIES.find(x => x.slug === slug) || HOBBIES[0];
 
+  React.useEffect(() => {
+    applySeo({
+      title: `${h.title} — ${SITE_INFO.name}`,
+      description: (h.context || h.intro || '').slice(0, 170),
+      path: `hobbies/${h.slug}.html`,
+      imagePath: h.image || '',
+      type: 'article',
+    });
+  }, [h.slug]);
+
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />

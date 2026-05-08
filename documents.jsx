@@ -155,6 +155,16 @@ function App() {
   const downloads = [
   { label: 'Download PDF resume', url: RESUME.pdf, primary: true }];
 
+  React.useEffect(() => {
+    applySeo({
+      title: `Supporting documents — ${SITE_INFO.name}`,
+      description: `Letters of recommendation, supporting documents, and downloads for ${SITE_INFO.name}.`,
+      path: 'documents.html',
+      imagePath: '',
+      type: 'website',
+    });
+  }, []);
+
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />

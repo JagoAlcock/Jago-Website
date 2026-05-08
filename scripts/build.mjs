@@ -79,6 +79,15 @@ function build() {
   rm(OUT);
   ensureDir(OUT);
 
+  // Extract SITE_INFO.siteUrl from content.js (optional but recommended for SEO).
+  let siteUrl = '';
+  try {
+    const content = fs.readFileSync(path.join(ROOT, 'content.js'), 'utf8');
+    const m = content.match(/siteUrl\s*:\s*'([^']*)'/);
+    if (m && m[1]) siteUrl = m[1].trim();
+    if (siteUrl && !siteUrl.endsWith('/')) siteUrl += '/';
+  } catch {}
+
   // Copy static assets / folders verbatim.
   for (const dir of ['images', 'uploads']) {
     const src = path.join(ROOT, dir);
@@ -131,6 +140,30 @@ function build() {
     ],
     { stdio: 'inherit', cwd: ROOT }
   );
+
+  // robots.txt + sitemap.xml (only valid with a full public site URL).
+  if (siteUrl) {
+    const htmlFiles = listFilesRecursive(OUT)
+      .filter((p) => p.endsWith('.html'))
+      .map((p) => path.relative(OUT, p).replaceAll(path.sep, '/'))
+      .filter((rel) => !rel.startsWith('.'));
+
+    const urls = htmlFiles
+      .map((rel) => new URL(rel, siteUrl).toString())
+      .sort((a, b) => a.localeCompare(b));
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n` +
+      `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+      urls.map((u) => `  <url><loc>${u}</loc></url>`).join('\n') +
+      `\n</urlset>\n`;
+
+    fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap, 'utf8');
+    fs.writeFileSync(
+      path.join(OUT, 'robots.txt'),
+      `User-agent: *\nAllow: /\nSitemap: ${new URL('sitemap.xml', siteUrl).toString()}\n`,
+      'utf8'
+    );
+  }
 
   console.log(`\nBuilt production site into: ${OUT}\n`);
   console.log('For GitHub Pages: set Pages source to /docs on main branch.');

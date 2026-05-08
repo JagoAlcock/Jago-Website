@@ -99,6 +99,15 @@ function Work({ t, headlineFont }) {
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
+  React.useEffect(() => {
+    applySeo({
+      title: `${SITE_INFO.name} — Mechanical & Aerospace Engineer`,
+      description: `Portfolio of ${SITE_INFO.name}, a mechanical engineer with aerospace focus. Projects, experience, and contact details.`,
+      path: 'index.html',
+      imagePath: (PROJECTS.find(p => p.featured)?.image) || (PROJECTS[0]?.image) || '',
+      type: 'website',
+    });
+  }, []);
   return (
     <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
       <GlobalStyles />
