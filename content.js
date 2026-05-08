@@ -35,15 +35,13 @@
 // ── 1. Site-wide info ───────────────────────────────────────────────────
 const SITE_INFO = {
   name:       'Jago Alcock',
-  tagline:    'MECH.ENG / AERO',
-  role:       'Graduate mechanical engineer',
+  tagline:    'MECHANICAL / AEROSPACE / AUTOMATION ENGINEERING',
+  role:       'Graduate Mechanical Engineer',
   location:   'Christchurch, NZ',
   timezone:   'GMT+12',
   email:      'jago.alcock@gmail.com',
   phone:      '+64 204 0650413',
   linkedin:   'http://www.linkedin.com/in/jago-a-a15406201',
-  // Set this once you know your final URL (helps SEO + sitemap), e.g.
-  // 'https://<your-username>.github.io/<repo>/'  OR  'https://yourdomain.com/'
   siteUrl:    'https://jagoalcock.github.io/Jago-Website/',
   footerHeadline: "Open to\nroles.",
   copyright:  '© 2026 JAGO ALCOCK',
@@ -53,9 +51,9 @@ const SITE_INFO = {
 
 // ── 2. Home-page intro stats ────────────────────────────────────────────
 const INTRO_STATS = [
-  { value: '22+',     label: 'months R&D experience' },
-  { value: '6',       label: 'companies, 6 industries' },
-  { value: 'BE(Hons)', label: 'First-class, Canterbury' },
+  { value: '2+',     label: 'years of R&D experience' },
+  // { value: '6',       label: 'companies, 6 industries' },
+  { value: 'BE(Hons)', label: 'First-Class, University of Canterbury' },
 ];
 
 const INTRO_TEXT =
