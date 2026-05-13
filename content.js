@@ -110,7 +110,7 @@ const PROJECTS = [
     year: '2026',
     featured: true,
     image: 'images/coax_cover.png',
-    gallery: [],
+    gallery: [images/coax_poster.png, images/coax_experiment.jpg],
     pdf: null,
     summary: 'A masters research project into the geometry optimisation of highly-skewed, counter-rotating, coaxial rotor systems.',
     intro: [
@@ -134,9 +134,11 @@ const PROJECTS = [
       basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.'
     ],
     specs: [
-      ['Duration', 'Masters research · 2025–2026'],
+      ['Duration', '1 Year · 2025-2026'],
+      ['Role', 'Researcher'],
       ['Tools', 'CFD · CAD · Python'],
       ['Output', 'Thesis · Published Papers · Prototypes'],
+      ['Industry', 'Aerospace'],
     ],
   },
   {
@@ -146,40 +148,46 @@ const PROJECTS = [
     client: 'SYOS Aerospace · Junior Engineer',
     tag: 'Aerospace',
     year: '2025',
-    image: 'images/syos_cover.jpg',
-    gallery: [],
+    image: 'images/syos_sa200.jpg',
+    gallery: [images/syos_interns.jpg, images/syos_sm300.jpg, images/syos_sa7.jpg, images/syos_sg400.jpg, images/syos_sa1.jpg],
     pdf: null,
     summary: 'A small, fast-moving team designing and manufacturing components for customer-ready UAS products.',
     intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and \
-    commercial applications. Due to the nature of the work, project details are classified.',
+    commercial applications. Due to the nature of the work, many project or details are classified.',
     body: [
       'What I can share is that I spent several months embedded in a small, fast-moving team designing and manufacturing \
       components for customer-ready UAS products. Working to tight tolerances and delivery deadlines, which I loved.'
       ,
       'One of the most challenging moments came when I was handed sole responsibility for troubleshooting a fleet of UAS \
-      systems on a large customer contract that had run into issues during commissioning. Diagnosing faults across multiple \
-      aircraft under time pressure, with a customer waiting, was the kind of problem that doesn\'t come easily. Working \
-      through it methodically and getting the systems mission worthy was one of the most satisfying things I\'ve done.'
+      systems on a customer contract that had run into issues during commissioning. Diagnosing faults across multiple \
+      aircraft under time pressure, with a customer waiting, was not easy. Working through it methodically and getting \
+      the systems mission worthy was one of the most satisfying things I\'ve done.'
       ,
-      'I redesigned a customer-facing Ground Control Station to improve its structural integrity, transmission reliability, \
-      and usability, and designed a ~12×12m collapsible indoor drone test enclosure, built to contain a crashing UAS and \
-      keep both the aircraft and any personnel safe during development testing.'
+      'I also redesigned a customer-facing Ground Control Station (GCS) to improve its structural integrity, transmission \
+      reliability, and usability, and designed a large collapsible indoor drone test enclosure, to contain a crashing UAS \
+      and keep both the aircraft and personnel safe during development testing.'
       ,
       'This role pushed me in ways that previous internships hadn\'t. The stakes were high, the team was lean, and the \
       expectation was that you\'d contribute from day one. It confirmed that I want to work in fast-moving, high-stakes \
       environments, designing exciting things that get built, tested, and used in the field.'
     ],
     specs: [
-      ['Duration', '3 months'],
+      ['Duration', '3 Months'],
       ['Role', 'Junior Engineer'],
+      ['Skills', 'Fast Learning · Time Management · Team Work'],
       ['Industry', 'Aerospace · Defence'],
     ],
   },
   {
-    slug: 'uc-rocket', n: '03', title: 'UC Aerospace Level 1 rocket',
-    client: 'Team Leader · UC Aerospace',
-    tag: 'Aerospace', year: '2024',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    slug: 'uc-rocket',
+    n: '03',
+    title: 'UC Aerospace Level 1 Rocket',
+    client: 'UC Aerospace',
+    tag: 'Aerospace',
+    year: '2024',
+    image: 'images/projects-cover.png',
+    gallery: [],
+    pdf: null,
     summary: 'Led a team to build and launch a 1.4 m rocket kit, gaining practical experience in rocket aerodynamics, fabrication, and launch procedures.',
     intro: 'Team leader for the UC Aerospace Level 1 certification rocket — a 1.4 m composite-bodied high-power rocket kit assembled and flown to altitude.',
     body: [
