@@ -15,7 +15,7 @@ function HobbyHero({ t, headlineFont, h }) {
         borderBottom: `1px solid ${t.line}`, display: 'flex', justifyContent: 'space-between', gap: 16,
       }}>
         <a href="../about.html" style={{ color: t.dim, textDecoration: 'none' }}>← BACK TO ABOUT</a>
-        <span>/{h.n} · {h.tag.toUpperCase()} · {h.year}</span>
+        <span>/{ordinalFromSlug(HOBBIES, h.slug)} · {h.tag.toUpperCase()} · {h.year}</span>
       </div>
 
       <section style={{ position: 'relative', height: 'clamp(360px, 58vh, 640px)', overflow: 'hidden', borderBottom: `1px solid ${t.line}` }}>
@@ -105,16 +105,18 @@ function HobbyPrevNext({ t, headlineFont, h }) {
   const idx = HOBBIES.findIndex(x => x.slug === h.slug);
   const prev = HOBBIES[(idx - 1 + HOBBIES.length) % HOBBIES.length];
   const next = HOBBIES[(idx + 1) % HOBBIES.length];
+  const prevOrd = ordinalFromSlug(HOBBIES, prev.slug);
+  const nextOrd = ordinalFromSlug(HOBBIES, next.slug);
   const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   const cell = { padding: '36px 0', color: t.text, textDecoration: 'none', display: 'block' };
   return (
     <section className="ja-page-pad ja-grid-2" style={{ padding: '0 56px', borderTop: `1px solid ${t.line}`, borderBottom: `1px solid ${t.line}`, gap: 0 }}>
       <a href={`${prev.slug}.html`} style={{ ...cell, borderRight: `1px solid ${t.line}`, paddingRight: 24 }}>
-        <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>← PREVIOUS /{prev.n}</div>
+        <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>← PREVIOUS /{prevOrd}</div>
         <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{prev.title}</div>
       </a>
       <a href={`${next.slug}.html`} style={{ ...cell, paddingLeft: 24, textAlign: 'right' }}>
-        <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>NEXT /{next.n} →</div>
+        <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>NEXT /{nextOrd} →</div>
         <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{next.title}</div>
       </a>
     </section>

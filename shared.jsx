@@ -45,6 +45,17 @@ function theme(mode, accentHex) {
   };
 }
 
+/** "01", "02", … from 0-based index into the ordered list in content.js */
+function ordinalFromIndex(index) {
+  return String(Math.max(0, index) + 1).padStart(2, '0');
+}
+
+/** Same label, from an item's slug and the ordered array it belongs to */
+function ordinalFromSlug(items, slug) {
+  const i = items.findIndex((x) => x.slug === slug);
+  return ordinalFromIndex(i < 0 ? 0 : i);
+}
+
 // ── Responsive styles: injected once into <head> ────────────────────────
 // Uses class names + CSS custom properties so inline styles still work.
 const RESPONSIVE_CSS = `
@@ -63,12 +74,13 @@ const RESPONSIVE_CSS = `
     top: -120px;
     z-index: 200;
     padding: 12px 18px;
-    font: 500 13px ui-sans-serif, system-ui, sans-serif;
+    font: 500 13px var(--ja-skip-font, ui-sans-serif, system-ui, sans-serif);
     text-decoration: none;
-    background: Field;
-    color: FieldText;
-    border: 2px solid ButtonText;
+    background: var(--ja-skip-bg, Field);
+    color: var(--ja-skip-fg, FieldText);
+    border: 2px solid var(--ja-skip-border, ButtonText);
     border-radius: 2px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
   }
   .ja-skip-link:focus-visible {
     top: 16px;
@@ -127,9 +139,16 @@ function GlobalStyles() {
 }
 
 // Skip link + landmark wrapper — use on every page root for keyboard / SR users.
+// Theme tokens for the skip control live on a wrapper so the link (a sibling of <main>) inherits CSS variables.
 function SiteShell({ t, children }) {
+  const shellVars = {
+    '--ja-skip-bg': t.bg2,
+    '--ja-skip-fg': t.text,
+    '--ja-skip-border': t.accent,
+    '--ja-skip-font': t.sans,
+  };
   return (
-    <>
+    <div className="ja-site-shell" style={shellVars}>
       <a href="#main-content" className="ja-skip-link">Skip to main content</a>
       <main
         id="main-content"
@@ -144,7 +163,7 @@ function SiteShell({ t, children }) {
       >
         {children}
       </main>
-    </>
+    </div>
   );
 }
 
@@ -254,15 +273,15 @@ function DownloadBar({ t, items }) {
 }
 
 // ── Gallery card (unified style used for both projects AND hobbies) ─────
-function GalleryCard({ item, t, headlineFont, href, hoverN, setHoverN, big, pathPrefix = '' }) {
+function GalleryCard({ item, t, headlineFont, href, ordinal, hoverSlug, setHoverSlug, big, pathPrefix = '' }) {
   const headFam = headlineFont === 'sans' ? t.sans : t.serif;
-  const active = hoverN === item.n;
+  const active = hoverSlug === item.slug;
   const hasImage = Boolean(item.image);
   const imgSrc = hasImage ? pathPrefix + item.image : null;
   return (
     <a href={href}
-      onMouseEnter={() => setHoverN(item.n)}
-      onMouseLeave={() => setHoverN(null)}
+      onMouseEnter={() => setHoverSlug(item.slug)}
+      onMouseLeave={() => setHoverSlug(null)}
       style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}>
       <div style={{
         background: t.bg2, height: big ? 440 : 340, position: 'relative',
@@ -299,7 +318,7 @@ function GalleryCard({ item, t, headlineFont, href, hoverN, setHoverN, big, path
           position: 'absolute', top: 16, left: 16, fontFamily: t.mono,
           fontSize: 10, letterSpacing: 1.5, color: t.accent,
           textShadow: hasImage ? '0 1px 4px rgba(0,0,0,0.4)' : 'none',
-        }}>/{item.n}</span>
+        }}>/{ordinal}</span>
         <span style={{
           position: 'absolute', top: 16, right: 16, fontFamily: t.mono,
           fontSize: 10, letterSpacing: 1.5, color: hasImage ? '#f0ede5' : t.dim,
@@ -333,13 +352,14 @@ function GalleryCard({ item, t, headlineFont, href, hoverN, setHoverN, big, path
 
 // ── Unified Gallery grid (used for Work + Hobbies) ──────────────────────
 function Gallery({ items, t, headlineFont, hrefFor, bigIndices = [0, 1], pathPrefix = '' }) {
-  const [hoverN, setHoverN] = React.useState(null);
+  const [hoverSlug, setHoverSlug] = React.useState(null);
   return (
     <div className="ja-grid-2">
       {items.map((p, i) => (
         <GalleryCard
-          key={p.n} item={p} t={t} headlineFont={headlineFont}
-          href={hrefFor(p)} hoverN={hoverN} setHoverN={setHoverN}
+          key={p.slug} item={p} t={t} headlineFont={headlineFont}
+          ordinal={ordinalFromIndex(i)}
+          href={hrefFor(p)} hoverSlug={hoverSlug} setHoverSlug={setHoverSlug}
           big={bigIndices.includes(i)} pathPrefix={pathPrefix}
         />
       ))}
@@ -594,7 +614,7 @@ function applySeo({
 
 Object.assign(window, {
   ACCENT_OPTIONS, TWEAKS,
-  theme, renderAccented, GlobalStyles, SiteShell,
+  theme, ordinalFromIndex, ordinalFromSlug, renderAccented, GlobalStyles, SiteShell,
   Eyebrow, ModeToggle, Nav, DownloadBar,
   GalleryCard, Gallery, Footer, TweaksPanel,
   usePageShell,

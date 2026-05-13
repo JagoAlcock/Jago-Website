@@ -2,6 +2,8 @@
 
 function Hero({ t, headlineFont }) {
   const featured = PROJECTS.find(p => p.featured) || PROJECTS[0];
+  const featuredIndex = PROJECTS.findIndex(p => p.slug === featured.slug);
+  const featuredOrd = ordinalFromIndex(featuredIndex >= 0 ? featuredIndex : 0);
   const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   return (
     <section style={{ position: 'relative', height: 'min(82vh, 780px)', minHeight: 520, overflow: 'hidden' }}>
@@ -44,7 +46,7 @@ function Hero({ t, headlineFont }) {
             Read the case study <span style={{ fontSize: 16 }}>→</span>
           </a>
           <span style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>
-            01 / {String(PROJECTS.length).padStart(2, '0')} PROJECTS
+            {featuredOrd} / {String(PROJECTS.length).padStart(2, '0')} PROJECTS
           </span>
         </div>
       </div>

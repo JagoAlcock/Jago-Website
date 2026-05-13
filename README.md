@@ -90,8 +90,7 @@ Edit the field in `content.js`. Done.
    ```js
    {
      slug: 'my-new-project',          // becomes projects/my-new-project.html
-     n: '17',                         // display number
-     title: 'Project Title',
+     title: 'Project Title',          // order in PROJECTS sets the /01, /02 … badge
      tag: 'CATEGORY',                 // small label (e.g. AEROSPACE)
      year: '2025',
      client: 'CLIENT / CONTEXT',      // top-of-card eyebrow

@@ -84,7 +84,6 @@ const ABOUT_TEXT = [
 //
 // Fields:
 //   slug        — URL (projects/<slug>.html). Lowercase, no spaces.
-//   n           — display number "01", "02" …
 //   title       — big title
 //   tagline     — optional — short italic subtitle under the title
 //   client      — small text under the title (who it was for / role)
@@ -102,7 +101,6 @@ const ABOUT_TEXT = [
 const PROJECTS = [
   {
     slug: 'coaxial-rotor',
-    n: '01',
     title: 'Coaxial Rotor Optimisation',
     tagline: 'Lifting more with less.',
     client: 'Masters research · University of Canterbury',
@@ -143,7 +141,6 @@ const PROJECTS = [
   },
   {
     slug: 'syos',
-    n: '02',
     title: 'SYOS Aerospace',
     client: 'SYOS Aerospace · Junior Engineer',
     tag: 'Aerospace',
@@ -180,7 +177,6 @@ const PROJECTS = [
   },
   {
     slug: 'uc-rocket',
-    n: '03',
     title: 'UC Aerospace Level 1 Rocket',
     client: 'UC Aerospace',
     tag: 'Aerospace',
@@ -197,7 +193,8 @@ const PROJECTS = [
     specs: [['Role', 'Team Leader'], ['Airframe', '1.4 m kit'], ['Year', '2024']],
   },
   {
-    slug: 'wand', n: '04', title: 'W.A.N.D',
+    slug: 'wand',
+    title: 'W.A.N.D',
     tagline: 'Wireless Aerial Nozzle Device',
     client: 'SPS Automation · Junior Engineer (3 months)',
     tag: 'Robotics', year: '2024',
@@ -216,7 +213,8 @@ const PROJECTS = [
     ],
   },
   {
-    slug: 'robo-saw', n: '05', title: '6-axis robotic sawblade',
+    slug: 'robo-saw',
+    title: '6-axis robotic sawblade',
     client: 'QBH',
     tag: 'Robotics', year: '2020',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
@@ -226,7 +224,8 @@ const PROJECTS = [
     specs: [['Platform', '6-axis industrial arm'], ['Year', '2024']],
   },
   {
-    slug: 'warman', n: '06', title: 'Warman design competition',
+    slug: 'warman',
+    title: 'Warman design competition',
     client: 'University of Canterbury', tag: 'Mechatronics', year: '2023',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Team entry into the Warman international student design competition — a small autonomous machine that completes a materials-handling course against the clock.',
@@ -235,7 +234,8 @@ const PROJECTS = [
     specs: [['Competition', 'Warman'], ['Year', '2023']],
   },
   {
-    slug: 'ev-post', n: '07', title: 'EV charger posts',
+    slug: 'ev-post',
+    title: 'EV charger posts',
     client: 'Gyro Plastics', tag: 'Product Design', year: '2024',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Design of EV charger post enclosures with wind-loading, tamper-resistance, ease of installation, and rotational-moulding fabrication requirements all balanced.',
@@ -244,7 +244,8 @@ const PROJECTS = [
     specs: [['Client', 'Gyro Plastics'], ['Process', 'Rotational moulding']],
   },
   {
-    slug: 'airline', n: '08', title: 'Airline design project',
+    slug: 'airline',
+    title: 'Airline design project',
     client: 'University of Canterbury', tag: 'Systems Design', year: '2023',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'A systems-design coursework project: concept-to-proposal for a regional airline, covering fleet selection, route network, and operational model.',
@@ -253,7 +254,8 @@ const PROJECTS = [
     specs: [['Discipline', 'Systems Design'], ['Year', '2023']],
   },
   {
-    slug: 'pcb-enclosure', n: '09', title: 'PCB enclosure & mounting',
+    slug: 'pcb-enclosure',
+    title: 'PCB enclosure & mounting',
     client: 'Tait Communications', tag: 'Industrial Design', year: '2024',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Redesigned a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.',
@@ -262,7 +264,8 @@ const PROJECTS = [
     specs: [['Duration', '3 months'], ['Role', 'Junior Engineer']],
   },
   {
-    slug: 'ev-kiosk', n: '10', title: 'EV charging kiosks & bollards',
+    slug: 'ev-kiosk',
+    title: 'EV charging kiosks & bollards',
     client: 'Gyro Plastics', tag: 'Product Design', year: '2024',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Designed EV charging kiosks and impact-protection bollards from R&D through to manufacturing processes and production units.',
@@ -271,7 +274,8 @@ const PROJECTS = [
     specs: [['Client', 'Gyro Plastics'], ['Process', 'Rotational moulding']],
   },
   {
-    slug: 'gearbox', n: '11', title: 'Gearbox design',
+    slug: 'gearbox',
+    title: 'Gearbox design',
     client: 'University coursework', tag: 'Mechanical', year: '2023',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'A full gearbox design exercise — gear ratios, shaft sizing, bearing selection, and housing design against a specified input/output specification.',
@@ -280,7 +284,8 @@ const PROJECTS = [
     specs: [['Discipline', 'Machine Design'], ['Year', '2023']],
   },
   {
-    slug: 'al-structure', n: '12', title: 'Aluminium structure',
+    slug: 'al-structure',
+    title: 'Aluminium structure',
     client: 'University coursework', tag: 'Structural', year: '2023',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Structural analysis and design of an aluminium space frame, covering FEA, weld detailing, and connection design.',
@@ -289,7 +294,8 @@ const PROJECTS = [
     specs: [['Material', 'Aluminium'], ['Year', '2023']],
   },
   {
-    slug: 'cnc', n: '13', title: 'CNC machining production',
+    slug: 'cnc',
+    title: 'CNC machining production',
     client: 'Automatic Lathes (3 months)', tag: 'Manufacturing', year: '2022',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Set up, operated, and maintained CNC mills and lathes in a production environment. Responsible for cutting, deburring, quality checking, and workshop upkeep.',
@@ -298,7 +304,8 @@ const PROJECTS = [
     specs: [['Duration', '3 months'], ['Role', 'CNC Machinist']],
   },
   {
-    slug: 'hinge', n: '14', title: 'Hinge material selection',
+    slug: 'hinge',
+    title: 'Hinge material selection',
     client: 'University coursework', tag: 'Materials', year: '2023',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Materials-selection study for a hinge application — comparing candidate alloys and polymers against cost, fatigue life, and manufacturability.',
@@ -307,7 +314,8 @@ const PROJECTS = [
     specs: [['Discipline', 'Materials'], ['Year', '2023']],
   },
   {
-    slug: 'bearing', n: '15', title: 'Bearing housing',
+    slug: 'bearing',
+    title: 'Bearing housing',
     client: 'University coursework', tag: 'Mechanical', year: '2022',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'Design and manufacture of a bearing housing — from CAD through to a machined physical part.',
@@ -316,7 +324,8 @@ const PROJECTS = [
     specs: [['Discipline', 'Machine Design'], ['Year', '2022']],
   },
   {
-    slug: 'drilling-fixture', n: '16', title: 'Drilling fixture',
+    slug: 'drilling-fixture',
+    title: 'Drilling fixture',
     client: 'Workshop project', tag: 'Manufacturing', year: '2022',
     image: 'images/projects-cover.png', gallery: [], pdf: null,
     summary: 'A reusable drilling fixture for repeatable hole patterns on a family of parts — quick-clamping, swap-plate design.',
@@ -329,12 +338,12 @@ const PROJECTS = [
 
 // ── 5. Hobbies ──────────────────────────────────────────────────────────
 // Each hobby has its own detail page at hobbies/<slug>.html.
-// Fields mirror PROJECTS: slug, n, title, tag, year, image, summary,
+// Fields mirror PROJECTS: slug, title, tag, year, image, summary,
 // intro, body (array of paragraphs), specs (array of [label, value]).
 
 const HOBBIES = [
   { slug: 'canoe-polo',
-    n: '01', title: 'Canoe polo', tag: 'International Sport', year: '2016–2025',
+ title: 'Canoe polo', tag: 'International Sport', year: '2016–2025',
     context: 'NZ U21 Paddle Blacks — captain, gold at 2019 JIC (N. Ireland); 6th at 2022 Worlds (France); gold at 2023 Oceania.',
     image: 'images/hobbies-cover.jpg',
     intro: 'Canoe polo is the sport that shaped me. Five-a-side, played in kayaks on a 35 × 23 m water court, it rewards reading the game, communicating under pressure, and being relentlessly fit.',
@@ -349,7 +358,7 @@ const HOBBIES = [
     ],
   },
   { slug: 'skiing',
-    n: '02', title: 'Skiing', tag: 'Southern Alps', year: 'Every winter',
+ title: 'Skiing', tag: 'Southern Alps', year: 'Every winter',
     context: "Deep powder days around Craigieburn, Porters, and the Club Fields — the reward for a good winter.",
     image: 'images/hobbies-cover.jpg',
     intro: "The Southern Alps are an hour and a half from my front door, and every winter weekend the alarm goes off at 5am.",
@@ -360,7 +369,7 @@ const HOBBIES = [
     specs: [['Home hill', 'Craigieburn / Porters'], ['Style', 'Off-piste · Backcountry']],
   },
   { slug: 'mountain-biking',
-    n: '03', title: 'Mountain biking', tag: 'Trail / Enduro', year: 'Year-round',
+ title: 'Mountain biking', tag: 'Trail / Enduro', year: 'Year-round',
     context: "Christchurch's Port Hills and the South Island's trail network.",
     image: 'images/hobbies-cover.jpg',
     intro: "Christchurch sits at the foot of the Port Hills — a 30-minute pedal from the city to a network of trails that goes on for days.",
@@ -370,14 +379,14 @@ const HOBBIES = [
     specs: [['Discipline', 'Enduro / Trail'], ['Home', 'Port Hills, Christchurch']],
   },
   { slug: 'surfing',
-    n: '04', title: 'Surfing', tag: 'East Coast', year: 'Year-round',
+ title: 'Surfing', tag: 'East Coast', year: 'Year-round',
     context: 'Canterbury and Kaikoura coasts.', image: 'images/hobbies-cover.jpg',
     intro: "The Canterbury and Kaikoura coasts deliver consistent surf year-round — and a wetsuit thick enough makes winter the best season.",
     body: ["Mostly shortboard, mostly cold water, mostly with a thermos in the car park afterwards."],
     specs: [['Break', 'Sumner / Taylors / Mangamaunu'], ['Board', 'Shortboard']],
   },
   { slug: 'climbing',
-    n: '05', title: 'Climbing', tag: 'Rock / Alpine', year: 'Year-round',
+ title: 'Climbing', tag: 'Rock / Alpine', year: 'Year-round',
     context: 'Single-pitch sport and longer alpine objectives.',
     image: 'images/hobbies-cover.jpg',
     intro: "Sport climbing at the local crags, alpine objectives in the Southern Alps when the weather and the time allow.",
@@ -385,7 +394,7 @@ const HOBBIES = [
     specs: [['Style', 'Sport · Alpine'], ['Local crags', 'Castle Hill · Charleston']],
   },
   { slug: 'coaching',
-    n: '06', title: 'Coaching & refereeing', tag: 'Community', year: 'Volunteer',
+ title: 'Coaching & refereeing', tag: 'Community', year: 'Volunteer',
     context: 'Volunteered as referee and coach at club level canoe polo.',
     image: 'images/hobbies-cover.jpg',
     intro: "Volunteer referee and coach for canoe polo at club and regional level.",
