@@ -110,7 +110,7 @@ const PROJECTS = [
     year: '2026',
     featured: true,
     image: 'images/coax_cover.png',
-    gallery: [images/coax_poster.png, images/coax_experiment.jpg],
+    gallery: ['images/coax_poster.png', 'images/coax_experiment.jpg'],
     pdf: null,
     summary: 'A masters research project into the geometry optimisation of highly-skewed, counter-rotating, coaxial rotor systems.',
     intro: [
@@ -149,7 +149,7 @@ const PROJECTS = [
     tag: 'Aerospace',
     year: '2025',
     image: 'images/syos_sa200.jpg',
-    gallery: [images/syos_interns.jpg, images/syos_sm300.jpg, images/syos_sa7.jpg, images/syos_sg400.jpg, images/syos_sa1.jpg],
+    gallery: ['images/syos_interns.jpg', 'images/syos_sm300.jpg', 'images/syos_sa7.jpg', 'images/syos_sg400.jpg', 'images/syos_sa1.jpg'],
     pdf: null,
     summary: 'A small, fast-moving team designing and manufacturing components for customer-ready UAS products.',
     intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and \
