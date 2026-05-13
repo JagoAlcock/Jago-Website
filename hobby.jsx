@@ -19,7 +19,7 @@ function HobbyHero({ t, headlineFont, h }) {
       </div>
 
       <section style={{ position: 'relative', height: 'clamp(360px, 58vh, 640px)', overflow: 'hidden', borderBottom: `1px solid ${t.line}` }}>
-        <img src={'../' + h.image} alt="" style={{
+        <img src={'../' + h.image} alt={`${h.title} — hobby hero`} style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 45%',
           filter: t.mode === 'dark' ? 'brightness(0.7) contrast(1.05)' : 'brightness(0.95) contrast(1.05)',
         }} />
@@ -48,7 +48,7 @@ function HobbyBody({ t, headlineFont, h }) {
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
     <section className="ja-page-pad" style={{ padding: '72px 56px' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(240px, 1fr)', gap: 56, alignItems: 'start' }}>
+      <div className="ja-project-body" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(240px, 1fr)', gap: 56, alignItems: 'start' }}>
         <div style={{ maxWidth: 760, minWidth: 0 }}>
           <p style={{ ...para, fontFamily: headFam, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
             {h.intro || h.context}
@@ -82,7 +82,7 @@ function HobbyGallery({ t, h }) {
         {imgs
           ? imgs.map((src, i) => (
               <div key={i} style={{ height: 360, overflow: 'hidden', border: `1px solid ${t.line}` }}>
-                <img src={'../' + src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <img src={'../' + src} alt={`${h.title} — gallery ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))
           : ['MOMENT', 'ACTION', 'TEAM', 'PLACE'].map((label, i) => (
@@ -137,7 +137,7 @@ function App() {
   }, [h.slug]);
 
   return (
-    <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
+    <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="about" pathPrefix="../" />
       <HobbyHero t={t} headlineFont={tweaks.headlineFont} h={h} />
@@ -146,7 +146,7 @@ function App() {
       <HobbyPrevNext t={t} headlineFont={tweaks.headlineFont} h={h} />
       <Footer t={t} headlineFont={tweaks.headlineFont} pathPrefix="../" />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
-    </div>
+    </SiteShell>
   );
 }
 

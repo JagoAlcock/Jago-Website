@@ -166,7 +166,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
+    <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="docs" />
       <DocsHero t={t} headlineFont={tweaks.headlineFont} />
@@ -174,8 +174,8 @@ function App() {
       <OtherDocs t={t} headlineFont={tweaks.headlineFont} />
       <Footer t={t} headlineFont={tweaks.headlineFont} />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
-    </div>);
-
+    </SiteShell>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

@@ -89,7 +89,7 @@ function build() {
   } catch {}
 
   // Copy static assets / folders verbatim.
-  for (const dir of ['images', 'uploads']) {
+  for (const dir of ['images', 'uploads', 'documents']) {
     const src = path.join(ROOT, dir);
     if (fs.existsSync(src)) copyDir(src, path.join(OUT, dir));
   }

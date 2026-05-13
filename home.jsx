@@ -5,7 +5,7 @@ function Hero({ t, headlineFont }) {
   const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   return (
     <section style={{ position: 'relative', height: 'min(82vh, 780px)', minHeight: 520, overflow: 'hidden' }}>
-      <img src={featured.image} alt="" style={{
+      <img src={featured.image} alt={`${featured.title} — featured project`} style={{
         position: 'absolute', inset: 0, width: '100%', height: '100%',
         objectFit: 'cover', objectPosition: 'center 45%',
         filter: t.mode === 'dark' ? 'brightness(0.65) contrast(1.05)' : 'brightness(0.95) contrast(1.05) saturate(0.9)',
@@ -112,7 +112,7 @@ function App() {
     });
   }, []);
   return (
-    <div style={{ background: t.bg, color: t.text, minHeight: '100vh', fontFamily: t.sans, transition: 'background .25s, color .25s' }}>
+    <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="work" />
       <Hero t={t} headlineFont={tweaks.headlineFont} />
@@ -120,7 +120,7 @@ function App() {
       <Work t={t} headlineFont={tweaks.headlineFont} />
       <Footer t={t} headlineFont={tweaks.headlineFont} />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
-    </div>
+    </SiteShell>
   );
 }
 

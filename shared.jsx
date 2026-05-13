@@ -52,6 +52,29 @@ const RESPONSIVE_CSS = `
   * { box-sizing: border-box; }
   img, video { max-width: 100%; height: auto; }
 
+  :where(a:not(.ja-skip-link), button):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  .ja-skip-link {
+    position: fixed;
+    left: 16px;
+    top: -120px;
+    z-index: 200;
+    padding: 12px 18px;
+    font: 500 13px ui-sans-serif, system-ui, sans-serif;
+    text-decoration: none;
+    background: Field;
+    color: FieldText;
+    border: 2px solid ButtonText;
+    border-radius: 2px;
+  }
+  .ja-skip-link:focus-visible {
+    top: 16px;
+    outline: none;
+  }
+
   /* Use these classes in JSX for responsive behaviour */
   .ja-page-pad      { padding-left: 56px;  padding-right: 56px; }
   .ja-section-y-lg  { padding-top: 96px;   padding-bottom: 96px; }
@@ -62,8 +85,8 @@ const RESPONSIVE_CSS = `
   .ja-grid-sidebar  { display: grid; grid-template-columns: 1fr 2.3fr; gap: 80px; align-items: start; }
   .ja-grid-hero     { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: center; }
 
-  .ja-h1            { font-size: clamp(48px, 7vw, 88px); line-height: 0.96; letter-spacing: -2; }
-  .ja-h2            { font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -1.2; }
+  .ja-h1            { font-size: clamp(48px, 7vw, 88px); line-height: 0.96; letter-spacing: -0.03em; }
+  .ja-h2            { font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.02em; }
 
   .ja-nav-wrap      { padding: 22px 56px; }
   .ja-nav-links     { display: flex; gap: 32px; }
@@ -79,6 +102,7 @@ const RESPONSIVE_CSS = `
     .ja-grid-3       { grid-template-columns: 1fr 1fr; gap: 32px; }
     .ja-grid-sidebar { grid-template-columns: 1fr; gap: 32px; }
     .ja-grid-hero    { grid-template-columns: 1fr; gap: 40px; }
+    .ja-project-body { grid-template-columns: 1fr !important; }
     .ja-nav-wrap     { padding: 16px 32px; }
     .ja-nav-links    { gap: 20px; }
   }
@@ -100,6 +124,28 @@ const RESPONSIVE_CSS = `
 
 function GlobalStyles() {
   return <style dangerouslySetInnerHTML={{ __html: RESPONSIVE_CSS }} />;
+}
+
+// Skip link + landmark wrapper — use on every page root for keyboard / SR users.
+function SiteShell({ t, children }) {
+  return (
+    <>
+      <a href="#main-content" className="ja-skip-link">Skip to main content</a>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        style={{
+          background: t.bg,
+          color: t.text,
+          minHeight: '100vh',
+          fontFamily: t.sans,
+          transition: 'background .25s, color .25s',
+        }}
+      >
+        {children}
+      </main>
+    </>
+  );
 }
 
 // ── Common UI ───────────────────────────────────────────────────────────
@@ -226,7 +272,7 @@ function GalleryCard({ item, t, headlineFont, href, hoverN, setHoverN, big, path
         transition: 'border-color .2s',
       }}>
         {hasImage ? (
-          <img src={imgSrc} alt="" style={{
+          <img src={imgSrc} alt={`${item.title} — cover image`} style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', transition: 'transform .6s cubic-bezier(.2,.7,.3,1)',
             transform: active ? 'scale(1.03)' : 'scale(1)',
@@ -548,7 +594,7 @@ function applySeo({
 
 Object.assign(window, {
   ACCENT_OPTIONS, TWEAKS,
-  theme, renderAccented, GlobalStyles,
+  theme, renderAccented, GlobalStyles, SiteShell,
   Eyebrow, ModeToggle, Nav, DownloadBar,
   GalleryCard, Gallery, Footer, TweaksPanel,
   usePageShell,
