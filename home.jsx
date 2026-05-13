@@ -66,7 +66,10 @@ function Intro({ t, headlineFont }) {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, auto))', gap: 40, marginTop: 48, fontSize: 13, color: t.dim, fontFamily: t.sans }}>
           {INTRO_STATS.map((s, i) => (
-            <div key={i}><div style={statFont}>{s.value}</div>{s.label}</div>
+            <div key={i}>
+              <div style={statFont}>{s.value}</div>
+              <div style={{ whiteSpace: 'pre-line', lineHeight: 1.45 }}>{s.label}</div>
+            </div>
           ))}
         </div>
       </div>

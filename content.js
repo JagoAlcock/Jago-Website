@@ -53,7 +53,7 @@ const SITE_INFO = {
 const INTRO_STATS = [
   { value: '2+',     label: 'years of R&D experience' },
   // { value: '6',       label: 'companies, 6 industries' },
-  { value: 'BE(Hons)', label: 'First-Class Honours<br>Mechanical Engineering Major<br>Aerospace Engineering Minor'}
+  { value: 'BE(Hons)', label: 'First-Class Honours\nMechanical Engineering Major\nAerospace Engineering Minor' }
 ];
 
 const INTRO_TEXT =
