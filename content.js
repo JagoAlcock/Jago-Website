@@ -53,7 +53,7 @@ const SITE_INFO = {
 const INTRO_STATS = [
   { value: '2+',     label: 'years of R&D experience' },
   // { value: '6',       label: 'companies, 6 industries' },
-  { value: 'BE(Hons)', label: 'First-Class\nMechanical Major\nAerospace Minor\nUniversity of Canterbury' },
+  { value: 'BE(Hons)', label: 'First-Class Honours - Mechanical Engineering (Aerospace Minor)'},
 ];
 
 const INTRO_TEXT =
@@ -101,23 +101,41 @@ const ABOUT_TEXT = [
 
 const PROJECTS = [
   {
-    slug: 'coaxial-rotor', n: '01', title: 'Coaxial Rotor Optimisation',
+    slug: 'coaxial-rotor',
+    n: '01',
+    title: 'Coaxial Rotor Optimisation',
     tagline: 'Lifting more with less.',
     client: 'Masters research · University of Canterbury',
-    tag: 'Aerospace', year: '2026', featured: true,
-    image: 'images/projects-cover.png',
+    tag: 'Aerospace',
+    year: '2026',
+    featured: true,
+    image: 'images/coax_cover.png',
     gallery: [],
     pdf: null,
-    summary: 'A masters research project into the design and optimisation of counter-rotating coaxial rotor systems for small UAVs — balancing thrust, efficiency, and acoustic signature through iterative CFD, prototyping, and flight-bench testing.',
-    intro: 'Counter-rotating coaxial rotors promise more thrust per unit footprint, but suffer efficiency losses from the lower rotor operating in disturbed flow. This project investigates the trade-offs between blade geometry, inter-rotor spacing, and rotational speed to find optimal operating points for small UAV applications.',
+    summary: 'A masters research project into the geometry optimisation of counter-rotating coaxial rotor systems.',
+    intro: [
+      'Coaxial rotor configurations offer advantages in compactness and efficiency, and highly skewed blade geometries',
+      'have demonstrated acoustic benefits. However, the aerodynamic complexity of coaxial systems and the novelty of highly',
+      'skewed rotors mean their design remains an unsolved engineering problem.'
+    ],
     body: [
-      'The work combined CFD simulation in ANSYS Fluent with physical prototyping and static thrust-bench testing. Blade geometries were generated parametrically and iterated across dozens of configurations.',
-      'Results informed a design space map linking blade solidity, twist distribution, and inter-rotor gap to expected thrust-to-power ratio. A final prototype was 3D printed, balanced, and tested at the university flight bench.',
+      'My project develops an optimisation framework to improve the chord and twist distributions of these rotors, with',
+      'hover figure of merit as the primary performance metric. I am building the analysis around an improved Blade Element',
+      'Momentum Theory (BEMT) model as the fast, optimisation-ready baseline, then extending it with a surrogate model',
+      'trained on higher-fidelity CFD data to capture the three-dimensional effects that BEMT cannot resolve. The workflow',
+      'is designed to support rapid design iteration, with geometry parameterisation, optimisation, manufacturing, and',
+      'experimental validation all integrated into a single process.',
+      'A key part of the work is making the optimisation practical as well as accurate. I am refining the BEMT',
+      'implementation for speed and robustness, upgrading the aerofoil data to account for Reynolds number variation, and',
+      'using smooth geometry representations such as PCHIP to avoid infeasible blade shapes. The proposed designs will then',
+      'be prototyped using SLA 3D printing, with carbon-fibre manufacture used selectively where appropriate. Preliminary',
+      'work has already shown that this approach can produce realistic blade geometries, reliable prototypes, and a strong',
+      'basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.',
     ],
     specs: [
-      ['Duration', 'Masters research · 2024–2025'],
-      ['Tools', 'ANSYS Fluent · SolidWorks · MATLAB · Python'],
-      ['Output', 'Thesis + flight-bench prototype'],
+      ['Duration', 'Masters research · 2025–2026'],
+      ['Tools', 'CFD · CAD · Python'],
+      ['Output', 'Thesis · Published Papers · Prototypes'],
     ],
   },
   {
