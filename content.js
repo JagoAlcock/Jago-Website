@@ -35,7 +35,7 @@
 // ── 1. Site-wide info ───────────────────────────────────────────────────
 const SITE_INFO = {
   name:       'Jago Alcock',
-  tagline:    'MECHANICAL / AEROSPACE / AUTOMATION ENGINEERING',
+  tagline:    'MECHANICAL / AEROSPACE / AUTOMATION / OPTIMISATION',
   role:       'Graduate Mechanical Engineer',
   location:   'Christchurch, NZ',
   timezone:   'GMT+12',
@@ -53,7 +53,11 @@ const SITE_INFO = {
 const INTRO_STATS = [
   { value: '2+',     label: 'years of R&D experience' },
   // { value: '6',       label: 'companies, 6 industries' },
-  { value: 'BE(Hons)', label: 'First-Class Honours - Mechanical Engineering (Aerospace Minor)'},
+  { value: 'BE(Hons)', label: [
+    'First-Class Honours',
+    'Mechanical Engineering Major',
+    'Aerospace Engineering Minor'
+]},
 ];
 
 const INTRO_TEXT =
@@ -112,25 +116,26 @@ const PROJECTS = [
     image: 'images/coax_cover.png',
     gallery: [],
     pdf: null,
-    summary: 'A masters research project into the geometry optimisation of counter-rotating coaxial rotor systems.',
+    summary: 'A masters research project into the geometry optimisation of highly-skewed, counter-rotating, coaxial rotor systems.',
     intro: [
-      'Coaxial rotor configurations offer advantages in compactness and efficiency, and highly skewed blade geometries',
-      'have demonstrated acoustic benefits. However, the aerodynamic complexity of coaxial systems and the novelty of highly',
-      'skewed rotors mean their design remains an unsolved engineering problem.'
+      'Coaxial rotor configurations offer advantages in compactness and efficiency, and highly skewed blade geometries \
+      have demonstrated acoustic benefits. However, the aerodynamic complexity of coaxial systems and the novelty of highly \
+      skewed rotors mean their design remains an unsolved engineering problem.'
     ],
     body: [
-      'My project develops an optimisation framework to improve the chord and twist distributions of these rotors, with',
-      'hover figure of merit as the primary performance metric. I am building the analysis around an improved Blade Element',
-      'Momentum Theory (BEMT) model as the fast, optimisation-ready baseline, then extending it with a surrogate model',
-      'trained on higher-fidelity CFD data to capture the three-dimensional effects that BEMT cannot resolve. The workflow',
-      'is designed to support rapid design iteration, with geometry parameterisation, optimisation, manufacturing, and',
-      'experimental validation all integrated into a single process.',
-      'A key part of the work is making the optimisation practical as well as accurate. I am refining the BEMT',
-      'implementation for speed and robustness, upgrading the aerofoil data to account for Reynolds number variation, and',
-      'using smooth geometry representations such as PCHIP to avoid infeasible blade shapes. The proposed designs will then',
-      'be prototyped using SLA 3D printing, with carbon-fibre manufacture used selectively where appropriate. Preliminary',
-      'work has already shown that this approach can produce realistic blade geometries, reliable prototypes, and a strong',
-      'basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.',
+      'My project develops an optimisation framework to improve the chord and twist distributions of these rotors, with \
+      hover figure of merit as the primary performance metric. I am building the analysis around an improved Blade Element \
+      Momentum Theory (BEMT) model as the fast, optimisation-ready baseline, then extending it with a surrogate model \
+      trained on higher-fidelity CFD data to capture the three-dimensional effects that BEMT cannot resolve. The workflow \
+      is designed to support rapid design iteration, with geometry parameterisation, optimisation, manufacturing, and \
+      experimental validation all integrated into a single process.'
+      ,
+      'A key part of the work is making the optimisation practical as well as accurate. I am refining the BEMT \
+      implementation for speed and robustness, upgrading the aerofoil data to account for Reynolds number variation, and \
+      using smooth geometry representations such as PCHIP to avoid infeasible blade shapes. The proposed designs will then \
+      be prototyped using SLA 3D printing, with carbon-fibre manufacture used selectively where appropriate. Preliminary \
+      work has already shown that this approach can produce realistic blade geometries, reliable prototypes, and a strong \
+      basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.'
     ],
     specs: [
       ['Duration', 'Masters research · 2025–2026'],
@@ -139,18 +144,34 @@ const PROJECTS = [
     ],
   },
   {
-    slug: 'syos', n: '02', title: 'SYOS Aerospace Projects',
+    slug: 'syos',
+    n: '02',
+    title: 'SYOS Aerospace',
     client: 'SYOS Aerospace · Junior Engineer',
-    tag: 'Aerospace', year: '2025',
-    image: 'images/projects-cover.png',
-    gallery: [], pdf: null,
-    summary: 'Designed and manufactured components for customer-ready UAS products, troubleshot a customer contract solo, and delivered a 12 × 12 m indoor test enclosure plus a full Ground Control Station redesign.',
-    intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and commercial applications. Due to the nature of the work, some project details are classified.',
+    tag: 'Aerospace',
+    year: '2025',
+    image: 'images/syos_cover.jpg',
+    gallery: [],
+    pdf: null,
+    summary: 'A small, fast-moving team designing and manufacturing components for customer-ready UAS products.',
+    intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and \
+    commercial applications. Due to the nature of the work, project details are classified.',
     body: [
-      'Sole troubleshooter on a customer contract following commissioning issues — diagnosed and resolved faults across systems under time pressure.',
-      'Designed a ~12×12 m drone test enclosure to allow safe indoor UAS flight testing, protecting both aircraft and personnel in the event of a crash.',
-      'Redesigned a customer-facing Ground Control Station (GCS) to improve structural integrity, transmission reliability, and operator usability.',
-      'Produced technical documentation in line with customer and project requirements, and supported testing, manufacturing, and general operations.',
+      'What I can share is that I spent several months embedded in a small, fast-moving team designing and manufacturing \
+      components for customer-ready UAS products. Working to tight tolerances and delivery deadlines, which I loved.'
+      ,
+      'One of the most challenging moments came when I was handed sole responsibility for troubleshooting a fleet of UAS \
+      systems on a large customer contract that had run into issues during commissioning. Diagnosing faults across multiple \
+      aircraft under time pressure, with a customer waiting, was the kind of problem that doesn\'t come easily. Working \
+      through it methodically and getting the systems mission worthy was one of the most satisfying things I\'ve done.'
+      ,
+      'I redesigned a customer-facing Ground Control Station to improve its structural integrity, transmission reliability, \
+      and usability, and designed a ~12×12m collapsible indoor drone test enclosure, built to contain a crashing UAS and \
+      keep both the aircraft and any personnel safe during development testing.'
+      ,
+      'This role pushed me in ways that previous internships hadn\'t. The stakes were high, the team was lean, and the \
+      expectation was that you\'d contribute from day one. It confirmed that I want to work in fast-moving, high-stakes \
+      environments, designing exciting things that get built, tested, and used in the field.'
     ],
     specs: [
       ['Duration', '3 months'],
