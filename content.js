@@ -108,7 +108,7 @@ const PROJECTS = [
     year: '2026',
     featured: true,
     image: 'images/coax_cover.png',
-    gallery: ['images/coax_poster.png', 'images/coax_experiment.jpg'],
+    gallery: ['images/coax_poster.png', 'images/coax_experiment.jpg', 'images/coax_blades.png', 'images/coax_bayesopt.png', 'images/coax_TP.png'],
     pdf: null,
     summary: 'A masters research project into the geometry optimisation of highly-skewed, counter-rotating, coaxial rotor systems.',
     intro: [
