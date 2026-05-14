@@ -134,7 +134,8 @@ const PROJECTS = [
     specs: [
       ['Duration', '1 Year · 2025-2026'],
       ['Role', 'Researcher'],
-      ['Tools', 'CFD · CAD · Python'],
+      ['Skills', 'Time Management · Problem Solving · Communication'],
+      ['Tools', 'CFD · CAD · Python · Composite Manufacturing ·Testing · Documentation'],
       ['Output', 'Thesis · Published Papers · Prototypes'],
       ['Industry', 'Aerospace'],
     ],
@@ -171,7 +172,8 @@ const PROJECTS = [
     specs: [
       ['Duration', '3 Months'],
       ['Role', 'Junior Engineer'],
-      ['Skills', 'Fast Learning · Time Management · Team Work'],
+      ['Skills', 'Fast Learning · Time Management · Team Work · Problem Solving'],
+      ['Tools', 'CAD · Manufacturing · 3D Printing · Wiring · Testing · Troubleshooting · Documentation'],
       ['Industry', 'Aerospace · Defence'],
     ],
   },
@@ -181,16 +183,26 @@ const PROJECTS = [
     client: 'UC Aerospace',
     tag: 'Aerospace',
     year: '2024',
-    image: 'images/projects-cover.png',
-    gallery: [],
+    image: 'images/rocket_landscape.png',
+    gallery: ['images/rocket_portrait.png', 'images/rocket_jago.jpg'],
     pdf: null,
     summary: 'Led a team to build and launch a 1.4 m rocket kit, gaining practical experience in rocket aerodynamics, fabrication, and launch procedures.',
-    intro: 'Team leader for the UC Aerospace Level 1 certification rocket — a 1.4 m composite-bodied high-power rocket kit assembled and flown to altitude.',
+    intro: 'The University of Canterbury\'s Level 1 Rocket programme is an initiative of the UC Aerospace Club, providing \
+    students with a hands-on introduction to high-powered rocketry through constructing and launching a 1.4-metre-tall rocket kit.',
     body: [
-      'Coordinated assembly, weight-and-balance, recovery-system packing, and launch logistics with a team of undergraduates.',
-      'Flew the rocket to successful apogee and recovery on certification day.',
+      'As team leader, I coordinated a group of students with often-conflicting ideas and workload expectations, ensuring \
+      clear communication of priorities and deadlines. Witnessing the rocket lifting off, following its flight profile, and \
+      being recovered successfully on launch day was an immensely rewarding culmination of our efforts.'
+      ,
+      'The project also provided an opportunity to demonstrate leadership and conflict management, apply hands-on \
+      composite-manufacturing skills, and manage a schedule under time constraints.'
     ],
-    specs: [['Role', 'Team Leader'], ['Airframe', '1.4 m kit'], ['Year', '2024']],
+    specs: [
+      ['Role', 'Team Leader'],
+      ['Skills', 'Leadership · Time Management · Team Work'],
+      ['Tools', 'Composite Manufacturing · Painting/Finishing · Testing'],
+      ['Output', '1.4 m Rocket'],
+    ],
   },
   {
     slug: 'wand',
