@@ -1,10 +1,9 @@
 // Homepage — featured hero + unified gallery.
 
-function Hero({ t, headlineFont }) {
+function Hero({ t }) {
   const featured = PROJECTS.find(p => p.featured) || PROJECTS[0];
   const featuredIndex = PROJECTS.findIndex(p => p.slug === featured.slug);
   const featuredOrd = ordinalFromIndex(featuredIndex >= 0 ? featuredIndex : 0);
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   return (
     <section style={{ position: 'relative', height: 'min(82vh, 780px)', minHeight: 520, overflow: 'hidden' }}>
       <img src={featured.image} alt={`${featured.title} — featured project`} style={{
@@ -22,10 +21,10 @@ function Hero({ t, headlineFont }) {
         <div style={{ maxWidth: 820, flex: '1 1 460px' }}>
           <Eyebrow t={t}>FEATURED · MASTERS RESEARCH</Eyebrow>
           <h1 className="ja-h1" style={{
-            fontFamily: headFam, margin: '20px 0 0', fontWeight: 400, color: t.text,
+            fontFamily: t.head, margin: '20px 0 0', fontWeight: 400, color: t.text,
           }}>
             {featured.title}.<br/>
-            <span style={{ fontStyle: headlineFont === 'sans' ? 'normal' : 'italic', color: t.dim }}>
+            <span style={{ fontStyle: t.head === t.sans ? 'normal' : 'italic', color: t.dim }}>
               {featured.tagline}
             </span>
           </h1>
@@ -54,16 +53,15 @@ function Hero({ t, headlineFont }) {
   );
 }
 
-function Intro({ t, headlineFont }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
-  const statFont = { color: t.text, fontFamily: headFam, fontSize: 32, lineHeight: 1, marginBottom: 6, fontWeight: 400 };
+function Intro({ t }) {
+  const statFont = { color: t.text, fontFamily: t.head, fontSize: 32, lineHeight: 1, marginBottom: 6, fontWeight: 400 };
   return (
     <section className="ja-page-pad ja-section-y-lg ja-grid-sidebar" style={{ borderBottom: `1px solid ${t.line}` }}>
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase' }}>
         ⟶ Introduction
       </div>
       <div>
-        <p style={{ fontFamily: headFam, fontSize: 'clamp(22px, 2.6vw, 32px)', lineHeight: 1.35, margin: 0, fontWeight: 400, letterSpacing: -0.4, color: t.text }}>
+        <p style={{ fontFamily: t.head, fontSize: 'clamp(22px, 2.6vw, 32px)', lineHeight: 1.35, margin: 0, fontWeight: 400, letterSpacing: -0.4, color: t.text }}>
           {renderAccented(INTRO_TEXT, t)}
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, auto))', gap: 40, marginTop: 48, fontSize: 13, color: t.dim, fontFamily: t.sans }}>
@@ -79,13 +77,13 @@ function Intro({ t, headlineFont }) {
   );
 }
 
-function Work({ t, headlineFont }) {
+function Work({ t }) {
   return (
-    <section className="ja-page-pad" style={{ padding: '96px 56px' }}>
+    <section className="ja-page-pad" style={{ paddingTop: 96, paddingBottom: 96 }}>
       <div className="ja-flex-between" style={{ marginBottom: 48 }}>
         <div>
           <Eyebrow t={t}>Selected Work</Eyebrow>
-          <h2 className="ja-h2" style={{ fontFamily: headlineFont === 'sans' ? t.sans : t.serif, fontWeight: 400, margin: '16px 0 0', color: t.text }}>
+          <h2 className="ja-h2" style={{ fontFamily: t.head, fontWeight: 400, margin: '16px 0 0', color: t.text }}>
             Projects.
           </h2>
         </div>
@@ -94,7 +92,7 @@ function Work({ t, headlineFont }) {
         </span>
       </div>
       <Gallery
-        items={PROJECTS} t={t} headlineFont={headlineFont}
+        items={PROJECTS} t={t}
         hrefFor={(p) => `projects/${p.slug}.html`}
         bigIndices={[0, 1]}
       />
@@ -104,26 +102,28 @@ function Work({ t, headlineFont }) {
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
-  React.useEffect(() => {
-    applySeo({
-      title: `${SITE_INFO.name} — Mechanical & Aerospace Engineer`,
-      description: `Portfolio of ${SITE_INFO.name}, a mechanical engineer with aerospace focus. Projects, experience, and contact details.`,
-      path: 'index.html',
-      imagePath: (PROJECTS.find(p => p.featured)?.image) || (PROJECTS[0]?.image) || '',
-      type: 'website',
-    });
-  }, []);
+  useSeo({
+    title: `${SITE_INFO.name} — Mechanical & Aerospace Engineer`,
+    description: `Portfolio of ${SITE_INFO.name}, a mechanical engineer with aerospace focus. Projects, experience, and contact details.`,
+    path: 'index.html',
+    imagePath: (PROJECTS.find(p => p.featured)?.image) || (PROJECTS[0]?.image) || '',
+    type: 'website',
+  });
   return (
     <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="work" />
-      <Hero t={t} headlineFont={tweaks.headlineFont} />
-      <Intro t={t} headlineFont={tweaks.headlineFont} />
-      <Work t={t} headlineFont={tweaks.headlineFont} />
-      <Footer t={t} headlineFont={tweaks.headlineFont} />
+      <Hero t={t} />
+      <Intro t={t} />
+      <Work t={t} />
+      <Footer t={t} />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
     </SiteShell>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  contentLoaded(['SITE_INFO', 'PROJECTS', 'INTRO_TEXT', 'INTRO_STATS'])
+    ? <App />
+    : <ContentMissing />
+);

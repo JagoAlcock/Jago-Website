@@ -8,56 +8,6 @@ Live site: https://jagoalcock.github.io/Jago-Website/
 
 ---
 
-## Hosting on GitHub Pages
-
-### Option A (recommended): automatic deploy with GitHub Actions
-
-This repository includes a workflow that builds a production version of the site
-and deploys it to GitHub Pages on every push to `main`.
-
-1. Push this repo to GitHub.
-2. On GitHub, go to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
-4. Push any change to `main`. The workflow publishes the site.
-
-> Why this is recommended: the source version of this site uses in-browser JSX
-> compilation for simplicity, but the workflow publishes a faster production
-> build (no Babel in the browser, React production builds).
-
-### Option B: deploy from a branch (no build step)
-
-1. Create a new public GitHub repository named exactly
-   **`<your-username>.github.io`** (e.g. `jagoalcock.github.io`).
-2. Upload the contents of this project to the repo (drag-and-drop on the
-   web UI is fine — make sure `index.html` ends up at the repo root, not
-   inside a sub-folder).
-3. Go to **Settings → Pages**:
-   - Source: *Deploy from a branch*
-   - Branch: `main` / root
-   - Save
-4. Wait ~1 minute. The site is live at
-   `https://<your-username>.github.io`.
-
-### Custom domain (optional)
-
-1. Buy a domain (Namecheap, Porkbun, etc — usually ~$15/yr).
-2. In your DNS provider, add four `A` records pointing the apex domain
-   (`yourdomain.com`) to GitHub's IPs:
-   ```
-   185.199.108.153
-   185.199.109.153
-   185.199.110.153
-   185.199.111.153
-   ```
-   …and a `CNAME` record pointing `www` to `<your-username>.github.io`.
-3. Edit the `CNAME` file at the root of this project and replace the
-   placeholder with your domain (one line, e.g. `jagoalcock.com`).
-   GitHub Pages reads this file automatically.
-4. In **Settings → Pages → Custom domain**, enter your domain and
-   tick **Enforce HTTPS** once the certificate is issued.
-
----
-
 ## Editing content
 
 **All content lives in one file: [`content.js`](./content.js).**
@@ -94,7 +44,7 @@ Edit the field in `content.js`. Done.
      tag: 'CATEGORY',                 // small label (e.g. AEROSPACE)
      year: '2025',
      client: 'CLIENT / CONTEXT',      // top-of-card eyebrow
-     image: 'images/my-project.jpg',  // hero image
+     image: 'images/my-project.jpg',  // hero image (target <250 KB — see Images below)
      summary: 'One-line summary.',
      intro: 'Opening paragraph on the detail page.',
      body: ['First paragraph…', 'Second paragraph…'],
@@ -132,33 +82,94 @@ Upload your new PDF somewhere it can be downloaded (Google Drive,
 Dropbox shared link, your own GitHub repo, etc), and paste the URL
 into the `pdf` field of the `RESUME` object in `content.js`.
 
+#### Images
+Keep images under **250 KB** each. The free tool
+[squoosh.app](https://squoosh.app) converts and compresses images in
+your browser with no install. Export as WebP at ~80% quality, max
+1600 px wide.
+
 ---
 
-## Project layout
+## Hosting on GitHub Pages
 
+### Automatic deploy with GitHub Actions (recommended)
+
+This repository includes a workflow that builds a production version of the site
+and deploys it to GitHub Pages on every push to `main`.
+
+1. Push this repo to GitHub.
+2. On GitHub, go to **Settings → Pages**.
+3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+4. Push any change to `main`. The workflow publishes the site.
+
+> The source version uses in-browser JSX compilation for simplicity, but the
+> workflow publishes a faster production build (no Babel in the browser, React
+> production bundles, per-page SEO meta tags injected at build time).
+
+### Custom domain (optional)
+
+1. Buy a domain (Namecheap, Porkbun, etc — usually ~$15/yr).
+2. In your DNS provider, add four `A` records pointing the apex domain
+   (`yourdomain.com`) to GitHub's IPs:
+   ```
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+   ```
+   …and a `CNAME` record pointing `www` to `<your-username>.github.io`.
+3. Edit the `CNAME` file at the root of this project and replace the
+   placeholder with your domain (one line, e.g. `jagoalcock.com`).
+4. In `content.js`, update `SITE_INFO.siteUrl` to your new domain.
+5. In **Settings → Pages → Custom domain**, enter your domain and
+   tick **Enforce HTTPS** once the certificate is issued.
+
+---
+
+## Developer setup
+
+For anyone forking or modifying the codebase:
+
+```bash
+# Install build dependencies (Babel)
+npm install
+
+# Validate content + images before building
+npm run check
+
+# Build production site into ./docs
+npm run build
+
+# Serve the source files with a local HTTP server (dev mode, no build)
+npm run dev
+# …then open http://localhost:3000
+
+# Build then serve the production output
+npm run preview
+# …then open http://localhost:3000
 ```
-├── index.html           # Home
-├── about.html           # About me
-├── resume.html          # Resume
-├── documents.html       # Supporting documents
-├── projects/            # 1 HTML file per portfolio project
-│   ├── coaxial-rotor.html
-│   ├── syos.html
-│   └── …
-├── hobbies/             # 1 HTML file per hobby
-│   ├── canoe-polo.html
-│   └── …
-├── images/              # Photos used across the site
-├── content.js           # ← ALL TEXT AND DATA LIVE HERE
-├── shared.jsx           # Shared theme + nav + footer (rarely edited)
-├── home.jsx             # Homepage rendering
-├── about.jsx            # About-page rendering
-├── resume.jsx           # Resume-page rendering
-├── documents.jsx        # Supporting-docs rendering
-├── project.jsx          # Project detail page template
-├── hobby.jsx            # Hobby detail page template
-└── CNAME                # Custom domain (optional)
-```
+
+**Node 20+** is required (see `.nvmrc`).
+
+### How the build works
+
+`scripts/build.mjs` does four things:
+
+1. Copies static assets (`images/`, `uploads/`, `documents/`) verbatim into `docs/`.
+2. Transforms each HTML file: swaps dev React CDN scripts for production bundles,
+   removes `@babel/standalone`, rewrites `.jsx` → `.js` references, adds `defer`,
+   and injects per-page `<title>`, `<meta>`, Open Graph, and Twitter Card tags.
+3. Compiles every `.jsx` to `.js` using `@babel/core` programmatically.
+4. Emits `sitemap.xml` and `robots.txt` when `SITE_INFO.siteUrl` is configured.
+
+### Dual-mode JSX
+
+The same `.jsx` source files work two ways without any configuration:
+
+- **Dev**: open any `.html` directly in a browser. It loads React +
+  `@babel/standalone` from CDN and compiles the JSX on the fly.
+- **Prod**: `npm run build` pre-compiles everything and rewrites the HTML.
+  Visitors get no Babel overhead.
 
 ---
 
@@ -167,22 +178,20 @@ into the `pdf` field of the `RESUME` object in `content.js`.
 Press `.` (period) while viewing the repo on github.com — it opens a
 full VS Code editor in your browser. Save commits straight from there.
 
-For quick text edits on a phone, the pencil-icon GitHub editor is
-fastest.
+For quick text edits on a phone, the pencil-icon GitHub editor is fastest.
 
 ---
 
 ## Light / dark mode
 
-The toggle in the top-right of the site switches between modes; the
-visitor's choice persists across reloads (stored in their browser).
-There is no setting to change here.
+The toggle in the top-right switches between modes; the visitor's
+choice persists across reloads (stored in their browser).
 
 ---
 
 ## Tweaks panel
 
 When the site is opened in this design tool, a "Tweaks" panel appears
-in the bottom-right that lets you change the accent colour and toggle
-serif/sans headlines. These tweaks **don't appear on the live site for
-your visitors** — they're only for previewing and tuning the design.
+in the bottom-right to change the accent colour and toggle serif/sans
+headlines. The panel is **stripped from the production build** and is
+invisible to visitors.

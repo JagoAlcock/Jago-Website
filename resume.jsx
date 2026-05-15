@@ -12,12 +12,11 @@ function Row({ t, label, children }) {
   );
 }
 
-function JobCard({ t, headlineFont, role, where, tag, dur, bullets }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function JobCard({ t, role, where, tag, dur, bullets }) {
   return (
     <article style={{ marginBottom: 40 }}>
       <div className="ja-flex-between" style={{ marginBottom: 6 }}>
-        <h3 style={{ fontFamily: headFam, fontSize: 24, fontWeight: 400, margin: 0, letterSpacing: -0.4, color: t.text }}>
+        <h3 style={{ fontFamily: t.head, fontSize: 24, fontWeight: 400, margin: 0, letterSpacing: -0.4, color: t.text }}>
           {role} <span style={{ color: t.dim }}>— {where}</span>
         </h3>
         <span style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>{tag} · {dur}</span>
@@ -34,14 +33,13 @@ function JobCard({ t, headlineFont, role, where, tag, dur, bullets }) {
   );
 }
 
-function ResumeHero({ t, headlineFont }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function ResumeHero({ t }) {
   return (
     <section className="ja-page-pad" style={{
-      padding: '72px 56px 56px', borderBottom: `1px solid ${t.line}`,
+      paddingTop: 72, paddingBottom: 56, borderBottom: `1px solid ${t.line}`,
     }}>
       <Eyebrow t={t}>Resume</Eyebrow>
-      <h1 className="ja-h1" style={{ fontFamily: headFam, fontWeight: 400, margin: '20px 0 0', color: t.text, maxWidth: 900 }}>
+      <h1 className="ja-h1" style={{ fontFamily: t.head, fontWeight: 400, margin: '20px 0 0', color: t.text, maxWidth: 900 }}>
         {RESUME.heading}
       </h1>
       <p style={{ fontFamily: t.sans, fontSize: 17, lineHeight: 1.65, color: t.dim, maxWidth: 780, marginTop: 24 }}>
@@ -60,12 +58,11 @@ function ResumeHero({ t, headlineFont }) {
   );
 }
 
-function Body({ t, headlineFont }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function Body({ t }) {
   return (
-    <section className="ja-page-pad" style={{ padding: '32px 56px 0' }}>
+    <section className="ja-page-pad" style={{ paddingTop: 32, paddingBottom: 0 }}>
       <Row t={t} label="Key Competences">
-        <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.5vw, 28px)', color: t.text, letterSpacing: -0.4, lineHeight: 1.3 }}>
+        <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.5vw, 28px)', color: t.text, letterSpacing: -0.4, lineHeight: 1.3 }}>
           {RESUME.competences.map((c, i) => (
             <React.Fragment key={c}>
               {i > 0 && <span style={{ color: t.faint, margin: '0 8px' }}>·</span>}
@@ -77,7 +74,7 @@ function Body({ t, headlineFont }) {
 
       <Row t={t} label="Work Experience">
         {RESUME.jobs.map((j, i) => (
-          <JobCard key={i} t={t} headlineFont={headlineFont} {...j} />
+          <JobCard key={i} t={t} {...j} />
         ))}
       </Row>
 
@@ -103,7 +100,7 @@ function Body({ t, headlineFont }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px 40px', fontFamily: t.sans, fontSize: 14, color: t.dim, lineHeight: 1.5 }}>
           {RESUME.achievements.map(([k, v]) => (
             <div key={k}>
-              <div style={{ color: t.text, fontFamily: headFam, fontSize: 18, letterSpacing: -0.2, marginBottom: 4 }}>{k}</div>
+              <div style={{ color: t.text, fontFamily: t.head, fontSize: 18, letterSpacing: -0.2, marginBottom: 4 }}>{k}</div>
               <div>{v}</div>
             </div>
           ))}
@@ -124,7 +121,7 @@ function Body({ t, headlineFont }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32, fontFamily: t.sans, fontSize: 13, lineHeight: 1.7, color: t.dim }}>
           {RESUME.referees.map(([name, role, email, phone]) => (
             <div key={name}>
-              <div style={{ color: t.text, fontFamily: headFam, fontSize: 18, letterSpacing: -0.2 }}>{name}</div>
+              <div style={{ color: t.text, fontFamily: t.head, fontSize: 18, letterSpacing: -0.2 }}>{name}</div>
               <div style={{ marginTop: 4 }}>{role}</div>
               <div style={{ marginTop: 8 }}><a href={`mailto:${email}`} style={{ color: t.accent, textDecoration: 'none', wordBreak: 'break-all' }}>{email}</a></div>
               <div>{phone}</div>
@@ -140,25 +137,27 @@ function Body({ t, headlineFont }) {
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
-  React.useEffect(() => {
-    applySeo({
-      title: `Resume — ${SITE_INFO.name}`,
-      description: `Resume of ${SITE_INFO.name}: experience, education, skills, and downloadable PDF.`,
-      path: 'resume.html',
-      imagePath: '',
-      type: 'website',
-    });
-  }, []);
+  useSeo({
+    title: `Resume — ${SITE_INFO.name}`,
+    description: `Resume of ${SITE_INFO.name}: experience, education, skills, and downloadable PDF.`,
+    path: 'resume.html',
+    imagePath: '',
+    type: 'website',
+  });
   return (
     <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="resume" />
-      <ResumeHero t={t} headlineFont={tweaks.headlineFont} />
-      <Body t={t} headlineFont={tweaks.headlineFont} />
-      <Footer t={t} headlineFont={tweaks.headlineFont} />
+      <ResumeHero t={t} />
+      <Body t={t} />
+      <Footer t={t} />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
     </SiteShell>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  contentLoaded(['SITE_INFO', 'RESUME'])
+    ? <App />
+    : <ContentMissing />
+);

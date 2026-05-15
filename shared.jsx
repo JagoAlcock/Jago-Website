@@ -16,9 +16,12 @@ const TWEAKS = /*EDITMODE-BEGIN*/{
   "headlineFont": "serif"
 }/*EDITMODE-END*/;
 
+// Set to false in production builds (build.mjs replaces this line).
+const SHOW_TWEAKS_PANEL = true; // PROD: false
+
 // Helper: render text with {accent}…{/accent} spans coloured in the accent.
 function renderAccented(text, t) {
-  const parts = text.split(/(\{accent\}.*?\{\/accent\})/g).filter(Boolean);
+  const parts = text.split(/(\{accent\}.*?\{\/accent\})/gs).filter(Boolean);
   return parts.map((p, i) => {
     const m = p.match(/^\{accent\}(.*)\{\/accent\}$/);
     if (m) return <span key={i} style={{ color: t.accent }}>{m[1]}</span>;
@@ -27,8 +30,10 @@ function renderAccented(text, t) {
 }
 
 // ── Theme ───────────────────────────────────────────────────────────────
-function theme(mode, accentHex) {
+function theme(mode, accentHex, headlineFont) {
   const dark = mode === 'dark';
+  const serif = '"Fraunces", "GT Sectra", "Tiempos Text", Georgia, serif';
+  const sans  = '"Inter", -apple-system, system-ui, sans-serif';
   return {
     mode,
     bg:    dark ? '#0f0f10' : '#faf7f0',
@@ -37,11 +42,12 @@ function theme(mode, accentHex) {
     line2: dark ? 'rgba(240,237,229,0.18)' : 'rgba(26,23,20,0.2)',
     text:  dark ? '#f0ede5' : '#1a1714',
     dim:   dark ? 'rgba(240,237,229,0.6)'  : 'rgba(26,23,20,0.62)',
-    faint: dark ? 'rgba(240,237,229,0.38)' : 'rgba(26,23,20,0.4)',
+    faint: dark ? 'rgba(240,237,229,0.55)' : 'rgba(26,23,20,0.55)',
     accent: accentHex,
-    serif: '"Fraunces", "GT Sectra", "Tiempos Text", Georgia, serif',
-    sans:  '"Inter", -apple-system, system-ui, sans-serif',
+    serif, sans,
     mono:  '"JetBrains Mono", ui-monospace, monospace',
+    // Resolved headline font — use t.head instead of the headFam pattern everywhere.
+    head: headlineFont === 'sans' ? sans : serif,
   };
 }
 
@@ -106,6 +112,18 @@ const RESPONSIVE_CSS = `
 
   .ja-flex-between  { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
 
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+
+  /* ── Hover + focus-visible state for accent-coloured interactive elements ── */
+  .ja-nav-link:hover, .ja-nav-link:focus-visible { color: var(--ja-text) !important; }
+  .ja-mode-toggle:hover, .ja-mode-toggle:focus-visible {
+    border-color: var(--ja-accent) !important;
+    color: var(--ja-text) !important;
+  }
+
   /* ── Tablet ── */
   @media (max-width: 980px) {
     .ja-page-pad     { padding-left: 32px; padding-right: 32px; }
@@ -142,10 +160,12 @@ function GlobalStyles() {
 // Theme tokens for the skip control live on a wrapper so the link (a sibling of <main>) inherits CSS variables.
 function SiteShell({ t, children }) {
   const shellVars = {
-    '--ja-skip-bg': t.bg2,
-    '--ja-skip-fg': t.text,
+    '--ja-skip-bg':   t.bg2,
+    '--ja-skip-fg':   t.text,
     '--ja-skip-border': t.accent,
     '--ja-skip-font': t.sans,
+    '--ja-accent':    t.accent,
+    '--ja-text':      t.text,
   };
   return (
     <div className="ja-site-shell" style={shellVars}>
@@ -183,14 +203,14 @@ function ModeToggle({ mode, onToggle, t }) {
   const isDark = mode === 'dark';
   return (
     <button onClick={onToggle} aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      className="ja-mode-toggle"
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         background: 'transparent', border: `1px solid ${t.line2}`,
         padding: '6px 10px', cursor: 'pointer', color: t.dim,
         fontFamily: t.mono, fontSize: 10, letterSpacing: 1.5,
-      }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = t.accent; e.currentTarget.style.color = t.text; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = t.line2; e.currentTarget.style.color = t.dim; }}>
+        transition: 'border-color .2s, color .2s',
+      }}>
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
         {isDark ? (<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />) : (
           <g><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" /></g>
@@ -225,14 +245,12 @@ function Nav({ t, mode, onToggleMode, active, pathPrefix = '' }) {
           {links.map(([l, href, id]) => {
             const isActive = id === active;
             return (
-              <a key={id} href={href} style={{
+              <a key={id} href={href} className="ja-nav-link" style={{
                 color: isActive ? t.text : t.dim, textDecoration: 'none',
                 paddingBottom: 4,
                 borderBottom: isActive ? `1px solid ${t.accent}` : '1px solid transparent',
                 transition: 'color .2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.color = t.text}
-              onMouseLeave={e => e.currentTarget.style.color = isActive ? t.text : t.dim}>{l}</a>
+              }}>{l}</a>
             );
           })}
         </nav>
@@ -248,7 +266,7 @@ function DownloadBar({ t, items }) {
   // items: [{ label, url, note?, primary? }]
   return (
     <div className="ja-page-pad" style={{
-      padding: '20px 56px', borderBottom: `1px solid ${t.line}`,
+      paddingTop: 20, paddingBottom: 20, borderBottom: `1px solid ${t.line}`,
       display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center',
       background: t.bg2,
     }}>
@@ -273,8 +291,7 @@ function DownloadBar({ t, items }) {
 }
 
 // ── Gallery card (unified style used for both projects AND hobbies) ─────
-function GalleryCard({ item, t, headlineFont, href, ordinal, hoverSlug, setHoverSlug, big, pathPrefix = '' }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pathPrefix = '' }) {
   const active = hoverSlug === item.slug;
   const hasImage = Boolean(item.image);
   const imgSrc = hasImage ? pathPrefix + item.image : null;
@@ -291,7 +308,7 @@ function GalleryCard({ item, t, headlineFont, href, ordinal, hoverSlug, setHover
         transition: 'border-color .2s',
       }}>
         {hasImage ? (
-          <img src={imgSrc} alt={`${item.title} — cover image`} style={{
+          <img src={imgSrc} alt={`${item.title} — cover image`} loading="lazy" decoding="async" style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', transition: 'transform .6s cubic-bezier(.2,.7,.3,1)',
             transform: active ? 'scale(1.03)' : 'scale(1)',
@@ -337,7 +354,7 @@ function GalleryCard({ item, t, headlineFont, href, ordinal, hoverSlug, setHover
       <div style={{ marginTop: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 }}>
         <div>
           <div style={{
-            fontFamily: headFam, fontSize: 22, color: t.text, letterSpacing: -0.2,
+            fontFamily: t.head, fontSize: 22, color: t.text, letterSpacing: -0.2,
             fontWeight: 400,
           }}>{item.title}</div>
           <div style={{ fontFamily: t.sans, fontSize: 12, color: t.dim, marginTop: 4 }}>
@@ -351,13 +368,13 @@ function GalleryCard({ item, t, headlineFont, href, ordinal, hoverSlug, setHover
 }
 
 // ── Unified Gallery grid (used for Work + Hobbies) ──────────────────────
-function Gallery({ items, t, headlineFont, hrefFor, bigIndices = [0, 1], pathPrefix = '' }) {
+function Gallery({ items, t, hrefFor, bigIndices = [0, 1], pathPrefix = '' }) {
   const [hoverSlug, setHoverSlug] = React.useState(null);
   return (
     <div className="ja-grid-2">
       {items.map((p, i) => (
         <GalleryCard
-          key={p.slug} item={p} t={t} headlineFont={headlineFont}
+          key={p.slug} item={p} t={t}
           ordinal={ordinalFromIndex(i)}
           href={hrefFor(p)} hoverSlug={hoverSlug} setHoverSlug={setHoverSlug}
           big={bigIndices.includes(i)} pathPrefix={pathPrefix}
@@ -367,18 +384,17 @@ function Gallery({ items, t, headlineFont, hrefFor, bigIndices = [0, 1], pathPre
   );
 }
 
-function Footer({ t, headlineFont, variant = 'full', pathPrefix = '' }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function Footer({ t, variant = 'full', pathPrefix = '' }) {
   return (
     <>
       {variant === 'full' && (
         <footer id="contact" className="ja-page-pad ja-grid-3" style={{
-          padding: '72px 56px', borderTop: `1px solid ${t.line}`,
+          paddingTop: 72, paddingBottom: 72, borderTop: `1px solid ${t.line}`,
         }}>
           <div>
             <Eyebrow t={t}>Let's talk</Eyebrow>
             <div style={{
-              fontFamily: headFam, fontSize: 'clamp(36px, 5vw, 52px)', letterSpacing: -1.4,
+              fontFamily: t.head, fontSize: 'clamp(36px, 5vw, 52px)', letterSpacing: -1.4,
               fontWeight: 400, color: t.text, marginTop: 16, lineHeight: 1,
               whiteSpace: 'pre-line',
             }}>{SITE_INFO.footerHeadline}</div>
@@ -399,7 +415,7 @@ function Footer({ t, headlineFont, variant = 'full', pathPrefix = '' }) {
         </footer>
       )}
       <div className="ja-page-pad" style={{
-        padding: '16px 56px', fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5,
+        paddingTop: 16, paddingBottom: 16, fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5,
         borderTop: `1px solid ${t.line}`, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
       }}>
         <span>{SITE_INFO.copyright}</span>
@@ -411,7 +427,7 @@ function Footer({ t, headlineFont, variant = 'full', pathPrefix = '' }) {
 
 // ── Tweaks panel ────────────────────────────────────────────────────────
 function TweaksPanel({ open, tweaks, setTweak, t }) {
-  if (!open) return null;
+  if (!SHOW_TWEAKS_PANEL || !open) return null;
   return (
     <div style={{
       position: 'fixed', right: 20, bottom: 20, zIndex: 100,
@@ -443,7 +459,7 @@ function TweaksPanel({ open, tweaks, setTweak, t }) {
         <div style={{ color: t.dim, marginBottom: 8 }}>Accent</div>
         <div style={{ display: 'flex', gap: 8 }}>
           {ACCENT_OPTIONS.map(a => (
-            <button key={a.id} title={a.name} onClick={() => setTweak('accent', a.id)} style={{
+            <button key={a.id} title={a.name} aria-label={`Set accent colour to ${a.name}`} onClick={() => setTweak('accent', a.id)} style={{
               flex: 1, height: 28, background: a.hex,
               border: tweaks.accent === a.id ? `2px solid ${t.text}` : `1px solid ${t.line2}`,
               cursor: 'pointer', padding: 0,
@@ -482,21 +498,34 @@ function usePageShell() {
       const saved = localStorage.getItem('jago-site-mode');
       if (saved === 'dark' || saved === 'light') return saved;
     } catch {}
+    // Respect the visitor's OS dark/light preference before falling back to TWEAKS default.
+    try {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+    } catch {}
     return tweaks.mode;
   });
 
   React.useEffect(() => { try { localStorage.setItem('jago-site-mode', viewerMode); } catch {} }, [viewerMode]);
-  React.useEffect(() => { setViewerMode(tweaks.mode); }, [tweaks.mode]);
+  const tweaksModeApplied = React.useRef(false);
+  React.useEffect(() => {
+    // Skip the initial mount so the saved localStorage preference is not overwritten.
+    if (!tweaksModeApplied.current) { tweaksModeApplied.current = true; return; }
+    setViewerMode(tweaks.mode);
+  }, [tweaks.mode]);
 
   const accentHex = ACCENT_OPTIONS.find(a => a.id === tweaks.accent)?.hex || ACCENT_OPTIONS[0].hex;
-  const t = theme(viewerMode, accentHex);
+  const t = theme(viewerMode, accentHex, tweaks.headlineFont);
   const toggleMode = () => setViewerMode(m => m === 'dark' ? 'light' : 'dark');
   const setTweak = (key, val) => {
     setTweaks(prev => ({ ...prev, [key]: val }));
-    try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*'); } catch {}
+    if (SHOW_TWEAKS_PANEL) {
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*'); } catch {}
+    }
   };
 
   React.useEffect(() => {
+    if (!SHOW_TWEAKS_PANEL) return;
     const onMsg = (e) => {
       if (!e.data) return;
       if (e.data.type === '__activate_edit_mode') setTweakOpen(true);
@@ -612,11 +641,31 @@ function applySeo({
   upsertJsonLd('person', person);
 }
 
+function useSeo(opts, deps) {
+  React.useEffect(() => applySeo(opts), deps || []);
+}
+
+function ContentMissing() {
+  return (
+    <div style={{ padding: '80px 40px', textAlign: 'center', fontFamily: '"Inter", sans-serif' }}>
+      <div style={{ fontSize: 13, color: '#cc0000', letterSpacing: 1, marginBottom: 12 }}>CONTENT NOT LOADED</div>
+      <p style={{ fontSize: 14, color: '#666', maxWidth: 440, margin: '0 auto', lineHeight: 1.6 }}>
+        <code>content.js</code> failed to load or is missing required globals.
+        Open the browser console for details.
+      </p>
+    </div>
+  );
+}
+
+function contentLoaded(keys) {
+  return keys.every(k => typeof window[k] !== 'undefined');
+}
+
 Object.assign(window, {
   ACCENT_OPTIONS, TWEAKS,
   theme, ordinalFromIndex, ordinalFromSlug, renderAccented, GlobalStyles, SiteShell,
   Eyebrow, ModeToggle, Nav, DownloadBar,
   GalleryCard, Gallery, Footer, TweaksPanel,
   usePageShell,
-  applySeo,
+  applySeo, useSeo, ContentMissing, contentLoaded,
 });

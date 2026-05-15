@@ -72,7 +72,7 @@ const ABOUT_PHOTO_POSITION = 'center 20%';
 
 const ABOUT_TEXT = [
   "I was born on a small Royal Air Force base in England before moving to New Zealand, where I have spent most of my schooling. From my earliest days in primary school, I have been fascinated by design and how things work — teaching myself CAD long before high school and always sketching in the margins of my notebooks.",
-  "This early passion for design naturally evolved into a keen interest in aerospace, motorsport, and optimisation, driving me to pursue a degree in mechanical engineering with a minor in aerospace. I have recently graduated with {accent}first-class honours{/accent}, and have over 22 months of research and development work experience. I am impassioned by finding creative solutions to complex challenges in design, automation, and optimisation.",
+  "This early passion for design naturally evolved into a keen interest in aerospace, motorsport, and optimisation, driving me to pursue a degree in mechanical engineering with a minor in aerospace. I have recently graduated with {accent}first-class honours{/accent}, and have 2+ years of research and development work experience. I am impassioned by finding creative solutions to complex challenges in design, automation, and optimisation.",
   "I've contributed to a wide range of projects, from multi-axis spray systems for UAVs to sawblades mounted on six-axis robotic arms, developing technical depth in mechanical design and rapid prototyping. I'm a fast and curious learner, quick to adopt new tools, techniques, and workflows, and I take a hands-on, iterative approach that balances elegance of design with real-world performance.",
   "Beyond engineering, I am an avid sportsman. I have had the honour of representing New Zealand as captain of the Junior Paddle Blacks in canoe polo, and I spend my free time mountain biking, surfing, climbing, or chasing snow in the winter.",
   "I pride myself on my enthusiasm, ability to learn quickly, and eagerness to grow both personally and professionally as I prepare to launch my career in engineering.",
@@ -111,31 +111,16 @@ const PROJECTS = [
     gallery: ['images/coax_poster.png', 'images/coax_experiment.jpg', 'images/coax_blades.png', 'images/coax_bayesopt.png', 'images/coax_TP.png'],
     pdf: null,
     summary: 'A masters research project into the geometry optimisation of highly-skewed, counter-rotating, coaxial rotor systems.',
-    intro: [
-      'Coaxial rotor configurations offer advantages in compactness and efficiency, and highly skewed blade geometries \
-      have demonstrated acoustic benefits. However, the aerodynamic complexity of coaxial systems and the novelty of highly \
-      skewed rotors mean their design remains an unsolved engineering problem.'
-    ],
+    intro: 'Coaxial rotor configurations offer advantages in compactness and efficiency, and highly skewed blade geometries have demonstrated acoustic benefits. However, the aerodynamic complexity of coaxial systems and the novelty of highly skewed rotors mean their design remains an unsolved engineering problem.',
     body: [
-      'My project develops an optimisation framework to improve the chord and twist distributions of these rotors, with \
-      hover figure of merit as the primary performance metric. I am building the analysis around an improved Blade Element \
-      Momentum Theory (BEMT) model as the fast, optimisation-ready baseline, then extending it with a surrogate model \
-      trained on higher-fidelity CFD data to capture the three-dimensional effects that BEMT cannot resolve. The workflow \
-      is designed to support rapid design iteration, with geometry parameterisation, optimisation, manufacturing, and \
-      experimental validation all integrated into a single process.'
-      ,
-      'A key part of the work is making the optimisation practical as well as accurate. I am refining the BEMT \
-      implementation for speed and robustness, upgrading the aerofoil data to account for Reynolds number variation, and \
-      using smooth geometry representations such as PCHIP to avoid infeasible blade shapes. The proposed designs will then \
-      be prototyped using SLA 3D printing, with carbon-fibre manufacture used selectively where appropriate. Preliminary \
-      work has already shown that this approach can produce realistic blade geometries, reliable prototypes, and a strong \
-      basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.'
+      'My project develops an optimisation framework to improve the chord and twist distributions of these rotors, with hover figure of merit as the primary performance metric. I am building the analysis around an improved Blade Element Momentum Theory (BEMT) model as the fast, optimisation-ready baseline, then extending it with a surrogate model trained on higher-fidelity CFD data to capture the three-dimensional effects that BEMT cannot resolve. The workflow is designed to support rapid design iteration, with geometry parameterisation, optimisation, manufacturing, and experimental validation all integrated into a single process.',
+      'A key part of the work is making the optimisation practical as well as accurate. I am refining the BEMT implementation for speed and robustness, upgrading the aerofoil data to account for Reynolds number variation, and using smooth geometry representations such as PCHIP to avoid infeasible blade shapes. The proposed designs will then be prototyped using SLA 3D printing, with carbon-fibre manufacture used selectively where appropriate. Preliminary work has already shown that this approach can produce realistic blade geometries, reliable prototypes, and a strong basis for comparing optimised coaxial rotor designs against existing swept and straight-blade alternatives.',
     ],
     specs: [
       ['Duration', '1 Year · 2025-2026'],
       ['Role', 'Researcher'],
       ['Skills', 'Time Management · Problem Solving · Communication'],
-      ['Tools', 'CFD · CAD · Python · Composite Manufacturing ·Testing · Documentation'],
+      ['Tools', 'CFD · CAD · Python · Composite Manufacturing · Testing · Documentation'],
       ['Output', 'Thesis · Published Papers · Prototypes'],
       ['Industry', 'Aerospace'],
     ],
@@ -150,24 +135,12 @@ const PROJECTS = [
     gallery: ['images/syos_interns.jpg', 'images/syos_sm300.jpg', 'images/syos_sa7.png', 'images/syos_sg400.png', 'images/syos_sa1.jpg'],
     pdf: null,
     summary: 'A small, fast-moving team designing and manufacturing components for customer-ready UAS products.',
-    intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and \
-    commercial applications. Due to the nature of the work, many project or details are classified.',
+    intro: 'SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and commercial applications. Due to the nature of the work, many project or details are classified.',
     body: [
-      'What I can share is that I spent several months embedded in a small, fast-moving team designing and manufacturing \
-      components for customer-ready UAS products. Working to tight tolerances and delivery deadlines, which I loved.'
-      ,
-      'One of the most challenging moments came when I was handed sole responsibility for troubleshooting a fleet of UAS \
-      systems on a customer contract that had run into issues during commissioning. Diagnosing faults across multiple \
-      aircraft under time pressure, with a customer waiting, was not easy. Working through it methodically and getting \
-      the systems mission worthy was one of the most satisfying things I\'ve done.'
-      ,
-      'I also redesigned a customer-facing Ground Control Station (GCS) to improve its structural integrity, transmission \
-      reliability, and usability, and designed a large collapsible indoor drone test enclosure, to contain a crashing UAS \
-      and keep both the aircraft and personnel safe during development testing.'
-      ,
-      'This role pushed me in ways that previous internships hadn\'t. The stakes were high, the team was lean, and the \
-      expectation was that you\'d contribute from day one. It confirmed that I want to work in fast-moving, high-stakes \
-      environments, designing exciting things that get built, tested, and used in the field.'
+      'What I can share is that I spent several months embedded in a small, fast-moving team designing and manufacturing components for customer-ready UAS products. Working to tight tolerances and delivery deadlines, which I loved.',
+      "One of the most challenging moments came when I was handed sole responsibility for troubleshooting a fleet of UAS systems on a customer contract that had run into issues during commissioning. Diagnosing faults across multiple aircraft under time pressure, with a customer waiting, was not easy. Working through it methodically and getting the systems mission worthy was one of the most satisfying things I've done.",
+      'I also redesigned a customer-facing Ground Control Station (GCS) to improve its structural integrity, transmission reliability, and usability, and designed a large collapsible indoor drone test enclosure, to contain a crashing UAS and keep both the aircraft and personnel safe during development testing.',
+      "This role pushed me in ways that previous internships hadn't. The stakes were high, the team was lean, and the expectation was that you'd contribute from day one. It confirmed that I want to work in fast-moving, high-stakes environments, designing exciting things that get built, tested, and used in the field.",
     ],
     specs: [
       ['Duration', '3 Months'],
@@ -187,15 +160,10 @@ const PROJECTS = [
     gallery: ['images/rocket_portrait.png', 'images/rocket_jago.jpg'],
     pdf: null,
     summary: 'Led a team to build and launch a 1.4 m rocket kit, gaining practical experience in rocket aerodynamics, fabrication, and launch procedures.',
-    intro: 'The University of Canterbury\'s Level 1 Rocket programme is an initiative of the UC Aerospace Club, providing \
-    students with a hands-on introduction to high-powered rocketry through constructing and launching a 1.4-metre-tall rocket kit.',
+    intro: "The University of Canterbury's Level 1 Rocket programme is an initiative of the UC Aerospace Club, providing students with a hands-on introduction to high-powered rocketry through constructing and launching a 1.4-metre-tall rocket kit.",
     body: [
-      'As team leader, I coordinated a group of students with often-conflicting ideas and workload expectations, ensuring \
-      clear communication of priorities and deadlines. Witnessing the rocket lifting off, following its flight profile, and \
-      being recovered successfully on launch day was an immensely rewarding culmination of our efforts.'
-      ,
-      'The project also provided an opportunity to demonstrate leadership and conflict management, apply hands-on \
-      composite-manufacturing skills, and manage a schedule under time constraints.'
+      'As team leader, I coordinated a group of students with often-conflicting ideas and workload expectations, ensuring clear communication of priorities and deadlines. Witnessing the rocket lifting off, following its flight profile, and being recovered successfully on launch day was an immensely rewarding culmination of our efforts.',
+      'The project also provided an opportunity to demonstrate leadership and conflict management, apply hands-on composite-manufacturing skills, and manage a schedule under time constraints.',
     ],
     specs: [
       ['Role', 'Team Leader'],
@@ -210,7 +178,7 @@ const PROJECTS = [
     tagline: 'Wireless Aerial Nozzle Device',
     client: 'SPS Automation · Junior Engineer (3 months)',
     tag: 'Robotics', year: '2024',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Wireless Aerial Nozzle Device — a dual-axis ±90° drone-mounted precision spray system, taken from concept to flight-tested proof of concept in three months.',
     intro: 'Developed W.A.N.D for drone-mounted precision spraying, from initial concept through to a flight-tested proof-of-concept product.',
     body: [
@@ -228,8 +196,8 @@ const PROJECTS = [
     slug: 'robo-saw',
     title: '6-axis robotic sawblade',
     client: 'QBH',
-    tag: 'Robotics', year: '2020',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    tag: 'Robotics', year: '2024',
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Design and integration of a sawblade end-effector for a six-axis industrial robotic arm, with path planning and safety interlocks for repeatable cuts.',
     intro: 'End-effector and integration work for a six-axis robotic arm carrying a sawblade — exploring applications in timber cutting.',
     body: ['Focus on blade mounting, chatter control, reachability of target geometries, and safety interlocks.'],
@@ -239,7 +207,7 @@ const PROJECTS = [
     slug: 'warman',
     title: 'Warman design competition',
     client: 'University of Canterbury', tag: 'Mechatronics', year: '2023',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Team entry into the Warman international student design competition — a small autonomous machine that completes a materials-handling course against the clock.',
     intro: 'Warman is an annual inter-university mechatronic design competition. Teams design, build, and compete with small machines against a fixed rule set.',
     body: ["Design, prototype, and refinement of a small mechatronic vehicle to complete the competition's transport task."],
@@ -249,7 +217,7 @@ const PROJECTS = [
     slug: 'ev-post',
     title: 'EV charger posts',
     client: 'Gyro Plastics', tag: 'Product Design', year: '2024',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Design of EV charger post enclosures with wind-loading, tamper-resistance, ease of installation, and rotational-moulding fabrication requirements all balanced.',
     intro: 'Part of a broader EV infrastructure product line at Gyro Plastics.',
     body: ['Balanced aerodynamic load on tall enclosures, cable-management access, and constraints specific to rotational moulding.'],
@@ -259,7 +227,7 @@ const PROJECTS = [
     slug: 'airline',
     title: 'Airline design project',
     client: 'University of Canterbury', tag: 'Systems Design', year: '2023',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'A systems-design coursework project: concept-to-proposal for a regional airline, covering fleet selection, route network, and operational model.',
     intro: 'University coursework in systems design: stepping out from pure mechanical engineering into the aerospace business context.',
     body: ['Market analysis, fleet and route optimisation, and operational trade-offs.'],
@@ -269,7 +237,7 @@ const PROJECTS = [
     slug: 'pcb-enclosure',
     title: 'PCB enclosure & mounting',
     client: 'Tait Communications', tag: 'Industrial Design', year: '2024',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Redesigned a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.',
     intro: 'Led the full design process: customer research, concept development, iterative prototyping, manufacturing, and testing.',
     body: ['Produced detailed handoff documentation to ensure continuity of the project after departure. Collaborated with diverse, multi-disciplined teams.'],
@@ -279,7 +247,7 @@ const PROJECTS = [
     slug: 'ev-kiosk',
     title: 'EV charging kiosks & bollards',
     client: 'Gyro Plastics', tag: 'Product Design', year: '2024',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Designed EV charging kiosks and impact-protection bollards from R&D through to manufacturing processes and production units.',
     intro: 'Product design work across the Gyro Plastics infrastructure range.',
     body: ['Impact protection bollards developed all the way through to manufacturing and production units. EV charging kiosks balanced wind loading, tamper resistance, ease of installation, and mould fabrication requirements.'],
@@ -289,7 +257,7 @@ const PROJECTS = [
     slug: 'gearbox',
     title: 'Gearbox design',
     client: 'University coursework', tag: 'Mechanical', year: '2023',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'A full gearbox design exercise — gear ratios, shaft sizing, bearing selection, and housing design against a specified input/output specification.',
     intro: 'Standard machine-design coursework — stepping through every calculation and drawing required for a complete gearbox.',
     body: ['From input specification to fully dimensioned assembly drawings and a bill of materials.'],
@@ -299,7 +267,7 @@ const PROJECTS = [
     slug: 'al-structure',
     title: 'Aluminium structure',
     client: 'University coursework', tag: 'Structural', year: '2023',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Structural analysis and design of an aluminium space frame, covering FEA, weld detailing, and connection design.',
     intro: 'Coursework in structural design, applied to a welded aluminium frame.',
     body: ['Finite-element analysis of the frame under applied loads, weld sizing, and detailed connection drawings.'],
@@ -309,7 +277,7 @@ const PROJECTS = [
     slug: 'cnc',
     title: 'CNC machining production',
     client: 'Automatic Lathes (3 months)', tag: 'Manufacturing', year: '2022',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Set up, operated, and maintained CNC mills and lathes in a production environment. Responsible for cutting, deburring, quality checking, and workshop upkeep.',
     intro: 'Three months on the shop floor of a CNC job shop — hands-on production experience.',
     body: ['Setup and operation of CNC mills and lathes. Quality control, deburring, and workshop maintenance.'],
@@ -319,7 +287,7 @@ const PROJECTS = [
     slug: 'hinge',
     title: 'Hinge material selection',
     client: 'University coursework', tag: 'Materials', year: '2023',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Materials-selection study for a hinge application — comparing candidate alloys and polymers against cost, fatigue life, and manufacturability.',
     intro: 'Materials engineering coursework.',
     body: ['Ashby-chart method across stiffness, strength, fatigue, and cost dimensions.'],
@@ -329,7 +297,7 @@ const PROJECTS = [
     slug: 'bearing',
     title: 'Bearing housing',
     client: 'University coursework', tag: 'Mechanical', year: '2022',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'Design and manufacture of a bearing housing — from CAD through to a machined physical part.',
     intro: 'Coursework project taking a bearing housing design all the way to a finished component.',
     body: ['CAD, tolerance stack-up, and machining.'],
@@ -339,7 +307,7 @@ const PROJECTS = [
     slug: 'drilling-fixture',
     title: 'Drilling fixture',
     client: 'Workshop project', tag: 'Manufacturing', year: '2022',
-    image: 'images/projects-cover.png', gallery: [], pdf: null,
+    image: 'images/project-cover.svg', gallery: [], pdf: null,
     summary: 'A reusable drilling fixture for repeatable hole patterns on a family of parts — quick-clamping, swap-plate design.',
     intro: 'Workshop project focused on production efficiency.',
     body: ['Quick-clamp layout, swappable drill plates, and a simple datum scheme.'],
@@ -350,14 +318,25 @@ const PROJECTS = [
 
 // ── 5. Hobbies ──────────────────────────────────────────────────────────
 // Each hobby has its own detail page at hobbies/<slug>.html.
-// Fields mirror PROJECTS: slug, title, tag, year, image, summary,
-// intro, body (array of paragraphs), specs (array of [label, value]).
+//
+// Fields:
+//   slug     — URL (hobbies/<slug>.html). Lowercase, no spaces.
+//   title    — display name
+//   tag      — category label
+//   year     — display year / range
+//   context  — one-line summary shown on the card (like project.summary)
+//   image    — cover photo path (add real photos to images/ and update this)
+//   intro    — opening paragraph on the detail page
+//   body     — array of paragraphs
+//   specs    — array of [label, value] rows in the sidebar
+//
+// Note: wrap words in {accent}…{/accent} to highlight in accent colour.
 
 const HOBBIES = [
   { slug: 'canoe-polo',
  title: 'Canoe polo', tag: 'International Sport', year: '2016–2025',
     context: 'NZ U21 Paddle Blacks — captain, gold at 2019 JIC (N. Ireland); 6th at 2022 Worlds (France); gold at 2023 Oceania.',
-    image: 'images/hobbies-cover.jpg',
+    image: 'images/hobby-cover.svg',
     intro: 'Canoe polo is the sport that shaped me. Five-a-side, played in kayaks on a 35 × 23 m water court, it rewards reading the game, communicating under pressure, and being relentlessly fit.',
     body: [
       'I have represented New Zealand on the U21 Paddle Blacks since 2016 — including a gold medal at the 2019 Junior International Cup (Northern Ireland), 6th at the 2022 World Championships (France), and gold at the 2023 Oceania Championships, where I captained the side.',
@@ -372,7 +351,7 @@ const HOBBIES = [
   { slug: 'skiing',
  title: 'Skiing', tag: 'Southern Alps', year: 'Every winter',
     context: "Deep powder days around Craigieburn, Porters, and the Club Fields — the reward for a good winter.",
-    image: 'images/hobbies-cover.jpg',
+    image: 'images/ski_cover.jpg',
     intro: "The Southern Alps are an hour and a half from my front door, and every winter weekend the alarm goes off at 5am.",
     body: [
       "I cut my teeth on the Canterbury club fields — Craigieburn, Broken River, Mount Olympus — where the chairlifts are nutcracker rope tows and the terrain rewards anyone willing to skin for it.",
@@ -383,7 +362,7 @@ const HOBBIES = [
   { slug: 'mountain-biking',
  title: 'Mountain biking', tag: 'Trail / Enduro', year: 'Year-round',
     context: "Christchurch's Port Hills and the South Island's trail network.",
-    image: 'images/hobbies-cover.jpg',
+    image: 'images/hobby-cover.svg',
     intro: "Christchurch sits at the foot of the Port Hills — a 30-minute pedal from the city to a network of trails that goes on for days.",
     body: [
       "I ride enduro — long pedally climbs and fast technical descents. Favourites are the Port Hills' Vic Park network and the South Island bigger-mountain trails around Queenstown and Wanaka.",
@@ -392,7 +371,7 @@ const HOBBIES = [
   },
   { slug: 'surfing',
  title: 'Surfing', tag: 'East Coast', year: 'Year-round',
-    context: 'Canterbury and Kaikoura coasts.', image: 'images/hobbies-cover.jpg',
+    context: 'Canterbury and Kaikoura coasts.', image: 'images/hobby-cover.svg',
     intro: "The Canterbury and Kaikoura coasts deliver consistent surf year-round — and a wetsuit thick enough makes winter the best season.",
     body: ["Mostly shortboard, mostly cold water, mostly with a thermos in the car park afterwards."],
     specs: [['Break', 'Sumner / Taylors / Mangamaunu'], ['Board', 'Shortboard']],
@@ -400,7 +379,7 @@ const HOBBIES = [
   { slug: 'climbing',
  title: 'Climbing', tag: 'Rock / Alpine', year: 'Year-round',
     context: 'Single-pitch sport and longer alpine objectives.',
-    image: 'images/hobbies-cover.jpg',
+    image: 'images/hobby-cover.svg',
     intro: "Sport climbing at the local crags, alpine objectives in the Southern Alps when the weather and the time allow.",
     body: ["Climbing scratches the same problem-solving itch as engineering — every route is a puzzle, and every fall is data."],
     specs: [['Style', 'Sport · Alpine'], ['Local crags', 'Castle Hill · Charleston']],
@@ -408,7 +387,7 @@ const HOBBIES = [
   { slug: 'coaching',
  title: 'Coaching & refereeing', tag: 'Community', year: 'Volunteer',
     context: 'Volunteered as referee and coach at club level canoe polo.',
-    image: 'images/hobbies-cover.jpg',
+    image: 'images/hobby-cover.svg',
     intro: "Volunteer referee and coach for canoe polo at club and regional level.",
     body: ["Coaching juniors and reffing weekend tournaments — passing on what was passed on to me."],
     specs: [['Role', 'Referee · Coach'], ['Level', 'Club · Regional']],
@@ -486,7 +465,7 @@ const RESUME = {
   community: [
     ['2025 — Tutor, Controls & Vibrations',   'Taught undergraduates at the University of Canterbury.'],
     ['2024 — Team Leader, UC Aerospace Level 1', 'Led a team in building and launching a 1.4 m rocket kit.'],
-    ['2016–2025 — Canoe Polo',                "Represented NZ U21 Men's team: gold 2019 JIC (Northern Ireland); bronze 2022; 6th at 2022 Worlds (France). Captained NZ U21 to 1st at 2023 Oceania. Volunteer referee and coach at club level."],
+    ['2016–2025 — Canoe Polo',                "Represented NZ U21 Men's team: gold 2019 JIC (Northern Ireland); 6th at 2022 Worlds (France); gold at 2023 Oceania (captain). Volunteer referee and coach at club level."],
   ],
   referees: [
     ['Jake Tisdale', 'SYOS Aerospace · Mechanical Department Lead',     'jake.tisdale@syos-aerospace.com', '+64 22 165 3681'],

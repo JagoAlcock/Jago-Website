@@ -1,15 +1,24 @@
 {
   "name": "jago-website",
+  "description": "Personal portfolio site for Jago Alcock — static HTML + JSX, deployed to GitHub Pages.",
+  "homepage": "https://jagoalcock.github.io/Jago-Website/",
+  "repository": "https://github.com/jagoalcock/Jago-Website",
+  "license": "MIT",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "build": "node ./scripts/build.mjs"
+    "build":   "node ./scripts/build.mjs",
+    "check":   "node ./scripts/check.mjs",
+    "clean":   "node -e \"import('node:fs').then(fs => fs.default.rmSync('./docs', { recursive: true, force: true }))\"",
+    "dev":     "node ./scripts/serve.mjs .",
+    "preview": "npm run build && node ./scripts/serve.mjs ./docs"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.2",
     "@babel/core": "^7.27.4",
-    "@babel/preset-react": "^7.27.1",
-    "rimraf": "^6.0.1"
+    "@babel/preset-react": "^7.27.1"
   }
 }
-

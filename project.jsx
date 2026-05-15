@@ -5,12 +5,11 @@ function currentSlug() {
   return path.replace('.html', '') || 'coaxial-rotor';
 }
 
-function ProjectHero({ t, headlineFont, p }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function ProjectHero({ t, p }) {
   return (
     <>
       <div className="ja-page-pad" style={{
-        padding: '20px 56px', fontFamily: t.mono, fontSize: 11, color: t.dim, letterSpacing: 1.5,
+        paddingTop: 20, paddingBottom: 20, fontFamily: t.mono, fontSize: 11, color: t.dim, letterSpacing: 1.5,
         borderBottom: `1px solid ${t.line}`, display: 'flex', justifyContent: 'space-between', gap: 16,
       }}>
         <a href="../index.html" style={{ color: t.dim, textDecoration: 'none' }}>← ALL WORK</a>
@@ -30,10 +29,10 @@ function ProjectHero({ t, headlineFont, p }) {
           <div style={{ maxWidth: 980 }}>
             <Eyebrow t={t}>{p.client}</Eyebrow>
             <h1 className="ja-h1" style={{
-              fontFamily: headFam, fontSize: 'clamp(40px, 6vw, 84px)',
+              fontFamily: t.head, fontSize: 'clamp(40px, 6vw, 84px)',
               margin: '20px 0 0', fontWeight: 400, color: t.text,
             }}>
-              {p.title}.{p.tagline && <><br/><span style={{ fontStyle: headlineFont === 'sans' ? 'normal' : 'italic', color: t.dim }}>{p.tagline}</span></>}
+              {p.title}.{p.tagline && <><br/><span style={{ fontStyle: t.head === t.sans ? 'normal' : 'italic', color: t.dim }}>{p.tagline}</span></>}
             </h1>
           </div>
         </div>
@@ -42,14 +41,13 @@ function ProjectHero({ t, headlineFont, p }) {
   );
 }
 
-function ProjectBody({ t, headlineFont, p }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function ProjectBody({ t, p }) {
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
-    <section className="ja-page-pad" style={{ padding: '72px 56px' }}>
+    <section className="ja-page-pad" style={{ paddingTop: 72, paddingBottom: 72 }}>
       <div className="ja-project-body" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(240px, 1fr)', gap: 56, alignItems: 'start' }}>
         <div style={{ maxWidth: 760, minWidth: 0 }}>
-          <p style={{ ...para, fontFamily: headFam, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
+          <p style={{ ...para, fontFamily: t.head, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
             {p.intro || p.summary}
           </p>
           {p.body && p.body.map((b, i) => (<p key={i} style={para}>{b}</p>))}
@@ -73,7 +71,7 @@ function ProjectBody({ t, headlineFont, p }) {
 function ProjectGallery({ t, p }) {
   const imgs = (p.gallery && p.gallery.length) ? p.gallery : null;
   return (
-    <section className="ja-page-pad" style={{ padding: '0 56px 72px' }}>
+    <section className="ja-page-pad" style={{ paddingBottom: 72 }}>
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>
         ⟶ Gallery
       </div>
@@ -81,7 +79,7 @@ function ProjectGallery({ t, p }) {
         {imgs
           ? imgs.map((src, i) => (
               <div key={i} style={{ height: 360, overflow: 'hidden', border: `1px solid ${t.line}` }}>
-                <img src={'../' + src} alt={`${p.title} — gallery ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <img src={'../' + src} alt={`${p.title} — gallery ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))
           : ['OVERVIEW', 'DETAIL', 'PROTOTYPE', 'TEST'].map((label, i) => (
@@ -100,23 +98,22 @@ function ProjectGallery({ t, p }) {
   );
 }
 
-function PrevNext({ t, headlineFont, p }) {
+function PrevNext({ t, p }) {
   const idx = PROJECTS.findIndex(x => x.slug === p.slug);
   const prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length];
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
   const prevOrd = ordinalFromSlug(PROJECTS, prev.slug);
   const nextOrd = ordinalFromSlug(PROJECTS, next.slug);
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   const cell = { padding: '36px 0', color: t.text, textDecoration: 'none', display: 'block' };
   return (
-    <section className="ja-page-pad ja-grid-2" style={{ padding: '0 56px', borderTop: `1px solid ${t.line}`, borderBottom: `1px solid ${t.line}`, gap: 0 }}>
+    <section className="ja-page-pad ja-grid-2" style={{ borderTop: `1px solid ${t.line}`, borderBottom: `1px solid ${t.line}`, gap: 0 }}>
       <a href={`${prev.slug}.html`} style={{ ...cell, borderRight: `1px solid ${t.line}`, paddingRight: 24 }}>
         <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>← PREVIOUS /{prevOrd}</div>
-        <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{prev.title}</div>
+        <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{prev.title}</div>
       </a>
       <a href={`${next.slug}.html`} style={{ ...cell, paddingLeft: 24, textAlign: 'right' }}>
         <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>NEXT /{nextOrd} →</div>
-        <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{next.title}</div>
+        <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{next.title}</div>
       </a>
     </section>
   );
@@ -125,33 +122,44 @@ function PrevNext({ t, headlineFont, p }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   const slug = currentSlug();
-  const p = PROJECTS.find(x => x.slug === slug) || PROJECTS[0];
-  const downloads = [];
-  if (p.pdf) downloads.push({ label: `Download ${p.title} PDF`, url: p.pdf, primary: true });
-  downloads.push({ label: 'Full resume', url: RESUME.pdf, primary: !p.pdf });
+  const p = PROJECTS.find(x => x.slug === slug);
+  useSeo(p ? {
+    title: `${p.title} — ${SITE_INFO.name}`,
+    description: (p.summary || p.intro || '').slice(0, 170),
+    path: `projects/${p.slug}.html`,
+    imagePath: p.image || '',
+    type: 'article',
+  } : {}, [slug]);
 
-  React.useEffect(() => {
-    applySeo({
-      title: `${p.title} — ${SITE_INFO.name}`,
-      description: (p.summary || p.intro || '').slice(0, 170),
-      path: `projects/${p.slug}.html`,
-      imagePath: p.image || '',
-      type: 'article',
-    });
-  }, [p.slug]);
+  if (!p) return (
+    <SiteShell t={t}>
+      <GlobalStyles />
+      <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="work" pathPrefix="../" />
+      <section className="ja-page-pad" style={{ paddingTop: 120, paddingBottom: 120, textAlign: 'center' }}>
+        <div style={{ fontFamily: t.mono, fontSize: 11, color: t.accent, letterSpacing: 2, marginBottom: 20 }}>404</div>
+        <p style={{ fontFamily: t.sans, fontSize: 16, color: t.dim }}>Project <code>{slug}</code> not found.</p>
+        <a href="../index.html" style={{ color: t.accent, fontFamily: t.sans, fontSize: 14 }}>← All work</a>
+      </section>
+      <Footer t={t} pathPrefix="../" variant="minimal" />
+    </SiteShell>
+  );
 
   return (
     <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="work" pathPrefix="../" />
-      <ProjectHero t={t} headlineFont={tweaks.headlineFont} p={p} />
-      <ProjectBody t={t} headlineFont={tweaks.headlineFont} p={p} />
+      <ProjectHero t={t} p={p} />
+      <ProjectBody t={t} p={p} />
       <ProjectGallery t={t} p={p} />
-      <PrevNext t={t} headlineFont={tweaks.headlineFont} p={p} />
-      <Footer t={t} headlineFont={tweaks.headlineFont} pathPrefix="../" />
+      <PrevNext t={t} p={p} />
+      <Footer t={t} pathPrefix="../" />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
     </SiteShell>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  contentLoaded(['SITE_INFO', 'PROJECTS'])
+    ? <App />
+    : <ContentMissing />
+);

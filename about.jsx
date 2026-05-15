@@ -1,10 +1,9 @@
 // About page — portrait photo + story + hobby gallery.
 
-function AboutHero({ t, headlineFont }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function AboutHero({ t }) {
   return (
     <section className="ja-page-pad ja-section-y-lg ja-grid-hero" style={{
-      padding: '96px 56px 72px', borderBottom: `1px solid ${t.line}`
+      paddingBottom: 72, borderBottom: `1px solid ${t.line}`
     }}>
       {/* Portrait photo — fixed aspect ratio, not zoomed */}
       <div style={{ position: 'relative', width: '100%', maxWidth: 440, justifySelf: 'start' }}>
@@ -20,17 +19,17 @@ function AboutHero({ t, headlineFont }) {
       <div>
         <Eyebrow t={t}>My Story</Eyebrow>
         <h1 className="ja-h1" style={{
-          fontFamily: headFam, fontSize: 'clamp(48px, 7vw, 72px)', fontWeight: 400,
+          fontFamily: t.head, fontSize: 'clamp(48px, 7vw, 72px)', fontWeight: 400,
           margin: '20px 0 0', lineHeight: 1, color: t.text
         }}>
           {ABOUT_HEADING}<br />
-          <span style={{ fontStyle: headlineFont === 'sans' ? 'normal' : 'italic', color: t.dim }}>
+          <span style={{ fontStyle: t.head === t.sans ? 'normal' : 'italic', color: t.dim }}>
             {ABOUT_SUBHEADING}
           </span>
         </h1>
       </div>
-    </section>);
-
+    </section>
+  );
 }
 
 function Story({ t }) {
@@ -45,16 +44,15 @@ function Story({ t }) {
         <p key={i} style={para}>{renderAccented(p, t)}</p>
         )}
       </div>
-    </section>);
-
+    </section>
+  );
 }
 
-function Hobbies({ t, headlineFont }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function Hobbies({ t }) {
   return (
-    <section className="ja-page-pad" style={{ padding: '96px 56px', borderBottom: `1px solid ${t.line}` }}>
+    <section className="ja-page-pad" style={{ paddingTop: 96, paddingBottom: 96, borderBottom: `1px solid ${t.line}` }}>
       <div className="ja-flex-between" style={{ marginBottom: 48 }}>
-        <h2 className="ja-h2" style={{ fontFamily: headFam, fontWeight: 400, margin: 0, color: t.text }}>
+        <h2 className="ja-h2" style={{ fontFamily: t.head, fontWeight: 400, margin: 0, color: t.text }}>
           Outside the workshop
         </h2>
         <span style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 1.5 }}>
@@ -62,35 +60,36 @@ function Hobbies({ t, headlineFont }) {
         </span>
       </div>
       <Gallery
-        items={HOBBIES} t={t} headlineFont={headlineFont}
+        items={HOBBIES} t={t}
         hrefFor={(h) => `hobbies/${h.slug}.html`} bigIndices={[0, 1]} />
-      
-    </section>);
-
+    </section>
+  );
 }
 
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
-  React.useEffect(() => {
-    applySeo({
-      title: `About — ${SITE_INFO.name}`,
-      description: `About ${SITE_INFO.name} — background, experience, and interests outside engineering.`,
-      path: 'about.html',
-      imagePath: ABOUT_PHOTO || '',
-      type: 'profile',
-    });
-  }, []);
+  useSeo({
+    title: `About — ${SITE_INFO.name}`,
+    description: `About ${SITE_INFO.name} — background, experience, and interests outside engineering.`,
+    path: 'about.html',
+    imagePath: ABOUT_PHOTO || '',
+    type: 'profile',
+  });
   return (
     <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="about" />
-      <AboutHero t={t} headlineFont={tweaks.headlineFont} />
+      <AboutHero t={t} />
       <Story t={t} />
-      <Hobbies t={t} headlineFont={tweaks.headlineFont} />
-      <Footer t={t} headlineFont={tweaks.headlineFont} />
+      <Hobbies t={t} />
+      <Footer t={t} />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
     </SiteShell>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  contentLoaded(['SITE_INFO', 'HOBBIES', 'ABOUT_TEXT', 'ABOUT_PHOTO', 'ABOUT_HEADING'])
+    ? <App />
+    : <ContentMissing />
+);

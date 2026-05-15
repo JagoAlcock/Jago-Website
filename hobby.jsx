@@ -6,12 +6,11 @@ function currentHobbySlug() {
   return path.replace('.html', '') || 'canoe-polo';
 }
 
-function HobbyHero({ t, headlineFont, h }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function HobbyHero({ t, h }) {
   return (
     <>
       <div className="ja-page-pad" style={{
-        padding: '20px 56px', fontFamily: t.mono, fontSize: 11, color: t.dim, letterSpacing: 1.5,
+        paddingTop: 20, paddingBottom: 20, fontFamily: t.mono, fontSize: 11, color: t.dim, letterSpacing: 1.5,
         borderBottom: `1px solid ${t.line}`, display: 'flex', justifyContent: 'space-between', gap: 16,
       }}>
         <a href="../about.html" style={{ color: t.dim, textDecoration: 'none' }}>← BACK TO ABOUT</a>
@@ -31,7 +30,7 @@ function HobbyHero({ t, headlineFont, h }) {
           <div style={{ maxWidth: 980 }}>
             <Eyebrow t={t}>{h.tag}</Eyebrow>
             <h1 className="ja-h1" style={{
-              fontFamily: headFam, fontSize: 'clamp(40px, 6vw, 84px)',
+              fontFamily: t.head, fontSize: 'clamp(40px, 6vw, 84px)',
               margin: '20px 0 0', fontWeight: 400, color: t.text,
             }}>
               {h.title}.
@@ -43,14 +42,13 @@ function HobbyHero({ t, headlineFont, h }) {
   );
 }
 
-function HobbyBody({ t, headlineFont, h }) {
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
+function HobbyBody({ t, h }) {
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
-    <section className="ja-page-pad" style={{ padding: '72px 56px' }}>
+    <section className="ja-page-pad" style={{ paddingTop: 72, paddingBottom: 72 }}>
       <div className="ja-project-body" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(240px, 1fr)', gap: 56, alignItems: 'start' }}>
         <div style={{ maxWidth: 760, minWidth: 0 }}>
-          <p style={{ ...para, fontFamily: headFam, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
+          <p style={{ ...para, fontFamily: t.head, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
             {h.intro || h.context}
           </p>
           {h.body && h.body.map((b, i) => (<p key={i} style={para}>{b}</p>))}
@@ -74,7 +72,7 @@ function HobbyBody({ t, headlineFont, h }) {
 function HobbyGallery({ t, h }) {
   const imgs = (h.gallery && h.gallery.length) ? h.gallery : null;
   return (
-    <section className="ja-page-pad" style={{ padding: '0 56px 72px' }}>
+    <section className="ja-page-pad" style={{ paddingBottom: 72 }}>
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>
         ⟶ Gallery
       </div>
@@ -82,7 +80,7 @@ function HobbyGallery({ t, h }) {
         {imgs
           ? imgs.map((src, i) => (
               <div key={i} style={{ height: 360, overflow: 'hidden', border: `1px solid ${t.line}` }}>
-                <img src={'../' + src} alt={`${h.title} — gallery ${i + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <img src={'../' + src} alt={`${h.title} — gallery ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </div>
             ))
           : ['MOMENT', 'ACTION', 'TEAM', 'PLACE'].map((label, i) => (
@@ -101,23 +99,22 @@ function HobbyGallery({ t, h }) {
   );
 }
 
-function HobbyPrevNext({ t, headlineFont, h }) {
+function HobbyPrevNext({ t, h }) {
   const idx = HOBBIES.findIndex(x => x.slug === h.slug);
   const prev = HOBBIES[(idx - 1 + HOBBIES.length) % HOBBIES.length];
   const next = HOBBIES[(idx + 1) % HOBBIES.length];
   const prevOrd = ordinalFromSlug(HOBBIES, prev.slug);
   const nextOrd = ordinalFromSlug(HOBBIES, next.slug);
-  const headFam = headlineFont === 'sans' ? t.sans : t.serif;
   const cell = { padding: '36px 0', color: t.text, textDecoration: 'none', display: 'block' };
   return (
-    <section className="ja-page-pad ja-grid-2" style={{ padding: '0 56px', borderTop: `1px solid ${t.line}`, borderBottom: `1px solid ${t.line}`, gap: 0 }}>
+    <section className="ja-page-pad ja-grid-2" style={{ borderTop: `1px solid ${t.line}`, borderBottom: `1px solid ${t.line}`, gap: 0 }}>
       <a href={`${prev.slug}.html`} style={{ ...cell, borderRight: `1px solid ${t.line}`, paddingRight: 24 }}>
         <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>← PREVIOUS /{prevOrd}</div>
-        <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{prev.title}</div>
+        <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{prev.title}</div>
       </a>
       <a href={`${next.slug}.html`} style={{ ...cell, paddingLeft: 24, textAlign: 'right' }}>
         <div style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>NEXT /{nextOrd} →</div>
-        <div style={{ fontFamily: headFam, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{next.title}</div>
+        <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.8vw, 26px)', marginTop: 8, letterSpacing: -0.4 }}>{next.title}</div>
       </a>
     </section>
   );
@@ -126,30 +123,44 @@ function HobbyPrevNext({ t, headlineFont, h }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   const slug = currentHobbySlug();
-  const h = HOBBIES.find(x => x.slug === slug) || HOBBIES[0];
+  const h = HOBBIES.find(x => x.slug === slug);
+  useSeo(h ? {
+    title: `${h.title} — ${SITE_INFO.name}`,
+    description: (h.context || h.intro || '').slice(0, 170),
+    path: `hobbies/${h.slug}.html`,
+    imagePath: h.image || '',
+    type: 'article',
+  } : {}, [slug]);
 
-  React.useEffect(() => {
-    applySeo({
-      title: `${h.title} — ${SITE_INFO.name}`,
-      description: (h.context || h.intro || '').slice(0, 170),
-      path: `hobbies/${h.slug}.html`,
-      imagePath: h.image || '',
-      type: 'article',
-    });
-  }, [h.slug]);
+  if (!h) return (
+    <SiteShell t={t}>
+      <GlobalStyles />
+      <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="about" pathPrefix="../" />
+      <section className="ja-page-pad" style={{ paddingTop: 120, paddingBottom: 120, textAlign: 'center' }}>
+        <div style={{ fontFamily: t.mono, fontSize: 11, color: t.accent, letterSpacing: 2, marginBottom: 20 }}>404</div>
+        <p style={{ fontFamily: t.sans, fontSize: 16, color: t.dim }}>Hobby <code>{slug}</code> not found.</p>
+        <a href="../about.html" style={{ color: t.accent, fontFamily: t.sans, fontSize: 14 }}>← About</a>
+      </section>
+      <Footer t={t} pathPrefix="../" variant="minimal" />
+    </SiteShell>
+  );
 
   return (
     <SiteShell t={t}>
       <GlobalStyles />
       <Nav t={t} mode={viewerMode} onToggleMode={toggleMode} active="about" pathPrefix="../" />
-      <HobbyHero t={t} headlineFont={tweaks.headlineFont} h={h} />
-      <HobbyBody t={t} headlineFont={tweaks.headlineFont} h={h} />
+      <HobbyHero t={t} h={h} />
+      <HobbyBody t={t} h={h} />
       <HobbyGallery t={t} h={h} />
-      <HobbyPrevNext t={t} headlineFont={tweaks.headlineFont} h={h} />
-      <Footer t={t} headlineFont={tweaks.headlineFont} pathPrefix="../" />
+      <HobbyPrevNext t={t} h={h} />
+      <Footer t={t} pathPrefix="../" />
       <TweaksPanel open={tweakOpen} tweaks={tweaks} setTweak={setTweak} t={t} />
     </SiteShell>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  contentLoaded(['SITE_INFO', 'HOBBIES'])
+    ? <App />
+    : <ContentMissing />
+);
