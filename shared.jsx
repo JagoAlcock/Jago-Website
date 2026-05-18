@@ -301,7 +301,7 @@ function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pat
       onMouseLeave={() => setHoverSlug(null)}
       style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}>
       <div style={{
-        background: t.bg2, height: big ? 440 : 340, position: 'relative',
+        background: t.bg2, aspectRatio: big ? '4/3' : '3/2', position: 'relative',
         backgroundImage: hasImage ? undefined
           : `repeating-linear-gradient(45deg, ${t.line} 0 10px, transparent 10px 22px)`,
         border: `1px solid ${active ? t.accent : t.line}`, overflow: 'hidden',
@@ -310,7 +310,8 @@ function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pat
         {hasImage ? (
           <img src={imgSrc} alt={`${item.title} — cover image`} loading="lazy" decoding="async" style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectFit: 'cover', transition: 'transform .6s cubic-bezier(.2,.7,.3,1)',
+            objectFit: 'cover', objectPosition: item.imagePosition || 'center',
+            transition: 'transform .6s cubic-bezier(.2,.7,.3,1)',
             transform: active ? 'scale(1.03)' : 'scale(1)',
             filter: t.mode === 'dark' ? 'brightness(0.82)' : 'brightness(0.95)',
           }} />

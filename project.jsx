@@ -77,14 +77,18 @@ function ProjectGallery({ t, p }) {
       </div>
       <div className="ja-grid-2" style={{ gap: 24 }}>
         {imgs
-          ? imgs.map((src, i) => (
-              <div key={i} style={{ height: 360, overflow: 'hidden', border: `1px solid ${t.line}` }}>
-                <img src={'../' + src} alt={`${p.title} — gallery ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              </div>
-            ))
+          ? imgs.map((entry, i) => {
+              const imgSrc = typeof entry === 'string' ? entry : entry.src;
+              const imgPos = typeof entry === 'string' ? 'center' : (entry.position || 'center');
+              return (
+                <div key={i} style={{ aspectRatio: '4/3', overflow: 'hidden', border: `1px solid ${t.line}` }}>
+                  <img src={'../' + imgSrc} alt={`${p.title} — gallery ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
+                </div>
+              );
+            })
           : ['OVERVIEW', 'DETAIL', 'PROTOTYPE', 'TEST'].map((label, i) => (
               <div key={i} style={{
-                height: 360, background: t.bg2, border: `1px solid ${t.line}`,
+                aspectRatio: '4/3', background: t.bg2, border: `1px solid ${t.line}`,
                 backgroundImage: `repeating-linear-gradient(45deg, ${t.line} 0 10px, transparent 10px 22px)`,
                 position: 'relative',
               }}>
