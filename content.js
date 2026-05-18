@@ -204,7 +204,7 @@ const PROJECTS = [
     tag: 'Robotics',
     year: '2020',
     image: 'images/robot_still.png',
-    gallery: ['images/robot_still.png', 'images/robot_vid1.mp4', 'images/robot_vid2.mp4',],
+    gallery: ['images/robot_still.png'],
     pdf: null,
     summary: 'Design and integration of a six-axis industrial robotic arm, for cutting composite panels.',
     intro: 'I led the research, concept development, and troubleshooting for an automated composite-panel cutting cell built around a six-axis robot, embracing the unconventional restriction of using a robot arm over a gantry system to maximise the “cool” factor. I crafted modular cell layouts that support future expansion, selected a robot with the required reach and payload capacity, and evaluated end-effector options (again being overruled and adapting to a very cool, large saw blade).',
