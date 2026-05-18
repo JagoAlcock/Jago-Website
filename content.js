@@ -20,9 +20,29 @@
 //
 // ADDING A PHOTO
 // ──────────────
-//   1. Put the image file in the `images/` folder
-//      (e.g. images/wand-hero.jpg)
-//   2. In this file, set the project's image: 'images/wand-hero.jpg'
+//   1. Put the image file in the `images/` folder (e.g. images/wand-hero.jpg).
+//   2. Reference it as a string in the gallery array:
+//        gallery: ['images/wand-hero.jpg']
+//   Portrait vs landscape is detected automatically.
+//
+// ADDING A SHORT VIDEO CLIP (self-hosted, autoplay loop, no sound)
+// ────────────────────────────────────────────────────────────────
+//   1. Put the .mp4 file in the `images/` folder (e.g. images/demo.mp4).
+//      Keep clips short — aim for under 8 MB.
+//   2. Reference it like any image; the .mp4 extension is detected automatically:
+//        gallery: ['images/demo.mp4']
+//   Optionally add a poster thumbnail (shown before the video loads):
+//        gallery: [{ src: 'images/demo.mp4', poster: 'images/demo-poster.jpg' }]
+//   Portrait vs landscape is detected automatically from the video dimensions.
+//
+// ADDING A YOUTUBE / VIMEO EMBED
+// ───────────────────────────────
+//   Use the embed URL (not the watch URL) as a gallery entry:
+//        gallery: [{ src: 'https://www.youtube.com/embed/VIDEO_ID' }]
+//        gallery: [{ src: 'https://player.vimeo.com/video/VIDEO_ID' }]
+//   Defaults to 16:9 landscape. For vertical/portrait video (e.g. YouTube Shorts):
+//        gallery: [{ src: 'https://www.youtube.com/embed/VIDEO_ID', aspect: '9/16' }]
+//   The embed tiles in the gallery grid alongside images and clips.
 //
 // ADDING A PDF
 // ────────────

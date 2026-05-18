@@ -42,21 +42,27 @@ if (dupProjects.length) err(`Duplicate project slugs: ${dupProjects.join(', ')}`
 if (dupHobbies.length)  err(`Duplicate hobby slugs: ${dupHobbies.join(', ')}`);
 if (!dupProjects.length && !dupHobbies.length) ok('No duplicate slugs');
 
-// ── 3. Every image ref exists on disk ────────────────────────────────────
-const allImageRefs = [
-  ...PROJECTS.flatMap(p => [p.image, ...(p.gallery || [])]),
-  ...HOBBIES.map(h => h.image),
-].filter(Boolean);
+// ── 3. Every media ref exists on disk ────────────────────────────────────
+function resolveMediaSrc(entry) {
+  return typeof entry === 'string' ? entry : (entry && entry.src) || null;
+}
 
-let missingImages = 0;
-for (const imgPath of allImageRefs) {
-  const abs = path.join(ROOT, imgPath);
+const allMediaRefs = [
+  ...PROJECTS.flatMap(p => [p.image, ...(p.gallery || []).map(resolveMediaSrc)]),
+  ...HOBBIES.flatMap(h => [h.image, ...(h.gallery || []).map(resolveMediaSrc)]),
+  ...PROJECTS.flatMap(p => (p.gallery || []).filter(e => e && e.poster).map(e => e.poster)),
+  ...HOBBIES.flatMap(h => (h.gallery || []).filter(e => e && e.poster).map(e => e.poster)),
+].filter(p => p && !p.startsWith('http'));
+
+let missingMedia = 0;
+for (const mediaPath of allMediaRefs) {
+  const abs = path.join(ROOT, mediaPath);
   if (!fs.existsSync(abs)) {
-    err(`Missing image: ${imgPath}`);
-    missingImages++;
+    err(`Missing media file: ${mediaPath}`);
+    missingMedia++;
   }
 }
-if (!missingImages) ok(`All ${allImageRefs.length} image references resolve to existing files`);
+if (!missingMedia) ok(`All ${allMediaRefs.length} media references resolve to existing files`);
 
 // ── 4. Every project slug has a matching HTML file ────────────────────────
 let missingProjectPages = 0;

@@ -69,22 +69,61 @@ function HobbyBody({ t, h }) {
   );
 }
 
-function GalleryImg({ entry, title, idx, t }) {
+function isVideoSrc(src) {
+  return /\.(mp4|webm|mov)(\?.*)?$/i.test(src);
+}
+
+function isEmbedSrc(src) {
+  return typeof src === 'string' && src.startsWith('http');
+}
+
+function GalleryItem({ entry, title, idx, t }) {
   const [portrait, setPortrait] = React.useState(null);
-  const imgRef = React.useRef(null);
-  const imgSrc = typeof entry === 'string' ? entry : entry.src;
-  const imgPos  = typeof entry === 'string' ? 'center' : (entry.position || 'center');
-  const detect = () => { if (imgRef.current) setPortrait(imgRef.current.naturalHeight > imgRef.current.naturalWidth); };
-  React.useEffect(() => { if (imgRef.current && imgRef.current.complete) detect(); }, []);
-  const isPortrait = portrait === true;
+  const mediaRef = React.useRef(null);
+  const src    = typeof entry === 'string' ? entry : entry.src;
+  const imgPos = typeof entry === 'string' ? 'center' : (entry.position || 'center');
+  const poster = typeof entry === 'object' && entry.poster ? entry.poster : null;
+  const isVideo = isVideoSrc(src);
+  const isEmbed = isEmbedSrc(src);
+  const detectImg   = () => { if (mediaRef.current) setPortrait(mediaRef.current.naturalHeight > mediaRef.current.naturalWidth); };
+  const detectVideo = () => { if (mediaRef.current) setPortrait(mediaRef.current.videoHeight > mediaRef.current.videoWidth); };
+  React.useEffect(() => { if (!isVideo && !isEmbed && mediaRef.current && mediaRef.current.complete) detectImg(); }, []);
+
+  // Embeds can't be introspected cross-origin; derive portrait from explicit aspect string e.g. '9/16'.
+  const embedAspect = (typeof entry === 'object' && entry.aspect) ? entry.aspect : '16/9';
+  const embedIsPortrait = isEmbed && (() => { const [w, h] = embedAspect.split('/').map(Number); return h > w; })();
+
+  const isPortrait = isEmbed ? embedIsPortrait : portrait === true;
+  const container = { aspectRatio: isEmbed ? embedAspect : (isPortrait ? '2/3' : '3/2'), gridRow: isPortrait ? 'span 2' : 'span 1', overflow: 'hidden', border: `1px solid ${t.line}` };
+
+  if (isEmbed) return (
+    <div style={container}>
+      <iframe src={src} title={`${title} — video ${idx + 1}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              sandbox="allow-scripts allow-same-origin allow-presentation"
+              style={{ width: '100%', height: '100%', border: 'none', display: 'block' }} />
+    </div>
+  );
+  if (isVideo) return (
+    <div style={container}>
+      <video ref={mediaRef} autoPlay muted loop playsInline
+             poster={poster ? '../' + poster : undefined}
+             onLoadedMetadata={detectVideo}
+             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
+        <source src={'../' + src} />
+      </video>
+    </div>
+  );
   return (
-    <div style={{ aspectRatio: isPortrait ? '2/3' : '3/2', gridRow: isPortrait ? 'span 2' : 'span 1', overflow: 'hidden', border: `1px solid ${t.line}` }}>
-      <img ref={imgRef} src={'../' + imgSrc} alt={`${title} — gallery ${idx + 1}`}
-           loading="lazy" decoding="async" onLoad={detect}
+    <div style={container}>
+      <img ref={mediaRef} src={'../' + src} alt={`${title} — gallery ${idx + 1}`}
+           loading="lazy" decoding="async" onLoad={detectImg}
            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
     </div>
   );
 }
+
 
 function HobbyGallery({ t, h }) {
   const imgs = (h.gallery && h.gallery.length) ? h.gallery : null;
@@ -96,7 +135,7 @@ function HobbyGallery({ t, h }) {
       <div className="ja-grid-2" style={{ gap: 24, gridAutoRows: 'auto', alignItems: 'start' }}>
         {imgs
           ? imgs.map((entry, i) => (
-              <GalleryImg key={i} entry={entry} title={h.title} idx={i} t={t} />
+              <GalleryItem key={i} entry={entry} title={h.title} idx={i} t={t} />
             ))
           : ['MOMENT', 'ACTION', 'TEAM', 'PLACE'].map((label, i) => (
               <div key={i} style={{
