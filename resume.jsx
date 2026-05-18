@@ -2,11 +2,8 @@
 
 function Row({ t, label, children }) {
   return (
-    <div className="ja-grid-sidebar" style={{
-      padding: '32px 0', borderBottom: `1px solid ${t.line}`,
-      gridTemplateColumns: 'minmax(160px, 220px) 1fr', gap: 48,
-    }}>
-      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', paddingTop: 6 }}>{label}</div>
+    <div style={{ padding: '32px 0', borderBottom: `1px solid ${t.line}` }}>
+      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>{label}</div>
       <div>{children}</div>
     </div>
   );
@@ -39,20 +36,24 @@ function ResumeHero({ t }) {
       paddingTop: 72, paddingBottom: 56, borderBottom: `1px solid ${t.line}`,
     }}>
       <Eyebrow t={t}>Resume</Eyebrow>
-      <h1 className="ja-h1" style={{ fontFamily: t.head, fontWeight: 400, margin: '20px 0 0', color: t.text, maxWidth: 900 }}>
-        {RESUME.heading}
-      </h1>
-      <p style={{ fontFamily: t.sans, fontSize: 17, lineHeight: 1.65, color: t.dim, maxWidth: 780, marginTop: 24 }}>
-        {RESUME.summary}
-      </p>
-      <div style={{ marginTop: 36 }}>
-        <a href={RESUME.pdf} target="_blank" rel="noreferrer" style={{
-          background: t.accent, color: '#0f0f10', textDecoration: 'none',
-          padding: '16px 32px', fontSize: 13, letterSpacing: 0.5, fontWeight: 500,
-          fontFamily: t.sans, display: 'inline-flex', alignItems: 'center', gap: 14,
-        }}>
-          Download PDF resume <span style={{ fontSize: 16 }}>↗</span>
-        </a>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24, flexWrap: 'wrap', marginTop: 20 }}>
+        <div>
+          <h1 className="ja-h1" style={{ fontFamily: t.head, fontWeight: 400, margin: 0, color: t.text, maxWidth: 900 }}>
+            {RESUME.heading}
+          </h1>
+          <p style={{ fontFamily: t.sans, fontSize: 17, lineHeight: 1.65, color: t.dim, maxWidth: 780, marginTop: 24 }}>
+            {RESUME.summary}
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+          <a href={RESUME.pdf} target="_blank" rel="noreferrer" style={{
+            background: t.accent, color: '#0f0f10', textDecoration: 'none',
+            padding: '16px 32px', fontSize: 13, letterSpacing: 0.5, fontWeight: 500,
+            fontFamily: t.sans, display: 'inline-flex', alignItems: 'center', gap: 14,
+          }}>
+            Download PDF resume <span style={{ fontSize: 16 }}>↗</span>
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -35,8 +35,8 @@ function AboutHero({ t }) {
 function Story({ t }) {
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
-    <section className="ja-page-pad ja-section-y-lg ja-grid-sidebar" style={{ borderBottom: `1px solid ${t.line}` }}>
-      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase' }}>
+    <section className="ja-page-pad ja-section-y-lg" style={{ borderBottom: `1px solid ${t.line}` }}>
+      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
         ⟶ Background
       </div>
       <div style={{ maxWidth: 760 }}>

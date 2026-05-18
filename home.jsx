@@ -56,8 +56,8 @@ function Hero({ t }) {
 function Intro({ t }) {
   const statFont = { color: t.text, fontFamily: t.head, fontSize: 32, lineHeight: 1, marginBottom: 6, fontWeight: 400 };
   return (
-    <section className="ja-page-pad ja-section-y-lg ja-grid-sidebar" style={{ borderBottom: `1px solid ${t.line}` }}>
-      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase' }}>
+    <section className="ja-page-pad ja-section-y-lg" style={{ borderBottom: `1px solid ${t.line}` }}>
+      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
         ⟶ Introduction
       </div>
       <div>
