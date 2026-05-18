@@ -249,7 +249,7 @@ const PROJECTS = [
     client: 'University of Canterbury',
     tag: 'Mechatronics', year: '2023',
     image: 'images/project-cover.svg',
-    gallery: [{src: 'https://www.youtube.com/embed/qjdliHz-yIQ?si=hGpTIyInqgwPSq4K'}],
+    gallery: ['images/warman_team.jpg', 'images/warman_video1.mp4', 'images/warman_video2.mp4', 'images/warman_will.jpeg', 'images/warman_jago.jpg', 'images/warman_jack.jpeg'],
     pdf: null,
     summary: 'Team entry into the Warman international student design competition — a small autonomous machine that completes a materials-handling course against the clock.',
     intro: 'Warman is an annual inter-university mechatronic design competition. Teams design, build, and compete with small machines against a fixed rule set.',
