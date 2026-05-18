@@ -39,7 +39,7 @@ function Story({ t }) {
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
         ⟶ Background
       </div>
-      <div style={{ maxWidth: 760 }}>
+      <div>
         {ABOUT_TEXT.map((p, i) =>
         <p key={i} style={para}>{renderAccented(p, t)}</p>
         )}
