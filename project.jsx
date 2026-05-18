@@ -68,6 +68,23 @@ function ProjectBody({ t, p }) {
   );
 }
 
+function GalleryImg({ entry, title, idx, t }) {
+  const [portrait, setPortrait] = React.useState(null);
+  const imgRef = React.useRef(null);
+  const imgSrc = typeof entry === 'string' ? entry : entry.src;
+  const imgPos  = typeof entry === 'string' ? 'center' : (entry.position || 'center');
+  const detect = () => { if (imgRef.current) setPortrait(imgRef.current.naturalHeight > imgRef.current.naturalWidth); };
+  React.useEffect(() => { if (imgRef.current && imgRef.current.complete) detect(); }, []);
+  const isPortrait = portrait === true;
+  return (
+    <div style={{ aspectRatio: isPortrait ? '2/3' : '3/2', gridRow: isPortrait ? 'span 2' : 'span 1', overflow: 'hidden', border: `1px solid ${t.line}` }}>
+      <img ref={imgRef} src={'../' + imgSrc} alt={`${title} — gallery ${idx + 1}`}
+           loading="lazy" decoding="async" onLoad={detect}
+           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
+    </div>
+  );
+}
+
 function ProjectGallery({ t, p }) {
   const imgs = (p.gallery && p.gallery.length) ? p.gallery : null;
   return (
@@ -75,17 +92,11 @@ function ProjectGallery({ t, p }) {
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>
         ⟶ Gallery
       </div>
-      <div className="ja-grid-2" style={{ gap: 24 }}>
+      <div className="ja-grid-2" style={{ gap: 24, gridAutoRows: 'auto', alignItems: 'start' }}>
         {imgs
-          ? imgs.map((entry, i) => {
-              const imgSrc = typeof entry === 'string' ? entry : entry.src;
-              const imgPos = typeof entry === 'string' ? 'center' : (entry.position || 'center');
-              return (
-                <div key={i} style={{ aspectRatio: '4/3', overflow: 'hidden', border: `1px solid ${t.line}` }}>
-                  <img src={'../' + imgSrc} alt={`${p.title} — gallery ${i + 1}`} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
-                </div>
-              );
-            })
+          ? imgs.map((entry, i) => (
+              <GalleryImg key={i} entry={entry} title={p.title} idx={i} t={t} />
+            ))
           : ['OVERVIEW', 'DETAIL', 'PROTOTYPE', 'TEST'].map((label, i) => (
               <div key={i} style={{
                 aspectRatio: '4/3', background: t.bg2, border: `1px solid ${t.line}`,
