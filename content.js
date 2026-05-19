@@ -139,7 +139,7 @@ const PROJECTS = [
     specs: [
       ['Duration', '1 Year · 2025-2026'],
       ['Role', 'Researcher'],
-      ['Skills', 'Time Management · Problem Solving · Communication'],
+      ['Skills', 'Researching · Time Management · Problem Solving · Communication'],
       ['Tools', 'CFD · CAD · Python · Composite Manufacturing · Testing · Documentation'],
       ['Output', 'Thesis · Published Papers · Prototypes'],
       ['Industry', 'Aerospace']
@@ -237,8 +237,8 @@ const PROJECTS = [
     specs: [
       ['Duration', '6 months'],
       ['Role', 'Junior Engineer'],
-      ['Skills', 'Problem Solving · Troubleshooting · Communication'],
-      ['Tools', 'Research · CAD · Programing · Testing'],
+      ['Skills', 'Researching · Problem Solving · Troubleshooting · Communication'],
+      ['Tools', 'CAD · Programing · Testing'],
       ['Industry', 'Robotics'],
       ['Output', 'Automated Cutting Cell']
     ]
@@ -269,23 +269,38 @@ const PROJECTS = [
   },
   {
     slug: 'ev-post',
-    title: 'EV charger posts',
-    client: 'Gyro Plastics',
-    tag: 'Product Design',
-    year: '2024',
-    image: 'images/project-cover.svg',
-    gallery: [],
+    title: 'EV Charger Posts',
+    client: 'Gyro Plastics · Junior Engineer',
+    tag: 'Process Design',
+    year: '2023',
+    image: 'images/post_cover.jpg',
+    gallery: ['images/post_cover.jpg', 'images/post_making.jpg', 'images/post_production.jpg', 'images/post_clamped.jpg', 'images/post_hole.jpg',],
     pdf: null,
-    summary: 'Design of EV charger post enclosures with wind-loading, tamper-resistance, ease of installation, and rotational-moulding fabrication requirements all balanced.',
-    intro: 'Part of a broader EV infrastructure product line at Gyro Plastics.',
-    body: ['Balanced aerodynamic load on tall enclosures, cable-management access, and constraints specific to rotational moulding.'],
-    specs: [['Client', 'Gyro Plastics'], ['Process', 'Rotational moulding']],
+    summary: 'Leading the in-house manufacturing process design for EV charger posts.',
+    intro: 'I led the development of an in-house machining process for aluminium and stainless-steel EV charger posts using a CNC router only designed for wood and aluminium.',
+    body: [
+      'After researching high-speed machining practices, assessing tool geometries, coatings, feeds-and-speeds, and conducting cost-benefit analyses on tool life, I identified the most economical cutting tools and strategies for each material.',
+      'I then designed and fabricated a versatile fixture that rigidly clamps round, square, aluminium, or steel posts close to the cutting bit, maximising batch throughput and minimising chatter.',
+      'The greatest technical challenge was cutting stainless steel without coolant on a machine not optimised for metal.',
+      'Through iterative fixture refinements, countless tests and careful tuning of spindle speeds and feed rates, I achieved smooth, accurate cuts while preserving machine health.',
+      'I also addressed stakeholder scepticism by guiding a senior engineer, initially convinced the task was impossible, through comprehensive research and data-driven test results, ultimately winning his support and, in the end, enthusiasm.',
+      'Today, hundreds of EV posts are machined in-house using my process, tooling, and fixture, saving thousands of dollars per batch in outsourced machining costs.',
+      'This project demonstrates my ability to conduct in-depth research and data-driven decision-making, as well as to design and fabricate practical designs that integrate with existing machinery.',
+      'It also highlights my machining knowledge, and my skills in iterative refinement, problem-solving unconventional problems, and stakeholder management through clear, evidence-based communication.'
+    ],
+    specs: [
+      ['Role', 'Junior Engineer'],
+      ['Skills', 'Researching · Communication · Conflict Management · Team Work'],
+      ['Tools', 'CAD · CNC Machining · Testing'],
+      ['Industry', 'Manufacturing'],
+      ['Output', 'Production Infrastructure and Process']
+    ],
   },
   {
     slug: 'airline',
-    title: 'Airline design project',
-    client: 'University of Canterbury',
-    tag: 'Systems Design',
+    title: 'Airline Design Project',
+    client: 'University of Canterbury · Student',
+    tag: 'Aerospace',
     year: '2023',
     image: 'images/project-cover.svg',
     gallery: [],
