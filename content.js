@@ -290,7 +290,7 @@ const PROJECTS = [
     ],
     specs: [
       ['Role', 'Junior Engineer'],
-      ['Skills', 'Researching · Communication · Conflict Management · Team Work'],
+      ['Skills', 'Leadership · Researching · Communication · Conflict Management · Team Work'],
       ['Tools', 'CAD · CNC Machining · Testing'],
       ['Industry', 'Manufacturing'],
       ['Output', 'Production Infrastructure and Process']
@@ -302,13 +302,25 @@ const PROJECTS = [
     client: 'University of Canterbury · Student',
     tag: 'Aerospace',
     year: '2023',
-    image: 'images/project-cover.svg',
-    gallery: [],
+    image: 'images/airline_drawing.png',
+    gallery: ['images/airline_drawing.png', 'images/airline_plot1.png', 'images/airline_plot2.png', 'images/airline_plot3.png'],
     pdf: null,
-    summary: 'A systems-design coursework project: concept-to-proposal for a regional airline, covering fleet selection, route network, and operational model.',
-    intro: 'University coursework in systems design: stepping out from pure mechanical engineering into the aerospace business context.',
-    body: ['Market analysis, fleet and route optimisation, and operational trade-offs.'],
-    specs: [['Discipline', 'Systems Design'], ['Year', '2023']],
+    summary: 'A concept airliner design.',
+    intro: 'I co-led the conceptual design of a theoretical long-range business jet, setting out to address the increasing congestion at major international airports, many of which run beyond capacity during peak periods, and the looming phase out of high-capacity aircraft like the A380 and 747 due to high operational costs and infrastructure constraints.',
+    body: [
+      'With global air travel demand projected to rise over the next 15–20 years, and most smaller business jets financially inaccessible to typical corporate travellers, there exists a clear need for a new class of international business exclusive aircraft capable of operating from satellite airports to ease hub congestion.',
+      'Using statistical comparisons with existing wide-body and business jet designs, we established initial MTOW estimates before conducting iterative wing loading, thrust-to-weight, and fuel fraction analyses via component build-up drag calculations, Breguet range modelling, and constraint diagram optimisation.',
+      'Balancing short field performance against cruise efficiency led to the selection of LEAP 1A engines and a 307 m² wing at a 9:1 aspect ratio, delivering a final MTOW of 88,100 kg and a 6,003 nmi range.',
+      'Overcoming challenges in mass fraction convergence by continuously resizing structural, propulsion, and fuel systems until empty mass and fuel mass requirements aligned, validated our aerodynamic assumptions and confirmed the concept’s viability.',
+      'Through this project, I honed skills in multidisciplinary trade studies, conceptual aircraft design, and collaborative problem solving under strict performance and market constraints.'
+],
+    specs: [
+      ['Role', 'Student'],
+      ['Skills', 'Researching · Teamwork'],
+      ['Tools', 'Hand Calculations · CAD · Documentation'],
+      ['Industry', 'Aerospace'],
+      ['Output', 'Conceptual Airliner Design and Report']
+    ]
   },
   {
     slug: 'pcb-enclosure',
