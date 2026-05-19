@@ -61,6 +61,11 @@ function ProjectBody({ t, p }) {
                 <div style={{ fontFamily: t.sans, fontSize: 14, color: t.text, marginTop: 2 }}>{v}</div>
               </div>
             ))}
+            {p.pdf && (
+              <div style={{ marginTop: 16, paddingTop: 16, borderTop: `1px solid ${t.line}` }}>
+                <PDFButton t={t} href={p.pdf} />
+              </div>
+            )}
           </div>
         </aside>
       </div>
