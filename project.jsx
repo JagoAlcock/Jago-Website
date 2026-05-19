@@ -46,7 +46,7 @@ function ProjectBody({ t, p }) {
   return (
     <section className="ja-page-pad" style={{ paddingTop: 72, paddingBottom: 72 }}>
       <div className="ja-project-body" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 2fr) minmax(240px, 1fr)', gap: 56, alignItems: 'start' }}>
-        <div style={{ maxWidth: 760, minWidth: 0 }}>
+        <div style={{ minWidth: 0 }}>
           <p style={{ ...para, fontFamily: t.head, fontSize: 'clamp(20px, 2.4vw, 24px)', color: t.text, lineHeight: 1.45, letterSpacing: -0.2 }}>
             {p.intro || p.summary}
           </p>
