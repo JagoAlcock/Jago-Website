@@ -95,7 +95,7 @@ function GalleryItem({ entry, title, idx, t }) {
 
   const isPortrait = isEmbed ? embedIsPortrait : portrait === true;
   const cls = isPortrait ? 'ja-gallery-portrait' : 'ja-gallery-landscape';
-  const container = { aspectRatio: isEmbed ? embedAspect : (isPortrait ? '2/3' : '4/3'), height: '100%', overflow: 'hidden', border: `1px solid ${t.line}` };
+  const container = { ...(isEmbed && { aspectRatio: embedAspect }), height: '100%', overflow: 'hidden', border: `1px solid ${t.line}` };
 
   if (isEmbed) return (
     <div className={cls} style={container}>

@@ -150,7 +150,8 @@ const RESPONSIVE_CSS = `
     .ja-grid-2       { grid-template-columns: 1fr; gap: 28px; }
     .ja-grid-3       { grid-template-columns: 1fr; gap: 28px; }
     .ja-gallery-grid      { grid-template-columns: 1fr; grid-auto-rows: auto; }
-    .ja-gallery-landscape { grid-column: span 1; }
+    .ja-gallery-landscape { grid-column: span 1; aspect-ratio: 4/3; }
+    .ja-gallery-portrait  { aspect-ratio: 2/3; }
     .ja-nav-wrap     { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
     .ja-nav-right    { gap: 14px; width: 100%; justify-content: space-between; }
     .ja-nav-links    { gap: 14px; font-size: 12px; }
