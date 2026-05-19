@@ -94,10 +94,11 @@ function GalleryItem({ entry, title, idx, t }) {
   const embedIsPortrait = isEmbed && (() => { const [w, h] = embedAspect.split('/').map(Number); return h > w; })();
 
   const isPortrait = isEmbed ? embedIsPortrait : portrait === true;
-  const container = { aspectRatio: isEmbed ? embedAspect : (isPortrait ? '2/3' : '3/2'), gridRow: isPortrait ? 'span 2' : 'span 1', overflow: 'hidden', border: `1px solid ${t.line}` };
+  const cls = isPortrait ? 'ja-gallery-portrait' : 'ja-gallery-landscape';
+  const container = { aspectRatio: isEmbed ? embedAspect : (isPortrait ? '2/3' : '4/3'), overflow: 'hidden', border: `1px solid ${t.line}` };
 
   if (isEmbed) return (
-    <div style={container}>
+    <div className={cls} style={container}>
       <iframe src={src} title={`${title} — video ${idx + 1}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -106,7 +107,7 @@ function GalleryItem({ entry, title, idx, t }) {
     </div>
   );
   if (isVideo) return (
-    <div style={container}>
+    <div className={cls} style={container}>
       <video ref={mediaRef} autoPlay muted loop playsInline
              poster={poster ? '../' + poster : undefined}
              onLoadedMetadata={detectVideo}
@@ -116,7 +117,7 @@ function GalleryItem({ entry, title, idx, t }) {
     </div>
   );
   return (
-    <div style={container}>
+    <div className={cls} style={container}>
       <img ref={mediaRef} src={'../' + src} alt={`${title} — gallery ${idx + 1}`}
            loading="lazy" decoding="async" onLoad={detectImg}
            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
@@ -132,7 +133,7 @@ function HobbyGallery({ t, h }) {
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>
         ⟶ Gallery
       </div>
-      <div className="ja-grid-2" style={{ gap: 24, gridAutoRows: 'auto', alignItems: 'start' }}>
+      <div className="ja-gallery-grid">
         {imgs
           ? imgs.map((entry, i) => (
               <GalleryItem key={i} entry={entry} title={h.title} idx={i} t={t} />

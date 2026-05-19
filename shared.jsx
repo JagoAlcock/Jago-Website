@@ -103,6 +103,10 @@ const RESPONSIVE_CSS = `
   .ja-grid-sidebar  { display: grid; grid-template-columns: 1fr 2.3fr; gap: 80px; align-items: start; }
   .ja-grid-hero     { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: center; }
 
+  .ja-gallery-grid     { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: start; }
+  .ja-gallery-portrait  { grid-column: span 1; }
+  .ja-gallery-landscape { grid-column: span 2; }
+
   .ja-h1            { font-size: clamp(48px, 7vw, 88px); line-height: 0.96; letter-spacing: -0.03em; }
   .ja-h2            { font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.02em; }
 
@@ -122,6 +126,11 @@ const RESPONSIVE_CSS = `
   .ja-mode-toggle:hover, .ja-mode-toggle:focus-visible {
     border-color: var(--ja-accent) !important;
     color: var(--ja-text) !important;
+  }
+
+  /* ── Wide ── */
+  @media (min-width: 1280px) {
+    .ja-gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   /* ── Tablet ── */
@@ -144,6 +153,8 @@ const RESPONSIVE_CSS = `
     .ja-section-y-md { padding-top: 40px;  padding-bottom: 40px; }
     .ja-grid-2       { grid-template-columns: 1fr; gap: 28px; }
     .ja-grid-3       { grid-template-columns: 1fr; gap: 28px; }
+    .ja-gallery-grid     { grid-template-columns: 1fr; }
+    .ja-gallery-landscape { grid-column: span 1; }
     .ja-nav-wrap     { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
     .ja-nav-right    { gap: 14px; width: 100%; justify-content: space-between; }
     .ja-nav-links    { gap: 14px; font-size: 12px; }
