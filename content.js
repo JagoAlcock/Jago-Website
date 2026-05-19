@@ -356,7 +356,7 @@ const PROJECTS = [
     tag: 'Industrial Design',
     year: '2023',
     image: 'images/kiosk_cover.jpg',
-    gallery: ['images/kiosk_cover.jpg', 'images/kiosk_proto.jpg', 'images/kiosk_prints.jpg', 'images/kiosk_kiosks.jpg', 'images/kiosk_bollard1.jpg', 'images/kiosk_bollard2.jpg', 'images/test.jpg', 'images/kiosk_chain.jpg', 'images/kiosk_load.jpg', 'images/kiosk_roto.jpg'],
+    gallery: ['images/kiosk_cover.jpg', 'images/kiosk_proto.jpg', 'images/kiosk_prints.jpg', 'images/kiosk_kiosks.jpg', 'images/kiosk_bollard1.jpg', 'images/kiosk_bollard2.jpg', 'images/kiosk_test.jpg', 'images/kiosk_chain.jpg', 'images/kiosk_load.jpg', 'images/kiosk_roto.jpg'],
     pdf: null,
     summary: 'Designed EV charging kiosks and impact-protection bollards',
     intro: 'I led the full-cycle design and prototyping of rotationally moulded bases for EV charging kiosks and welded-steel protective bollards, considering ease of installation, wind-load resilience, and compatibility with multiple kiosk models. From initial market and material research through sketches and CAD concept iterations, rapid prototyping and testing, I ensured each solution met serviceability, aesthetic, and regulatory requirements.',
