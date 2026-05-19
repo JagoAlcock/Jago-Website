@@ -324,17 +324,30 @@ const PROJECTS = [
   },
   {
     slug: 'pcb-enclosure',
-    title: 'PCB enclosure & mounting',
-    client: 'Tait Communications',
+    title: 'PCB Enclosure',
+    client: 'Tait Communications · Junior Engineer',
     tag: 'Industrial Design',
     year: '2024',
-    image: 'images/project-cover.svg',
-    gallery: [],
+    image: 'images/tait_cover.jpg',
+    gallery: ['images/tait_cover.jpg', 'images/tait_video.mp4', 'images/tait_desktop.jpg', 'images/tait_closed.jpg', 'images/tait_desktop2.jpg', 'images/tait_cnc.jpg', 'images/tait_zoomed.jpg', 'images/tait_plate.jpg', 'images/tait_box.jpg', 'images/tait_lid.jpg',],
     pdf: null,
-    summary: 'Redesigned a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.',
-    intro: 'Led the full design process: customer research, concept development, iterative prototyping, manufacturing, and testing.',
-    body: ['Produced detailed handoff documentation to ensure continuity of the project after departure. Collaborated with diverse, multi-disciplined teams.'],
-    specs: [['Duration', '3 months'], ['Role', 'Junior Engineer']],
+    summary: 'Designed a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.',
+    intro: 'I led the end-to-end development of custom enclosures for printed-circuit boards, replacing a hazardous, space-inefficient mounting solution with both rack and desktop mounted designs that are safe, compact, and easily expandable.',
+    body: [
+      'Given broad creative freedom, I started by conducting customer research and stakeholder workshops to clarify requirements, then iterated through sketches, CAD concepts and fabricated prototypes for user feedback.',
+      'Once the design was finalised, I collaborated with the fabrication team to establish standardised production processes, an interactive, customisable BOM, and an internal ordering system enabling colleagues company-wide to request enclosure kits effortlessly.',
+      'A key challenge was bridging the communication gap with software engineers. Differing vocabularies and knowledge initially obscured the true requirements, but maintaining an open-door policy, asking targeted questions, and adopting a “fail fast” iterative approach, aligned our understanding before putting too much time into detailed design.',
+      'I documented every decision and delivered comprehensive handover materials to ensure seamless maintenance after my departure.',
+      'This project showcased and strengthened my skills in user-centred research, rapid prototyping, cross-disciplinary collaboration, clear technical communication, process standardisation, and thorough documentation.'
+],
+    specs: [
+      ['Duration', '3 months'],
+      ['Role', 'Junior Engineer'],
+      ['Skills', 'Researching · Time Management · Team Work · Problem Solving · Communication'],
+      ['Tools', 'CAD · CNC Machining · Soldering/Wiring · Assembly · Testing · Documentation'],
+      ['Industry', 'Critical Communications'],
+      ['Output', 'Completed Internal Product, Manufacturing Process and Documentation']
+    ],
   },
   {
     slug: 'ev-kiosk',
