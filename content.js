@@ -379,7 +379,7 @@ const PROJECTS = [
     client: 'University of Canterbury · Student',
     tag: 'Mechanical',
     year: '2023',
-    image: 'images/gearbox_cover.png',
+    image: 'images/gearbox_exploded.png',
     gallery: ['images/gearbox_cover.png', 'images/gearbox_exploded.png', 'images/gearbox_shaft.png', 'images/gearbox_housing.png'],
     pdf: 'documents/gearbox_calcs.pdf',
     summary: 'A full gearbox design exercise — gear ratios, shaft sizing, bearing selection, and housing design for a specific scenario.',
