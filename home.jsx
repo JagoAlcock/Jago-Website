@@ -4,10 +4,23 @@ function Hero({ t }) {
   const featured = PROJECTS.find(p => p.featured) || PROJECTS[0];
   const featuredIndex = PROJECTS.findIndex(p => p.slug === featured.slug);
   const featuredOrd = ordinalFromIndex(featuredIndex >= 0 ? featuredIndex : 0);
+  const heroImgRef = React.useRef(null);
+  React.useEffect(() => {
+    const img = heroImgRef.current;
+    if (!img) return;
+    let raf;
+    const onScroll = () => {
+      raf = requestAnimationFrame(() => {
+        img.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, []);
   return (
     <section style={{ position: 'relative', height: 'min(82vh, 780px)', minHeight: 520, overflow: 'hidden' }}>
-      <img src={featured.image} alt={`${featured.title} — featured project`} style={{
-        position: 'absolute', inset: 0, width: '100%', height: '100%',
+      <img ref={heroImgRef} src={featured.image} alt={`${featured.title} — featured project`} style={{
+        position: 'absolute', top: '-20%', left: 0, right: 0, width: '100%', height: '140%',
         objectFit: 'cover', objectPosition: 'center 45%',
         filter: t.mode === 'dark' ? 'brightness(0.65) contrast(1.05)' : 'brightness(0.95) contrast(1.05) saturate(0.9)',
       }} />

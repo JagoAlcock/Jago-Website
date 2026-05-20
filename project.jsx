@@ -6,6 +6,19 @@ function currentSlug() {
 }
 
 function ProjectHero({ t, p }) {
+  const heroImgRef = React.useRef(null);
+  React.useEffect(() => {
+    const img = heroImgRef.current;
+    if (!img) return;
+    let raf;
+    const onScroll = () => {
+      raf = requestAnimationFrame(() => {
+        img.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, []);
   return (
     <>
       <div className="ja-page-pad" style={{
@@ -17,8 +30,8 @@ function ProjectHero({ t, p }) {
       </div>
 
       <section style={{ position: 'relative', height: 'clamp(360px, 58vh, 640px)', overflow: 'hidden', borderBottom: `1px solid ${t.line}` }}>
-        <img src={'../' + p.image} alt={`${p.title} — project hero`} style={{
-          position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 45%',
+        <img ref={heroImgRef} src={'../' + p.image} alt={`${p.title} — project hero`} style={{
+          position: 'absolute', top: '-20%', left: 0, right: 0, width: '100%', height: '140%', objectFit: 'cover', objectPosition: 'center 45%',
           filter: t.mode === 'dark' ? 'brightness(0.7) contrast(1.05)' : 'brightness(0.95) contrast(1.05)',
         }} />
         <div style={{ position: 'absolute', inset: 0,
