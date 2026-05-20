@@ -107,6 +107,9 @@ const RESPONSIVE_CSS = `
   .ja-gallery-portrait  { grid-column: span 1; }
   .ja-gallery-landscape { grid-column: span 2; }
 
+  .ja-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .ja-reveal.ja-revealed { opacity: 1; transform: translateY(0); }
+
   .ja-h1            { font-size: clamp(48px, 7vw, 88px); line-height: 0.96; letter-spacing: -0.03em; }
   .ja-h2            { font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.02em; }
 
@@ -323,13 +326,31 @@ function DownloadBar({ t, items }) {
   );
 }
 
+function useScrollReveal(ref, delay) {
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.classList.add('ja-reveal');
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => el.classList.add('ja-revealed'), delay || 0);
+        obs.disconnect();
+      }
+    }, { threshold: 0.08 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+}
+
 // ── Gallery card (unified style used for both projects AND hobbies) ─────
-function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pathPrefix = '' }) {
+function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pathPrefix = '', revealDelay = 0 }) {
   const active = hoverSlug === item.slug;
   const hasImage = Boolean(item.image);
   const imgSrc = hasImage ? pathPrefix + item.image : null;
+  const cardRef = React.useRef(null);
+  useScrollReveal(cardRef, revealDelay);
   return (
-    <a href={href}
+    <a ref={cardRef} href={href}
       onMouseEnter={() => setHoverSlug(item.slug)}
       onMouseLeave={() => setHoverSlug(null)}
       style={{ textDecoration: 'none', color: 'inherit', display: 'block', cursor: 'pointer' }}>
@@ -412,6 +433,7 @@ function Gallery({ items, t, hrefFor, bigIndices = [0, 1], pathPrefix = '' }) {
           ordinal={ordinalFromIndex(i)}
           href={hrefFor(p)} hoverSlug={hoverSlug} setHoverSlug={setHoverSlug}
           big={bigIndices.includes(i)} pathPrefix={pathPrefix}
+          revealDelay={i * 70}
         />
       ))}
     </div>

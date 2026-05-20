@@ -92,7 +92,18 @@ function isEmbedSrc(src) {
 
 function GalleryItem({ entry, title, idx, t }) {
   const [portrait, setPortrait] = React.useState(null);
+  const [revealed, setRevealed] = React.useState(false);
   const mediaRef = React.useRef(null);
+  const wrapperRef = React.useRef(null);
+  React.useEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setTimeout(() => setRevealed(true), idx * 80); obs.disconnect(); }
+    }, { threshold: 0.08 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
   const src    = typeof entry === 'string' ? entry : entry.src;
   const imgPos = typeof entry === 'string' ? 'center' : (entry.position || 'center');
   const poster = typeof entry === 'object' && entry.poster ? entry.poster : null;
@@ -108,10 +119,11 @@ function GalleryItem({ entry, title, idx, t }) {
 
   const isPortrait = isEmbed ? embedIsPortrait : portrait === true;
   const cls = isPortrait ? 'ja-gallery-portrait' : 'ja-gallery-landscape';
-  const container = { ...(isEmbed && { aspectRatio: embedAspect }), height: '100%', overflow: 'hidden', border: `1px solid ${t.line}` };
+  const revealStyle = { opacity: revealed ? 1 : 0, transform: revealed ? 'none' : 'translateY(28px)', transition: 'opacity 0.55s ease, transform 0.55s ease' };
+  const container = { ...(isEmbed && { aspectRatio: embedAspect }), height: '100%', overflow: 'hidden', border: `1px solid ${t.line}`, ...revealStyle };
 
   if (isEmbed) return (
-    <div className={cls} style={container}>
+    <div ref={wrapperRef} className={cls} style={container}>
       <iframe src={src} title={`${title} — video ${idx + 1}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -120,7 +132,7 @@ function GalleryItem({ entry, title, idx, t }) {
     </div>
   );
   if (isVideo) return (
-    <div className={cls} style={container}>
+    <div ref={wrapperRef} className={cls} style={container}>
       <video ref={mediaRef} autoPlay muted loop playsInline
              poster={poster ? '../' + poster : undefined}
              onLoadedMetadata={detectVideo}
@@ -130,7 +142,7 @@ function GalleryItem({ entry, title, idx, t }) {
     </div>
   );
   return (
-    <div className={cls} style={container}>
+    <div ref={wrapperRef} className={cls} style={container}>
       <img ref={mediaRef} src={'../' + src} alt={`${title} — gallery ${idx + 1}`}
            loading="lazy" decoding="async" onLoad={detectImg}
            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
