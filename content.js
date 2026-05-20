@@ -379,6 +379,7 @@ const PROJECTS = [
       'images/warman_will.jpeg',
       'images/warman_jago.jpg',
       'images/warman_jack.jpeg',
+      'images/warman_drawing.png'
     ],
     pdf: null,
     summary: `Entry into the Warman international student design competition — an autonomous
@@ -419,6 +420,8 @@ const PROJECTS = [
       'images/post_cover.jpg',
       'images/post_making.jpg',
       'images/post_production.jpg',
+      'images/post_product.png',
+      'images/post_options.png',
       'images/post_clamped.jpg',
       'images/post_hole.jpg',
     ],
@@ -469,28 +472,34 @@ const PROJECTS = [
       'images/airline_plot2.png',
       'images/airline_plot3.png',
     ],
-    pdf: null,
+    pdf: 'documents/airline_report.pdf',
     summary: 'A concept airliner design.',
+
     intro: `I co-led the conceptual design of a theoretical long-range business jet, setting
       out to address the increasing congestion at major international airports, many of which
       run beyond capacity during peak periods, and the looming phase out of high-capacity
       aircraft like the A380 and 747 due to high operational costs and infrastructure
       constraints.`,
+
     body: [
       `With global air travel demand projected to rise over the next 15–20 years, and most
       smaller business jets financially inaccessible to typical corporate travellers, there
       exists a clear need for a new class of international business exclusive aircraft capable
       of operating from satellite airports to ease hub congestion.`,
+
       `Using statistical comparisons with existing wide-body and business jet designs, we
       established initial MTOW estimates before conducting iterative wing loading,
       thrust-to-weight, and fuel fraction analyses via component build-up drag calculations,
       Breguet range modelling, and constraint diagram optimisation.`,
+
       `Balancing short field performance against cruise efficiency led to the selection of
       LEAP 1A engines and a 307 m² wing at a 9:1 aspect ratio, delivering a final MTOW of
       88,100 kg and a 6,003 nmi range.`,
+
       `Overcoming challenges in mass fraction convergence by continuously resizing structural,
       propulsion, and fuel systems until empty mass and fuel mass requirements aligned,
       validated our aerodynamic assumptions and confirmed the concept's viability.`,
+
       `Through this project, I honed skills in multidisciplinary trade studies, conceptual
       aircraft design, and collaborative problem solving under strict performance and market
       constraints.`,
@@ -525,20 +534,25 @@ const PROJECTS = [
     pdf: null,
     summary: `Designed a PCB enclosure and mounting system for the software development team,
       replacing a dangerous and space-inefficient existing solution.`,
+
     intro: `I led the end-to-end development of custom enclosures for printed-circuit boards,
       replacing a hazardous, space-inefficient mounting solution with both rack and desktop
       mounted designs that are safe, compact, and easily expandable.`,
+
     body: [
       `Given broad creative freedom, I started by conducting customer research and stakeholder
       workshops to clarify requirements, then iterated through sketches, CAD concepts and
       fabricated prototypes for user feedback.`,
+
       `Once the design was finalised, I collaborated with the fabrication team to establish
       standardised production processes, an interactive, customisable BOM, and an internal
       ordering system enabling colleagues company-wide to request enclosure kits effortlessly.`,
+
       `A key challenge was bridging the communication gap with software engineers. Differing
       vocabularies and knowledge initially obscured the true requirements, but maintaining an
       open-door policy, asking targeted questions, and adopting a "fail fast" iterative
       approach aligned our understanding before putting too much time into detailed design.`,
+
       `I documented every decision and delivered comprehensive handover materials to ensure
       seamless maintenance after my departure. This project showcased and strengthened my
       skills in user-centred research, rapid prototyping, cross-disciplinary collaboration,
@@ -566,6 +580,7 @@ const PROJECTS = [
       'images/kiosk_kiosks.jpg',
       'images/kiosk_bollard1.jpg',
       'images/kiosk_bollard2.jpg',
+      'images?kiosk_bollards.png',
       'images/kiosk_proto.jpg',
       'images/kiosk_test.jpg',
       'images/kiosk_chain.jpg',
@@ -584,11 +599,13 @@ const PROJECTS = [
       `To address the challenges of rotational moulding such as material flow, thread inserts,
       and demoulding, I performed regular draft-angle analyses and made frequent visits to the
       mould maker, ensuring my designs remained viable.`,
+
       `Another challenge was locating and interpreting the relevant safety and
       impact-protection standards. Sifting through extensive, technical documents required
       persistence and attention to detail, but ultimately allowed me to specify the correct
       dimensions, wall thicknesses, and anchoring requirements for regulatory compliance of
       the bollards.`,
+
       `This project strengthened my skills in polymer design for manufacture, standards
       research and interpretation, rapid prototyping, cross-disciplinary collaboration, and
       problem-solving under real-world production constraints.`,
@@ -624,14 +641,17 @@ const PROJECTS = [
       `I began by translating performance requirements into power and torque targets,
       specifying a Kubota V2003 M DI T E2B turbocharged diesel engine, a PTO clutch, and a
       1:24 gearbox ratio.`,
+
       `Applying AGMA stress and fatigue analyses, I sized gears and shafts for 99% reliability
       over 100 million cycles, selected materials and heat treatments for optimal strength and
       wear resistance, and produced technical drawings with GD&T callouts and preliminary
       supplier quotes.`,
+
       `The design features a split housing for swift assembly and maintenance, chamfer-guided
       pre-assembled shaft modules, bearing-retention caps that double as lubricant ports, a
       minimal fastener set to reduce assembly errors, and a quick-install housing that slots
       onto frame rails without disturbing adjacent components.`,
+
       `A big challenge was managing the interdependent nature of each design decision, where
       adjusting one parameter triggered repeated recalculations and redesigns, but by
       embracing the iterative workflow and knuckling down, I managed to converge on a
@@ -647,21 +667,54 @@ const PROJECTS = [
   },
   {
     slug: 'al-structure',
-    title: 'Aluminium structure',
-    client: 'University coursework',
+    title: 'Aluminium Structure',
+    client: 'University of Canterbury · Student',
     tag: 'Structural',
     year: '2023',
-    image: 'images/project-cover.svg',
-    gallery: [],
-    pdf: null,
-    summary: `Structural analysis and design of an aluminium space frame, covering FEA,
-      weld detailing, and connection design.`,
-    intro: 'Coursework in structural design, applied to a welded aluminium frame.',
-    body: [
-      `Finite-element analysis of the frame under applied loads, weld sizing, and detailed
-      connection drawings.`,
+    image: 'images/al_drawing1.png',
+    gallery: [
+      'images/al_cad.jpg',
+      'images/al_drawing1.png',
+      'images/al_beam.jpg',
+      'images/al_clamp1.jpg',
+      'images/al_drawing2.png',
+      'images/al_drawing3.png',
+      'images/al_clamp2.jpg',
+      'images/al_dogbones.jpg'
     ],
-    specs: [['Material', 'Aluminium'], ['Year', '2023']],
+    pdf: 'documents/al_report.pdf',
+    summary: `Structural design and analysis of an aluminium structure.`,
+
+    intro: `We were charged with designing a lightweight frame capable of supporting a 20–39 kg
+      load and failing predictably within ±25 % of a target mass.`,
+
+    body: [
+      `To begin, we characterised the unknown aluminium alloy via tensile testing of dog bone
+      specimens, determining the ultimate tensile strength and Young’s Modulus, and using these
+      material properties to drive strength calculations. We evaluated three triangular
+      configurations for strength-to-weight efficiency and chose an upside-down right-angled
+      design so that only one compressive member required reinforcement, minimising buckling
+      risk and fabrication complexity. The loads in each member were calculated and informed
+      the introduction of a 2.52 mm central notch in the horizontal strip to achieve controlled
+      tensile failure. To shave off mass without sacrificing strength, we specified an I-beam
+      profile for the compressive member and strategically drilled weight reduction holes, then
+      validated the design through SolidWorks modelling and hand calculations.`,
+
+      `A key challenge was accurate manufacturing with only hand tools. Our initial hole-based
+      failure point proved difficult to align correctly with such little material on each side,
+      so we switched to a notch approach which allowed us to sneak up on the correct dimension
+      far more accurately using files and sanding.`,
+
+      `This project honed my skills in material testing, hand calculation structural analysis,
+      CAD, and the trade-offs between manufacturability and performance.`
+    ],
+    specs: [
+      ['Role', 'Student'],
+      ['Skills', 'Time Management · Team Work'],
+      ['Tools', 'Hand Calculations · CAD · Manufacturing · Documentation · Testing'],
+      ['Industry', 'Structural Engineering'],
+      ['Output', 'Structure and Report'],
+    ],
   },
   {
     slug: 'cnc',
