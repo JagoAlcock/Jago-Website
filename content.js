@@ -205,7 +205,7 @@ const PROJECTS = [
   {
     slug: 'syos',
     title: 'SYOS Aerospace',
-    tagline: 'Fast team, live contracts, real systems.',
+    tagline: 'Defining "agnostic".',
     client: 'SYOS Aerospace · Junior Engineer',
     tag: 'Aerospace',
     year: '2025',
@@ -416,7 +416,7 @@ const PROJECTS = [
   {
     slug: 'ev-post',
     title: 'EV Charger Posts',
-    tagline: 'From impossible to running batches.',
+    tagline: 'From impossible to batch runs.',
     client: 'Gyro Plastics · Junior Engineer',
     tag: 'Process Design',
     year: '2023',
