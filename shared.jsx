@@ -110,6 +110,8 @@ const RESPONSIVE_CSS = `
   .ja-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
   .ja-reveal.ja-revealed { opacity: 1; transform: translateY(0); }
 
+  @keyframes ja-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
   .ja-h1            { font-size: clamp(48px, 7vw, 88px); line-height: 0.96; letter-spacing: -0.03em; }
   .ja-h2            { font-size: clamp(36px, 5vw, 56px); line-height: 1.0; letter-spacing: -0.02em; }
 

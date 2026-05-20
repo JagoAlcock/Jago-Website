@@ -86,8 +86,8 @@ const SITE_INFO = {
 
 // ── 2. Home-page intro stats ────────────────────────────────────────────
 const INTRO_STATS = [
-  { value: '2+', label: 'years of R&D experience' },
-  // { value: '6', label: 'companies, 6 industries' },
+  { value: '26+', label: 'months of R&D experience' },
+  { value: null, label: 'engineering industries', prefix: 'over' },
   { value: 'BE(Hons)',
     label: 'First-Class Honours\nMechanical Engineering Major\nAerospace Engineering Minor' },
 ];

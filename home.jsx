@@ -66,8 +66,91 @@ function Hero({ t }) {
   );
 }
 
-function Intro({ t }) {
+function StatTile({ s, t }) {
   const statFont = { color: t.text, fontFamily: t.head, fontSize: 32, lineHeight: 1, marginBottom: 6, fontWeight: 400 };
+  const rawValue = s.value;
+  const match = rawValue != null ? String(rawValue).match(/^(\d+)(\D*)$/) : null;
+  const isNumeric = match != null || rawValue === null;
+
+  const autoTarget = rawValue === null ? new Set(PROJECTS.map(p => p.tag)).size : null;
+  const target = rawValue === null ? autoTarget : (match ? parseInt(match[1], 10) : 0);
+  const suffix = match ? match[2] : '';
+  const [count, setCount] = React.useState(0);
+  const tileRef = React.useRef(null);
+
+  const lines = s.label.split('\n');
+  const [typedLines, setTypedLines] = React.useState(lines.map(() => ''));
+  const [typingLine, setTypingLine] = React.useState(-1);
+
+  // Advance typewriter one line at a time
+  React.useEffect(() => {
+    if (typingLine < 0 || typingLine >= lines.length) return;
+    const full = lines[typingLine];
+    let i = 0;
+    const iv = setInterval(() => {
+      i++;
+      setTypedLines(prev => { const n = [...prev]; n[typingLine] = full.slice(0, i); return n; });
+      if (i >= full.length) {
+        clearInterval(iv);
+        setTimeout(() => setTypingLine(l => l + 1), 180);
+      }
+    }, 38);
+    return () => clearInterval(iv);
+  }, [typingLine]);
+
+  React.useEffect(() => {
+    const el = tileRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      if (isNumeric) {
+        const start = performance.now();
+        const duration = 3500;
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setCount(Math.round(eased * target));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      } else {
+        setTypingLine(0);
+      }
+    }, { threshold: 0.2 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  if (isNumeric) return (
+    <div ref={tileRef} style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+      {s.prefix && <span style={{ fontFamily: t.sans, fontSize: 13, color: t.dim }}>{s.prefix}</span>}
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <div style={{ ...statFont, visibility: 'hidden' }}>{target + suffix}</div>
+        <div style={{ ...statFont, position: 'absolute', top: 0, left: 0 }}>{count + suffix}</div>
+      </div>
+      <span style={{ fontFamily: t.sans, fontSize: 13, color: t.dim }}>{s.label}</span>
+    </div>
+  );
+  return (
+    <div ref={tileRef}>
+      <div style={statFont}>{rawValue}</div>
+      <div style={{ fontFamily: t.mono, fontSize: 11, lineHeight: 1.9, letterSpacing: 0.3 }}>
+        {lines.map((line, i) => (
+          <div key={i} style={{ position: 'relative', minHeight: '1.9em' }}>
+            <div style={{ visibility: 'hidden', whiteSpace: 'nowrap' }}>{line}</div>
+            <div style={{ position: 'absolute', top: 0, left: 0, whiteSpace: 'nowrap' }}>
+              {typedLines[i]}
+              {typingLine === i && <span style={{ animation: 'ja-blink 0.7s step-end infinite' }}>|</span>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Intro({ t }) {
   return (
     <section className="ja-page-pad ja-section-y-lg" style={{ borderBottom: `1px solid ${t.line}` }}>
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
@@ -78,12 +161,7 @@ function Intro({ t }) {
           {renderAccented(INTRO_TEXT, t)}
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, auto))', gap: 40, marginTop: 48, fontSize: 13, color: t.dim, fontFamily: t.sans }}>
-          {INTRO_STATS.map((s, i) => (
-            <div key={i}>
-              <div style={statFont}>{s.value}</div>
-              <div style={{ whiteSpace: 'pre-line', lineHeight: 1.45 }}>{s.label}</div>
-            </div>
-          ))}
+          {INTRO_STATS.map((s, i) => <StatTile key={i} s={s} t={t} />)}
         </div>
       </div>
     </section>
