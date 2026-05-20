@@ -65,6 +65,7 @@ function ordinalFromSlug(items, slug) {
 // ── Responsive styles: injected once into <head> ────────────────────────
 // Uses class names + CSS custom properties so inline styles still work.
 const RESPONSIVE_CSS = `
+  html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; }
   * { box-sizing: border-box; }
   img, video { max-width: 100%; height: auto; }
@@ -123,6 +124,7 @@ const RESPONSIVE_CSS = `
 
   /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
   }
 
@@ -261,10 +263,11 @@ function ModeToggle({ mode, onToggle, t }) {
 
 function Nav({ t, mode, onToggleMode, active, pathPrefix = '' }) {
   const links = [
-    ['Portfolio',           pathPrefix + 'index.html',     'work'],
-    ['About Me',            pathPrefix + 'about.html',     'about'],
-    ['Resume',              pathPrefix + 'resume.html',    'resume'],
+    ['Portfolio',            pathPrefix + 'index.html',     'work'],
+    ['About Me',             pathPrefix + 'about.html',     'about'],
+    ['Resume',               pathPrefix + 'resume.html',    'resume'],
     ['Supporting Documents', pathPrefix + 'documents.html', 'docs'],
+    ['Contact',              '#contact',                    'contact'],
   ];
   return (
     <header className="ja-nav-wrap" style={{
