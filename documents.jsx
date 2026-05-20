@@ -15,9 +15,11 @@ function DocsHero({ t }) {
 }
 
 function RecommendationCard({ t, r, idx }) {
+  const ref = React.useRef(null);
+  useScrollReveal(ref, idx * 120);
   const paragraphs = r.excerpt.split('\n\n');
   return (
-    <article style={{
+    <article ref={ref} style={{
       borderTop: `1px solid ${t.line2}`,
       padding: '64px 0',
       display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)'

@@ -1,17 +1,21 @@
 // Resume page — PDF button ABOVE content, then full on-page resume.
 
-function Row({ t, label, children }) {
+function Row({ t, label, children, reveal = false }) {
+  const ref = React.useRef(null);
+  useScrollReveal(ref, 0);
   return (
-    <div style={{ padding: '32px 0', borderBottom: `1px solid ${t.line}` }}>
+    <div ref={reveal ? ref : null} style={{ padding: '32px 0', borderBottom: `1px solid ${t.line}` }}>
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 20 }}>{label}</div>
       <div>{children}</div>
     </div>
   );
 }
 
-function JobCard({ t, role, where, tag, dur, bullets }) {
+function JobCard({ t, role, where, tag, dur, bullets, revealDelay = 0 }) {
+  const ref = React.useRef(null);
+  useScrollReveal(ref, revealDelay);
   return (
-    <article style={{ marginBottom: 40 }}>
+    <article ref={ref} style={{ marginBottom: 40 }}>
       <div className="ja-flex-between" style={{ marginBottom: 6 }}>
         <h3 style={{ fontFamily: t.head, fontSize: 24, fontWeight: 400, margin: 0, letterSpacing: -0.4, color: t.text }}>
           {role} <span style={{ color: t.dim }}>— {where}</span>
@@ -27,6 +31,17 @@ function JobCard({ t, role, where, tag, dur, bullets }) {
         ))}
       </ul>
     </article>
+  );
+}
+
+function AchievementCard({ t, title, desc, revealDelay = 0 }) {
+  const ref = React.useRef(null);
+  useScrollReveal(ref, revealDelay);
+  return (
+    <div ref={ref}>
+      <div style={{ color: t.text, fontFamily: t.head, fontSize: 18, letterSpacing: -0.2, marginBottom: 4 }}>{title}</div>
+      <div style={{ fontFamily: t.sans, fontSize: 14, color: t.dim, lineHeight: 1.5 }}>{desc}</div>
+    </div>
   );
 }
 
@@ -75,11 +90,11 @@ function Body({ t }) {
 
       <Row t={t} label="Work Experience">
         {RESUME.jobs.map((j, i) => (
-          <JobCard key={i} t={t} {...j} />
+          <JobCard key={i} t={t} {...j} revealDelay={i * 80} />
         ))}
       </Row>
 
-      <Row t={t} label="Skills — Technical">
+      <Row t={t} label="Skills — Technical" reveal>
         <div style={{ fontFamily: t.sans, fontSize: 15, lineHeight: 2, color: t.dim }}>
           {RESUME.skills.tech.map(([k, v]) => (
             <div key={k}><b style={{ color: t.text, fontWeight: 500 }}>{k}:</b> {v}</div>
@@ -87,7 +102,7 @@ function Body({ t }) {
         </div>
       </Row>
 
-      <Row t={t} label="Skills — Soft">
+      <Row t={t} label="Skills — Soft" reveal>
         <ul style={{ margin: 0, padding: 0, listStyle: 'none', fontFamily: t.sans, fontSize: 15, lineHeight: 1.7, color: t.dim }}>
           {RESUME.skills.soft.map(([k, v]) => (
             <li key={k} style={{ marginTop: 12 }}>
@@ -98,17 +113,14 @@ function Body({ t }) {
       </Row>
 
       <Row t={t} label="Achievements">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px 40px', fontFamily: t.sans, fontSize: 14, color: t.dim, lineHeight: 1.5 }}>
-          {RESUME.achievements.map(([k, v]) => (
-            <div key={k}>
-              <div style={{ color: t.text, fontFamily: t.head, fontSize: 18, letterSpacing: -0.2, marginBottom: 4 }}>{k}</div>
-              <div>{v}</div>
-            </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px 40px' }}>
+          {RESUME.achievements.map(([k, v], i) => (
+            <AchievementCard key={k} t={t} title={k} desc={v} revealDelay={i * 80} />
           ))}
         </div>
       </Row>
 
-      <Row t={t} label="Community">
+      <Row t={t} label="Community" reveal>
         <ul style={{ margin: 0, padding: 0, listStyle: 'none', fontFamily: t.sans, fontSize: 15, lineHeight: 1.7, color: t.dim }}>
           {RESUME.community.map(([k, v]) => (
             <li key={k} style={{ marginBottom: 14 }}>
@@ -118,7 +130,7 @@ function Body({ t }) {
         </ul>
       </Row>
 
-      <Row t={t} label="Referees">
+      <Row t={t} label="Referees" reveal>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32, fontFamily: t.sans, fontSize: 13, lineHeight: 1.7, color: t.dim }}>
           {RESUME.referees.map(([name, role, email, phone]) => (
             <div key={name}>
