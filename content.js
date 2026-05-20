@@ -580,7 +580,7 @@ const PROJECTS = [
       'images/kiosk_kiosks.jpg',
       'images/kiosk_bollard1.jpg',
       'images/kiosk_bollard2.jpg',
-      'images?kiosk_bollards.png',
+      'images/kiosk_bollards.png',
       'images/kiosk_proto.jpg',
       'images/kiosk_test.jpg',
       'images/kiosk_chain.jpg',
