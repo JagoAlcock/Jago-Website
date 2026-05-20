@@ -205,6 +205,7 @@ const PROJECTS = [
   {
     slug: 'syos',
     title: 'SYOS Aerospace',
+    tagline: 'Fast team, live contracts, real systems.',
     client: 'SYOS Aerospace · Junior Engineer',
     tag: 'Aerospace',
     year: '2025',
@@ -253,6 +254,7 @@ const PROJECTS = [
   {
     slug: 'uc-rocket',
     title: 'UC Aerospace Level 1 Rocket',
+    tagline: 'What goes up, must come down.',
     client: 'UC Aerospace · Student',
     tag: 'Aerospace',
     year: '2024',
@@ -328,6 +330,7 @@ const PROJECTS = [
   {
     slug: 'robo-saw',
     title: '6-Axis Robotic Sawblade',
+    tagline: 'Gantries are overrated.',
     client: 'QBH · Junior Engineer',
     tag: 'Robotics',
     year: '2020',
@@ -368,6 +371,7 @@ const PROJECTS = [
   {
     slug: 'warman',
     title: 'Warman Design Competition',
+    tagline: 'The only team to shoot.',
     client: 'University of Canterbury · Student',
     tag: 'Robotics',
     year: '2023',
@@ -412,6 +416,7 @@ const PROJECTS = [
   {
     slug: 'ev-post',
     title: 'EV Charger Posts',
+    tagline: 'From impossible to running batches.',
     client: 'Gyro Plastics · Junior Engineer',
     tag: 'Process Design',
     year: '2023',
@@ -462,6 +467,7 @@ const PROJECTS = [
   {
     slug: 'airline',
     title: 'Airliner Design Project',
+    tagline: '88,100 kg MTOW. 6,003 nmi range... on paper.',
     client: 'University of Canterbury · Student',
     tag: 'Aerospace',
     year: '2023',
@@ -515,6 +521,7 @@ const PROJECTS = [
   {
     slug: 'pcb-enclosure',
     title: 'PCB Enclosure',
+    tagline: 'Replaced a hazard and built a process.',
     client: 'Tait Communications · Junior Engineer',
     tag: 'Industrial Design',
     year: '2024',
@@ -570,6 +577,7 @@ const PROJECTS = [
   {
     slug: 'ev-kiosk',
     title: 'EV Charging Kiosks & Bollards',
+    tagline: 'Electrification and protection.',
     client: 'Gyro Plastics · Junior Engineer',
     tag: 'Industrial Design',
     year: '2023',
@@ -621,6 +629,7 @@ const PROJECTS = [
   {
     slug: 'gearbox',
     title: 'Gearbox Design',
+    tagline: 'Hauling trees.',
     client: 'University of Canterbury · Student',
     tag: 'Mechanical',
     year: '2023',
@@ -668,6 +677,7 @@ const PROJECTS = [
   {
     slug: 'al-structure',
     title: 'Aluminium Structure',
+    tagline: 'Designed to fail.',
     client: 'University of Canterbury · Student',
     tag: 'Structural',
     year: '2023',
@@ -719,6 +729,7 @@ const PROJECTS = [
   {
     slug: 'cnc',
     title: 'CNC machining production',
+    tagline: 'On the shop floor.',
     client: 'Automatic Lathes (3 months)',
     tag: 'Manufacturing',
     year: '2022',
@@ -737,7 +748,8 @@ const PROJECTS = [
   {
     slug: 'hinge',
     title: 'Hinge material selection',
-    client: 'University coursework',
+    tagline: 'Hingeing on....',
+    client: 'Gyro Plastics · Junior Engineer',
     tag: 'Materials',
     year: '2023',
     image: 'images/project-cover.svg',
@@ -752,7 +764,8 @@ const PROJECTS = [
   {
     slug: 'bearing',
     title: 'Bearing housing',
-    client: 'University coursework',
+    tagline: 'CAD to finished component.',
+    client: 'University of Canterbury · Student',
     tag: 'Mechanical',
     year: '2022',
     image: 'images/project-cover.svg',
@@ -767,7 +780,8 @@ const PROJECTS = [
   {
     slug: 'drilling-fixture',
     title: 'Drilling fixture',
-    client: 'Workshop project',
+    tagline: 'Repeatable holes, every time.',
+    client: 'Gyro Plastics · Junior Engineer',
     tag: 'Manufacturing',
     year: '2022',
     image: 'images/project-cover.svg',
