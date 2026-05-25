@@ -743,7 +743,7 @@ const PROJECTS = [
       'images/cnc_machine2.jpg',
       'images/cnc_jig.jpg'
     ],
-    pdf: 'documents/bearing_report.pdf',
+    pdf: null,
     summary: `Set up, operated, and maintained CNC mills and lathes in a production environment.`,
     intro: `I've curated a selection of components that I’ve CNC-machined on mills, lathes, and routers,
     showcasing my end-to-end shopfloor capabilities.`,
@@ -778,7 +778,7 @@ const PROJECTS = [
       'images/bearing_drawing1.png',
       'images/bearing_drawing2.png'
     ],
-    pdf: null,
+    pdf: 'documents/bearing_report.pdf',
     summary: `I designed a bearing housing for a theoretical indoor skydiving fan.`,
     intro: 'I designed a bearing housing for a theoretical indoor skydiving fan.',
     body: [],
@@ -800,12 +800,15 @@ const PROJECTS = [
     image: 'images/project-cover.svg',
     gallery: [],
     pdf: null,
-    summary: `A reusable drilling fixture for repeatable hole patterns on a family of parts —
-      quick-clamping, swap-plate design.`,
-    intro: 'Workshop project focused on production efficiency.',
-    body: ['Quick-clamp layout, swappable drill plates, and a simple datum scheme.'],
-    specs: [['Discipline', 'Manufacturing'], ['Year', '2022']],
-  },
+    summary: `A drilling fixture for repeatable hole patterns on a family of parts.`,
+    intro: 'I designed and manufactured a rotating drilling fixture to replace several old fixtures.',
+    body: [],
+    specs: [
+      ['Role', 'Junior Engineer'],
+      ['Skills', 'Time Management · Team Work · Problem Solving · Communication'],
+      ['Tools', 'CAD · CNC Machining'],
+      ['Industry', 'Manufacturing'],
+    ],  },
 ];
 
 
