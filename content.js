@@ -797,8 +797,14 @@ const PROJECTS = [
     client: 'Gyro Plastics · Junior Engineer',
     tag: 'Manufacturing',
     year: '2022',
-    image: 'images/project-cover.svg',
-    gallery: [],
+    image: 'images/drill_assy.jpg',
+    gallery: [
+      'images/drill_assy.jpg',
+      'images/drill_old.jpg',
+      'images/drill_new.jpg',
+      'images/drill_used.jpg',
+      'images/drill_close.jpg'
+    ],
     pdf: null,
     summary: `A drilling fixture for repeatable hole patterns on a family of parts.`,
     intro: 'I designed and manufactured a rotating drilling fixture to replace several old fixtures.',
