@@ -378,7 +378,8 @@ const PROJECTS = [
     image: 'images/warman_jack.jpg',
     gallery: [
       'images/warman_team.jpg',
-      'images/warman_video1.mp4',
+      {src: 'https://www.youtube.com/embed/qjdliHz-yIQ?si=Iafmf4PO7P3imbRt'},
+      // 'images/warman_video1.mp4',
       'images/warman_video2.mp4',
       'images/warman_will.jpg',
       'images/warman_jago.jpg',
