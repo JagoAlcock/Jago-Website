@@ -837,117 +837,121 @@ const PROJECTS = [
 const HOBBIES = [
   {
     slug: 'canoe-polo',
-    title: 'Canoe polo',
-    tag: 'International Sport',
-    year: '2016–2025',
-    context: `NZ U21 Paddle Blacks — captain, gold at 2019 JIC (N. Ireland); 6th at 2022
-      Worlds (France); gold at 2023 Oceania.`,
+    title: 'Canoe Polo',
+    tag: 'Canoe Polo',
+    year: '2016–2026',
+    context: `NZ U21 Paddle Blacks Captain, gold at 2019 Junior International; 6th at 2022 Worlds;
+    gold at 2023 Oceania.`,
     image: 'images/hobby-cover.svg',
-    intro: `Canoe polo is the sport that shaped me. Five-a-side, played in kayaks on a
-      35 × 23 m water court, it rewards reading the game, communicating under pressure,
-      and being relentlessly fit.`,
+    intro: `Canoe polo is the sport that shaped me. I have represented New Zealand as an U21 Paddle
+    Black since 2016 — including a gold medal at the 2019 Junior International Cup (Northern Ireland),
+    6th at the 2022 World Championships (France), and gold at the 2023 Oceania Championships, where
+    I captained the side.`,
     body: [
-      `I have represented New Zealand on the U21 Paddle Blacks since 2016 — including a
-      gold medal at the 2019 Junior International Cup (Northern Ireland), 6th at the 2022
-      World Championships (France), and gold at the 2023 Oceania Championships, where I
-      captained the side.`,
-      `Off the water I have volunteered for years at club level as a referee and coach —
-      giving back to a community that gave me everything.`,
+      `It has given me some of my best friendships, my best travel memories, and a serious appreciation
+      for teamwork, resilience, and reading the game a few moves ahead.`,
+      `Off the water I have volunteered for years at club level as a referee and coach to give back
+      to a community that gave me everything.`,
     ],
     specs: [
-      ['Position', 'Centre · Captain'],
-      ['Highlights', '2019 JIC gold · 2023 Oceania gold (captain)'],
-      ['Worlds', '6th · France 2022'],
+      ['Position', 'Slippery'],
+      ['Highlights', '2019 JIC Gold · 2022 Worlds · 2023 Oceania Gold (Captain)'],
+      ['Role', 'Player · Coach · Referee'],
     ],
   },
   {
     slug: 'skiing',
-    title: 'Skiing',
-    tag: 'Southern Alps',
+    title: 'Snow Sports',
+    tag: 'Snow Sports',
     year: 'Every winter',
-    context: `Deep powder days around Craigieburn, Porters, and the Club Fields — the reward
-      for a good winter.`,
+    context: `Every winter weekend the alarm goes off at 5am.`,
     image: 'images/ski_cover.jpg',
-    intro: `The Southern Alps are an hour and a half from my front door, and every winter
-      weekend the alarm goes off at 5am.`,
+    intro: `I spend most winters chasing snow, usually on a snowboard when the conditions are good,
+    or on skis when they are not quite as good (most of the time).`,
     body: [
-      `I cut my teeth on the Canterbury club fields — Craigieburn, Broken River, Mount
-      Olympus — where the chairlifts are nutcracker rope tows and the terrain rewards
-      anyone willing to skin for it.`,
-      `Off-piste tree skiing in deep powder is the reward; sharing a thermos of soup at
-      the top of a ridgeline with mates is the reason.`,
+      `Early starts are worth it when the mountain is on and the queues are still short.`,
+      `I was lucky enough to go to Japan, and I have been keen to get back ever since.`,
     ],
     specs: [
-      ['Home hill', 'Craigieburn / Porters'],
-      ['Style', 'Off-piste · Backcountry'],
+      ['Home Hill', 'Mt Hutt'],
+      ['Style', 'Off-piste · Freestyle · Backcountry'],
+      ['Best Condition', 'Fresh snow and not much wind'],
     ],
   },
   {
-    slug: 'mountain-biking',
-    title: 'Mountain biking',
-    tag: 'Trail / Enduro',
+    slug: 'hiking',
+    title: 'Hiking',
+    tag: 'Hiking',
     year: 'Year-round',
-    context: "Christchurch's Port Hills and the South Island's trail network.",
+    context: `Any excuse to get outside and into the hills.`,
     image: 'images/hobby-cover.svg',
-    intro: `Christchurch sits at the foot of the Port Hills — a 30-minute pedal from the
-      city to a network of trails that goes on for days.`,
+    intro: `I like getting outdoors and exploring Aotearoa. Some of my favourite tramps have been the
+    Sabine/D'Urville in Nelson Lakes National Park, the Heaphy Track in Kahurangi National Park, and
+    the Tongariro Alpine Crossing.`,
     body: [
-      `I ride enduro — long pedally climbs and fast technical descents. Favourites are
-      the Port Hills' Vic Park network and the South Island bigger-mountain trails around
-      Queenstown and Wanaka.`,
+      `I like hikes that feel like a proper trip out, especially if they involve good views, a bit of
+      variable weather, a good amount of walking, and a decent hut.`,
+      `It is a good way to clear my head and get away from screens for a while.`,
     ],
     specs: [
-      ['Discipline', 'Enduro / Trail'],
-      ['Home', 'Port Hills, Christchurch'],
+      ['Favourite Type', 'Overnighters'],
+      ['Best Parts', 'Remote views · Alpine terrain · Good Yarns'],
     ],
   },
   {
-    slug: 'surfing',
-    title: 'Surfing',
-    tag: 'East Coast',
+    slug: 'white-water',
+    title: 'White Water',
+    tag: 'White Water',
     year: 'Year-round',
-    context: 'Canterbury and Kaikoura coasts.',
+    context: `Equal parts fun and punishment.`,
     image: 'images/hobby-cover.svg',
-    intro: `The Canterbury and Kaikoura coasts deliver consistent surf year-round — and a
-      wetsuit thick enough makes winter the best season.`,
-    body: ["Mostly shortboard, mostly cold water, mostly with a thermos in the car park afterwards."],
+    intro: `I get absolutely pummeled most of the time.`,
+    body: [
+      `I like the pace of white water. It is fast, noisy, and tends to demand your full attention.
+      It is one of those things that is much more fun in hindsight.`,
+    ],
     specs: [
-      ['Break', 'Sumner / Taylors / Mangamaunu'],
-      ['Board', 'Shortboard'],
+      ['Grade', '4'],
+      ['Reward', 'A rare clean run'],
     ],
   },
   {
     slug: 'climbing',
     title: 'Climbing',
-    tag: 'Rock / Alpine',
-    year: 'Year-round',
-    context: 'Single-pitch sport and longer alpine objectives.',
+    tag: 'Climbing',
+    year: 'Whenever I can',
+    context: `Indoor or outdoor, bouldering or top rope.`,
     image: 'images/hobby-cover.svg',
-    intro: `Sport climbing at the local crags, alpine objectives in the Southern Alps when
-      the weather and the time allow.`,
+    intro: `I've always enjoyed climbing, whether that's indoors, outdoors, bouldering, or top roping.`,
     body: [
-      `Climbing scratches the same problem-solving itch as engineering — every route is a
-      puzzle, and every fall is data.`,
+      `It scratches the same problem-solving itch as engineering. Every route is a bit of a puzzle, and
+      falling off is just part of the process.`,
+      `It is also a good way to switch off and keep active without it feeling too much like a workout.`,
     ],
     specs: [
-      ['Style', 'Sport · Alpine'],
-      ['Local crags', 'Castle Hill · Charleston'],
+      ['Styles', 'Bouldering · Top rope'],
+      ['Favourite Parts', 'Movement · Problem-solving'],
     ],
   },
   {
-    slug: 'coaching',
-    title: 'Coaching & refereeing',
-    tag: 'Community',
-    year: 'Volunteer',
-    context: 'Volunteered as referee and coach at club level canoe polo.',
+    slug: 'f1',
+    title: 'Formula 1',
+    tag: 'F1',
+    year: 'Race weekends',
+    context: `McLaren fan since before they were good.`,
     image: 'images/hobby-cover.svg',
-    intro: "Volunteer referee and coach for canoe polo at club and regional level.",
-    body: ["Coaching juniors and reffing weekend tournaments — passing on what was passed on to me."],
-    specs: [
-      ['Role', 'Referee · Coach'],
-      ['Level', 'Club · Regional'],
+    intro: `I have been into Formula 1 for a while now. I have backed McLaren since before they were good,
+    and am also a Liam Lawson fan of course. I super lucky to have attended the Melbourne Grand Prix,
+    which was a very good week.`,
+    body: [
+      `I love the mix of engineering, strategy, and competitiveness.`,
     ],
-  },
+    specs: [
+      ['Teams I Back', 'McLaren'],
+      ['Drivers I Rate', 'Liam · Oscar · Alex'],
+      ['Favourite Event', 'Melbourne Grand Prix'],
+    ],
+  }
 ];
 
 
