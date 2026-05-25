@@ -733,17 +733,37 @@ const PROJECTS = [
     client: 'Automatic Lathes (3 months)',
     tag: 'Manufacturing',
     year: '2022',
-    image: 'images/project-cover.svg',
-    gallery: [],
-    pdf: null,
-    summary: `Set up, operated, and maintained CNC mills and lathes in a production
-      environment. Responsible for cutting, deburring, quality checking, and workshop upkeep.`,
-    intro: 'Three months on the shop floor of a CNC job shop — hands-on production experience.',
-    body: [
-      `Setup and operation of CNC mills and lathes. Quality control, deburring, and workshop
-      maintenance.`,
+    image: 'images/cnc_cover.jpg',
+    gallery: [
+      'images/cnc_cover.jpg',
+      'images/cnc_setup.jpg',
+      'images/cnc_machine1.jpg',
+      'images/cnc_handle.jpg',
+      'images/cnc_machine2.jpg',
+      'images/cnc_jig.jpg'
     ],
-    specs: [['Duration', '3 months'], ['Role', 'CNC Machinist']],
+    pdf: null,
+    summary: `Set up, operated, and maintained CNC mills and lathes in a production environment.`,
+    intro: `I've curated a selection of components that I’ve CNC-machined on mills, lathes, and routers,
+    showcasing my end-to-end shopfloor capabilities.`,
+    body: [
+      `From initial job setup, selecting tooling, fixturing parts, cutting stock and generating
+      CAM toolpaths, to hands-on machine operation and preventative maintenance. I’ve produced
+      a wide range of parts from aluminium, stainless steel, cast material and polymers, then
+      performed deburring, dimension inspection, part cleaning and counting. Beyond individual
+      parts, I have maintained workshop standards through regular machine cleaning, coolant
+      management, and organised stock control.`,
+
+      `This work highlights my proficiency in CNC programming and operation, quality assurance,
+      and workshop upkeep, foundational skills that underpin all my design work.`
+    ],
+    specs: [
+      ['Duration', '3 months'],
+      ['Role', 'CNC Machine Operator'],
+      ['Skills', 'Time Management'],
+      ['Tools', 'CNC Machining · Manual Machining · Inspection'],
+      ['Industry', 'Manufacturing'],
+    ],
   },
   {
     slug: 'hinge',
