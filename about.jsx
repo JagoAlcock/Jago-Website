@@ -2,31 +2,33 @@
 
 function AboutHero({ t }) {
   return (
-    <section className="ja-page-pad ja-section-y-lg ja-grid-hero" style={{
+    <section className="ja-page-pad ja-section-y-lg" style={{
       paddingBottom: 72, borderBottom: `1px solid ${t.line}`
     }}>
-      {/* Portrait photo — fixed aspect ratio, not zoomed */}
-      <div style={{ position: 'relative', width: '100%', maxWidth: 440, justifySelf: 'start' }}>
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 5', background: t.bg2 }}>
-          <img src={ABOUT_PHOTO} alt="Jago Alcock" style={{
-            position: 'absolute', inset: 0, width: '100%', height: '100%',
-            objectPosition: ABOUT_PHOTO_POSITION, display: 'block',
-            filter: t.mode === 'dark' ? 'brightness(0.92)' : 'none', objectFit: "cover"
-          }} />
+      <div className="ja-about-hero">
+        {/* Portrait photo — fixed aspect ratio, not zoomed */}
+        <div style={{ position: 'relative', flexShrink: 0, width: 200 }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 5', background: t.bg2 }}>
+            <img src={ABOUT_PHOTO} alt="Jago Alcock" style={{
+              position: 'absolute', inset: 0, width: '100%', height: '100%',
+              objectPosition: ABOUT_PHOTO_POSITION, display: 'block',
+              filter: t.mode === 'dark' ? 'brightness(0.92)' : 'none', objectFit: "cover"
+            }} />
+          </div>
         </div>
-      </div>
 
-      <div>
-        <Eyebrow t={t}>My Story</Eyebrow>
-        <h1 className="ja-h1" style={{
-          fontFamily: t.head, fontSize: 'clamp(48px, 7vw, 72px)', fontWeight: 400,
-          margin: '20px 0 0', lineHeight: 1, color: t.text
-        }}>
-          {ABOUT_HEADING}<br />
-          <span style={{ fontStyle: t.head === t.sans ? 'normal' : 'italic', color: t.dim }}>
-            {ABOUT_SUBHEADING}
-          </span>
-        </h1>
+        <div>
+          <Eyebrow t={t}>My Story</Eyebrow>
+          <h1 className="ja-h1" style={{
+            fontFamily: t.head, fontSize: 'clamp(48px, 7vw, 72px)', fontWeight: 400,
+            margin: '20px 0 0', lineHeight: 1, color: t.text
+          }}>
+            {ABOUT_HEADING}<br />
+            <span style={{ fontStyle: t.head === t.sans ? 'normal' : 'italic', color: t.dim }}>
+              {ABOUT_SUBHEADING}
+            </span>
+          </h1>
+        </div>
       </div>
     </section>
   );
@@ -39,7 +41,7 @@ function Story({ t }) {
       <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
         ⟶ Background
       </div>
-      <div>
+      <div style={{ maxWidth: 720, margin: '0 auto' }}>
         {ABOUT_TEXT.map((p, i) =>
         <p key={i} style={para}>{renderAccented(p, t)}</p>
         )}
