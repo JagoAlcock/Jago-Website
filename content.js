@@ -904,7 +904,7 @@ const HOBBIES = [
     specs: [
       ['Home Hill', 'Mt Hutt'],
       ['Style', 'Off-piste · Freestyle · Backcountry'],
-      ['Best Condition', 'Fresh snow and not much wind'],
+      ['Favourite Conditions', 'POW!'],
     ],
   },
   {
@@ -952,7 +952,23 @@ const HOBBIES = [
     tag: 'White Water',
     year: 'Year-Round',
     context: `Equal parts fun and punishment.`,
-    image: 'images/hobby-cover.svg',
+    image: 'images/white_water (14)',
+    gallery: [
+      'images/white_water(1)',
+      'images/white_water(7)',
+      'images/white_water(2)',
+      'images/white_water(8)',
+      'images/white_water(3)',
+      'images/white_water(9)',
+      'images/white_water(4)',
+      'images/white_water(10)',
+      'images/white_water(5)',
+      'images/white_water(11)',
+      'images/white_water(6)',
+      'images/white_water(12)',
+      'images/white_water(7)',
+      'images/white_water(13)'
+    ],
     intro: `I get absolutely pummeled most of the time.`,
     body: [
       `I like the pace of white water. It is fast, noisy, and tends to demand your full attention.
