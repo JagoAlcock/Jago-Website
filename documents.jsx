@@ -8,7 +8,7 @@ function DocsHero({ t }) {
         Letters of Recommendation<span style={{ color: t.dim }}>.</span>
       </h1>
       <p style={{ fontFamily: t.sans, fontSize: 17, lineHeight: 1.65, color: t.dim, maxWidth: 680, marginTop: 20 }}>
-        Letters of recommendation from former managers and colleagues. Additional documents — transcripts, certificates, technical reports — are listed below.
+        Letters of recommendation and additional documents are listed below.
       </p>
     </section>
   );
