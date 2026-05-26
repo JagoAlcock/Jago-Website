@@ -35,10 +35,12 @@ function AboutHero({ t }) {
 }
 
 function Story({ t }) {
+  const ref = React.useRef(null);
+  useScrollReveal(ref, 0);
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
     <section className="ja-page-pad ja-section-y-lg" style={{ borderBottom: `1px solid ${t.line}` }}>
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
+      <div ref={ref} style={{ maxWidth: 900, margin: '0 auto' }}>
         <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
           ⟶ Background
         </div>
