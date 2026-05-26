@@ -7,7 +7,7 @@ function AboutHero({ t }) {
     }}>
       <div className="ja-about-hero">
         {/* Portrait photo — fixed aspect ratio, not zoomed */}
-        <div style={{ position: 'relative', flexShrink: 0, width: 200 }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: 380 }}>
           <div style={{ position: 'relative', width: '100%', aspectRatio: '4 / 5', background: t.bg2 }}>
             <img src={ABOUT_PHOTO} alt="Jago Alcock" style={{
               position: 'absolute', inset: 0, width: '100%', height: '100%',
@@ -38,10 +38,10 @@ function Story({ t }) {
   const para = { fontFamily: t.sans, fontSize: 17, lineHeight: 1.75, color: t.text, margin: '0 0 24px' };
   return (
     <section className="ja-page-pad ja-section-y-lg" style={{ borderBottom: `1px solid ${t.line}` }}>
-      <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
-        ⟶ Background
-      </div>
-      <div style={{ maxWidth: 720, margin: '0 auto' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto' }}>
+        <div style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 32 }}>
+          ⟶ Background
+        </div>
         {ABOUT_TEXT.map((p, i) =>
         <p key={i} style={para}>{renderAccented(p, t)}</p>
         )}
