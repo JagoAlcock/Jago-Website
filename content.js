@@ -1050,7 +1050,7 @@ hiking and in the snow.`,
       tag: 'AEROSPACE',
       dur: '3 months',
       bullets: [
-        `SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and
+        `SYOS Aerospace develops advanced uncrewed air, ground, sea, and subsurface systems for defense and
         commercial applications. Unfortunately, due to the nature of this work, some project details are
         classified.`,
         `Designed and manufactured components for customer-ready UAS products, working to tight tolerances
