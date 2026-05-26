@@ -913,7 +913,26 @@ const HOBBIES = [
     tag: 'Hiking',
     year: 'Year-Round',
     context: `Any excuse to get outside and into the hills.`,
-    image: 'images/hobby-cover.svg',
+    image: 'images/hike_cover.JPG',
+    gallery: [
+      'images/hike_cover.JPG',
+      'images/hike_climb.JPG',
+      'images/hike_tree.PNG',
+      'images/hike_lake.JPG',
+      'images/hike_film.JPG',
+      'images/hike_crossing.JPG',
+      'images/hike_grass.PNG',
+      'images/hike_cheese.JPG',
+      'images/hike_cloudy.JPG',
+      'images/hike_wet.JPG',
+      'images/hike_sunset.JPG',
+      'images/hike_sabine.JPG',
+      'images/hike_bbq.JPG',
+      'images/hike_scree.JPG',
+      'images/hike_annika.JPG',
+      'images/hike_rock.JPG',
+      'images/hike_peak.JPG'
+    ],
     intro: `I like getting outdoors and exploring Aotearoa. Some of my favourite tramps have been the
     Sabine/D'Urville in Nelson Lakes National Park, the Heaphy Track in Kahurangi National Park, and
     the Tongariro Alpine Crossing.`,
