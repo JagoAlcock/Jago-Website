@@ -334,7 +334,7 @@ function DownloadBar({ t, items }) {
 }
 
 function useScrollReveal(ref, delay) {
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
     el.classList.add('ja-reveal');
@@ -344,7 +344,7 @@ function useScrollReveal(ref, delay) {
         obs.disconnect();
       }
     }, { threshold: 0.08 });
-    obs.observe(el);
+    requestAnimationFrame(() => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 }

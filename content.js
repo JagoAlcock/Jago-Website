@@ -792,7 +792,7 @@ const PROJECTS = [
   },
   {
     slug: 'drilling-fixture',
-    title: 'Drilling fixture',
+    title: 'Drilling Fixture',
     tagline: 'Repeatable holes, every time.',
     client: 'Gyro Plastics · Junior Engineer',
     tag: 'Manufacturing',
