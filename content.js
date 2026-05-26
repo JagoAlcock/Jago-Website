@@ -952,7 +952,7 @@ const HOBBIES = [
     tag: 'White Water',
     year: 'Year-Round',
     context: `Equal parts fun and punishment.`,
-    image: 'images/white_water (14)',
+    image: 'images/white_water(14)',
     gallery: [
       'images/white_water(1)',
       'images/white_water(7)',
