@@ -83,7 +83,7 @@ function OtherDocs({ t }) {
         <div>
           <Eyebrow t={t}>Other documents</Eyebrow>
           <h2 className="ja-h2" style={{ fontFamily: t.head, fontSize: 'clamp(32px, 4vw, 44px)', fontWeight: 400, margin: '14px 0 0', color: t.text, letterSpacing: -0.6 }}>
-            Transcripts, certificates &amp; reports.
+            Downloads.
           </h2>
         </div>
         <span style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 1.5 }}>
@@ -128,7 +128,7 @@ function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   useSeo({
     title: `Supporting documents — ${SITE_INFO.name}`,
-    description: `Letters of recommendation, supporting documents, and downloads for ${SITE_INFO.name}.`,
+    description: `Letters of recommendation, and document downloads for ${SITE_INFO.name}.`,
     path: 'documents.html',
     imagePath: '',
     type: 'website',

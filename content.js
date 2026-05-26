@@ -1034,7 +1034,7 @@ const RESUME = {
     email: 'jago.alcock@gmail.com',
     phone: '+64 20 4065 0413',
     location: 'New Zealand',
-    website: 'https://jagoalcock.wixsite.com/jago-alcock-portfoli',
+    website: 'https://jagoalcock.github.io/Jago-Website/',
   },
   pdf: 'documents/jago_alcock_resume.pdf',
   heading: 'Graduate Mechanical Engineer',
@@ -1360,14 +1360,9 @@ const RECOMMENDATIONS = [
 
 const OTHER_DOCS = [
   {
-    title: 'BE(Hons) Academic Transcript',
-    url: '#',
-    note: 'University of Canterbury — first-class honours.',
-  },
-  {
-    title: 'Te Tāmure Award Certificate',
-    url: '#',
-    note: 'Service & leadership recognition.',
+    title: 'Testamur',
+    url: 'documents/testamur.pdf',
+    note: 'Bachelor of Engineering with First Class Honours in Mechanical Engineering, Minoring in Aerospace Engineering.',
   },
 ];
 
