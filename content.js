@@ -1029,150 +1029,208 @@ const HOBBIES = [
 
 // ── 6. Resume ───────────────────────────────────────────────────────────
 const RESUME = {
-  pdf: 'https://c314a8d1-8174-43e4-879a-fd7bfad2e99b.filesusr.com/ugd/f45621_d99ade0ceb1f41a5b1f0043b400b41c2.pdf',
-  heading: 'Graduate mechanical engineer.',
-  summary: `2+ years of research and development work experience across design, prototyping,
-    testing, and manufacturing. Impassioned by finding creative solutions to design, automation,
-    and optimisation problems. An avid sportsperson — captain of the Junior Paddle Blacks, plus
-    mountain biking, surfing, hiking, and snow year-round.`,
+  contact: {
+    name: 'Jago Alcock',
+    email: 'jago.alcock@gmail.com',
+    phone: '+64 20 4065 0413',
+    location: 'New Zealand',
+    website: 'https://jagoalcock.wixsite.com/jago-alcock-portfoli',
+  },
+  pdf: 'documents/jago_alcock_resume.pdf',
+  heading: 'Graduate mechanical engineer',
+  summary: `2+ years of research and development work experience across design, prototyping, testing,
+and manufacturing. Impassioned by finding creative solutions to design, automation, and optimisation problems. An avid
+sportsperson, having represented New Zealand as a Junior Paddle Black and spending my free time mountain biking, surfing,
+hiking and in the snow.`,
   competences: ['Creative Problem Solving', 'Fast Learning', 'Clear Communication'],
   jobs: [
     {
-      role: 'Junior Engineer', where: 'SYOS Aerospace',
-      tag: 'AEROSPACE', dur: '3 months',
+      role: 'Junior Engineer',
+      where: 'SYOS Aerospace',
+      tag: 'AEROSPACE',
+      dur: '3 months',
       bullets: [
-        `Designed and manufactured components for customer-ready UAS products, working to
-        tight tolerances and delivery standards.`,
-        `Sole troubleshooter on a customer contract following commissioning issues —
-        diagnosed and resolved faults across systems under time pressure.`,
-        'Designed a ~12×12 m drone test enclosure to allow safe indoor UAS flight testing.',
-        `Redesigned a customer-facing Ground Control Station for improved structural
-        integrity, transmission reliability, and operator usability.`,
-        'Produced technical documentation in line with customer and project requirements.',
+        `SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and commercial applications.
+Unfortunately, due to the nature of this work, some project details are classified.`,
+        `Designed and manufactured components for customer-ready UAS products, working to tight tolerances and delivery standards.`,
+        `Sole troubleshooter on a customer contract following commissioning issues. I diagnosed and resolved faults across systems under time pressure.`,
+        `Designed a ~12×12m drone test enclosure to allow safe indoor UAS flight testing, protecting both aircraft and personnel in the event of a crash.`,
+        `Redesigned a customer-facing Ground Control Station (GCS) to improve structural integrity, transmission reliability, and operator usability.`,
+        `Supported testing, manufacturing, and general operations, contributing wherever needed in a fast-moving environment.`,
+        `Produced technical documentation in line with customer and project requirements.`,
       ],
     },
     {
-      role: 'Junior Engineer', where: 'SPS Automation',
-      tag: 'AEROSPACE', dur: '3 months',
+      role: 'Junior Engineer',
+      where: 'SPS Automation',
+      tag: 'AEROSPACE',
+      dur: '3 months',
       bullets: [
-        `Developed the Wireless Aerial Nozzle Device (W.A.N.D) for drone-mounted precision
-        spraying, from initial concept through to a flight-tested proof-of-concept.`,
-        `Designed a dual-axis nozzle actuator with ±90° simultaneous vertical and horizontal
-        actuation, integrating LiDAR and an IP camera for real-time range and visual feedback.`,
-        `Engineered to SPS Automation's standard mounting interface, enabling compatibility
-        across multiple aerial platforms.`,
-        `Delivered comprehensive documentation covering design rationale, technical
-        specifications, assembly, SOPs, and recommended improvements.`,
+        `Developed a Wireless Aerial Nozzle Device (W.A.N.D) for drone-mounted precision spraying, from initial concept through to a flight-tested proof-of-concept product.`,
+        `Designed a dual-axis nozzle actuator with ±90° simultaneous vertical and horizontal actuation, integrating LiDAR and an IP camera for real-time range and visual feedback.`,
+        `Provided a flexible, robust and easy to use stand-alone spray system, engineered to SPS Automation's standard mounting interface, enabling compatibility across multiple aerial platforms.`,
+        `Delivered comprehensive documentation covering design rationale, technical specifications, assembly, SOPs, and recommended improvements.`,
       ],
     },
     {
-      role: 'Junior Engineer', where: 'Tait Communications',
-      tag: 'CRITICAL COMMS', dur: '3 months',
+      role: 'Junior Engineer',
+      where: 'Tait Communications',
+      tag: 'CRITICAL COMMUNICATION INFRASTRUCTURE',
+      dur: '3 months',
       bullets: [
-        `Redesigned a PCB enclosure and mounting system for the software development team,
-        replacing a dangerous and space-inefficient existing solution.`,
-        `Led the full design process: customer research, concept development, iterative
-        prototyping, manufacturing, and testing.`,
-        'Produced detailed handoff documentation to ensure continuity of the project after departure.',
-        'Collaborated and learnt from diverse, multi-disciplined teams.',
+        `Redesigned a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.`,
+        `Led full design process: customer research, concept development, iterative prototyping, manufacturing, and testing.`,
+        `Produced detailed handoff documentation to ensure continuity of the project after departure.`,
+        `Collaborated and learnt from diverse, multi disciplined teams.`,
       ],
     },
     {
-      role: 'Junior Engineer', where: 'Gyro Plastics',
-      tag: 'ELECTRICAL INFRA', dur: '6 months',
+      role: 'Junior Engineer',
+      where: 'Gyro Plastics',
+      tag: 'ELECTRICAL INFRASTRUCTURE',
+      dur: '6 months',
       bullets: [
-        'Conducted R&D on 10+ new and existing products guiding ideas through every development stage.',
-        'Facilitated the design and implementation of workshop process and equipment improvements.',
-        `Developed impact protection bollards all the way through to manufacturing processes
-        and production units.`,
-        `Designed EV charging kiosks, balancing wind loading, tamper resistance, ease of
-        installation, and mould fabrication requirements.`,
-        'Managed a hybrid remote/in-person work model across two locations.',
+        `Conducted R&D on 10+ new and existing products guiding ideas through every development stage.`,
+        `Facilitated the design and implementation of workshop process and equipment improvements.`,
+        `Developed impact protection bollards all the way through to manufacturing processes and production units.`,
+        `Designed EV charging kiosks, balancing wind loading, tamper resistance, ease of installation, and mould fabrication requirements.`,
+        `Managed a hybrid remote/in-person work model, maintaining full team integration across two locations with Gyro Plastics arranged fortnightly return flights from Canterbury to Manawatu.`,
       ],
     },
     {
-      role: 'CNC Machining', where: 'Automatic Lathes',
-      tag: 'MANUFACTURING', dur: '3 months',
+      role: 'CNC Machining',
+      where: 'Automatic Lathes',
+      tag: 'MANUFACTURING',
+      dur: '3 months',
       bullets: [
-        'Set up, operated, and maintained CNC mills and lathes in a production environment.',
-        'Responsible for cutting, deburring, quality checking, and workshop upkeep.',
+        `Set up, operated, and maintained CNC mills and lathes in a production environment. Additionally responsible for cutting, deburring, quality checking, and workshop upkeep.`,
       ],
     },
     {
-      role: 'Research and Development', where: 'QuickBuild Homes',
-      tag: 'HOUSING', dur: '12 months',
+      role: 'Research and Development',
+      where: 'QuickBuild Homes',
+      tag: 'HOUSING',
+      dur: '12 months',
       bullets: [
-        `Contributed across machine programming, 3D modelling, product design, 3D printing,
-        factory work, graphic design, conceptual site plans, 3D rendering and visualisation
-        for prefab housing manufacture.`,
+        `Contributed across machine programming, 3D modelling, product design, 3D printing, factory work, graphic design, conceptual site plans, 3D rendering and visualisation for prefab housing manufacture.`,
       ],
     },
+  ],
+  responsibilities: [
+    'Product research and feasibility (costing, competitor, and standards research).',
+    'Concept development and design (sketching, 3D modelling, and 3D rendering).',
+    'Rapid prototyping (3D printing, CNC machining, laser cutting, folding).',
+    'Testing (load testing and system functionality testing of physical prototypes).',
+    'Implementation into production (rotational moulding, CNC machining, 3D printing and outsourced manufacture).',
+    'Project management (managing lead times, setting deadlines, keeping time sheets)',
+    'Collaboration (with manufacturing, software, electrical, mechanical teams).',
+    'Documentation (to facilitate seamless handoffs of my projects).',
   ],
   skills: {
     tech: [
-      ['Engineering software',
-        'SolidWorks · ANSYS · Onshape · Fusion 360 · Creo · Mastercam · VISI · Archicad · Python'],
-      ['CNC tools', '3D printers · mills · lathes · saws'],
-      ['Manual tools', 'lathes · bandsaws · drill presses · soldering irons · hand tools'],
-      ['Visualisation', 'Photoshop · Lumion'],
-      ['Licences', 'NZ Class 1 · CAD / CAM / CNC certificates (cncexpert.com/jago-alcock)'],
+      ['Engineering software', 'SolidWorks, ANSYS, onshape, Fusion360, Creo, Mastercam, VISI, Archicad, Python.'],
+      ['CNC tools', '3D printers, mills, lathes, saws.'],
+      ['Manual tools', 'Lathes, bandsaws, drill presses, soldering irons, hand tools.'],
+      ['Visualisation software', 'Photoshop, Lumion.'],
+      ['Driver’s license', 'Class 1'],
+      ['CAD, CAM, CNC Certificates', 'https://cncexpert.com/jago-alcock'],
     ],
     soft: [
-      ['Fast Learning',
-        `Picked up and trusted with new responsibilities quickly across every role, despite
-        limited prior experience. One of the qualities I am most proud of.`],
-      ['Problem Solving',
-        'Successfully tackled a wide range of design challenges using diverse techniques.'],
-      ['Communication & Teamwork',
-        `Lifelong involvement in international team sport has sharpened my ability to
-        communicate and collaborate effectively, including under pressure.`],
-      ['Leadership',
-        `Held various leadership roles (House Captain, Sports Captain, Captain of the NZ
-        U21 Canoe Polo team).`],
+      [
+        'Fast Learning',
+        `Picked up and trusted with new responsibilities quickly across every role, despite limited prior experience.
+One of the qualities I am most proud of.`,
+      ],
+      [
+        'Problem Solving',
+        'I have successfully tackled a wide range of design challenges using diverse techniques.',
+      ],
+      [
+        'Communication and Teamwork',
+        'Lifelong involvement in international team sport has sharpened my ability to communicate and collaborate effectively, including under pressure.',
+      ],
+      [
+        'Leadership',
+        'I have held various leadership roles (House Captain, Sports Captain, Captain of the NZ U21 Canoe Polo team).',
+      ],
     ],
   },
   achievements: [
-    ["Vice Chancellor's Excellence Scholarship",
-      'For academic excellence, leadership, and community engagement on entry to Massey University.'],
-    ['Academy of Sport Scholarship',
-      'For student-athletes with high achievement and future potential in their sport.'],
-    ['Ken Whybrew Memorial Prize',
-      'For excellence in Manufacturing Technology.'],
-    ['Contel Charitable Trust Masters Scholarship',
-      'General character, leadership, communication, and academic achievement.'],
-    ['Courtney Shearer Memorial Scholarship',
-      'For Mechanical Engineering students, preference for those who worked before university.'],
-    ['Blues Award (×2)',
-      'Students who excel in sport, arts, and community engagement.'],
-    ['CWF Hamilton Masters Scholarship',
-      'For academic achievement and research potential in Mechanical Engineering.'],
-    ['Caliber Design Prize',
-      'For excellence by BE(Hons) students of Mechanical Engineering at UC.'],
-    ["Principal's Excellence Award",
-      'Commitment to academic success.'],
+    [
+      'Vice Chancellor’s Excellence Scholarship',
+      'For high-achieving candidates who have a record of academic excellence, leadership, and community engagement.',
+    ],
+    [
+      'Contel Charitable Trust Masters Scholarship',
+      'For general character, leadership potential and communication skills, academic achievement.',
+    ],
+    [
+      'Caliber Design Prize in Mechanical Engineering',
+      'For excellence by BE(Hons) students of Mechanical Engineering at University of Canterbury.',
+    ],
+    [
+      'CWF Hamilton Masters Scholarship',
+      'For academic achievement and potential to contribute to research in Mechanical Engineering.',
+    ],
+    [
+      'Ken Whybrew Memorial Prize',
+      'For excellence in Manufacturing Technology.',
+    ],
+    [
+      'Courtney Shearer Memorial Scholarship in Engineering',
+      'For engineering students, with a preference for those who did not come to university directly from school and who worked in the intervening period.',
+    ],
+    [
+      'Academy of Sport Scholarship',
+      'For new student-athletes with a previous record of high achievement in sport and who show future potential.',
+    ],
+    [
+      'Blues Award (x2)',
+      'Celebrates students who have excelled in sport, arts, and community engagement.',
+    ],
+    [
+      'Principal’s Excellence Award',
+      'Awarded for commitment to academic success.',
+    ],
   ],
   community: [
-    ['2025 — Tutor, Controls & Vibrations',
-      'Taught undergraduates at the University of Canterbury.'],
-    ['2024 — Team Leader, UC Aerospace Level 1',
-      'Led a team in building and launching a 1.4 m rocket kit.'],
-    ['2016–2025 — Canoe Polo',
-      `Represented NZ U21 Men's team: gold 2019 JIC (Northern Ireland); 6th at 2022 Worlds
-      (France); gold at 2023 Oceania (captain). Volunteer referee and coach at club level.`],
+    [
+      '2025: Tutor - Controls and Vibrations',
+      'Taught undergraduate students in the Controls and Vibrations course at the University of Canterbury.',
+    ],
+    [
+      '2024: Team Leader - UC Aerospace Level 1',
+      'Led a team in building and launching a 1.4m rocket kit. I gained practical experience in rocket aerodynamics, fabrication, and launch procedures.',
+    ],
+    [
+      '2016 – 2025: Canoe Polo',
+      `Represented New Zealand as part of the NZ U21 Men's team: Gold at 2019 Junior International Championship (Northern Ireland); Bronze 2022; 6th at 2022 World Championship (France).
+Captained the NZ U21 Men's team to 1st place at the 2023 Oceania Championship.
+Volunteered as referee and coach at club level.`,
+    ],
   ],
   referees: [
-    ['Jake Tisdale',
-      'SYOS Aerospace · Mechanical Department Lead',
+    [
+      'Jake Tisdale',
+      'SYOS Aerospace',
+      'Mechanical Department Lead',
       'jake.tisdale@syos-aerospace.com',
-      '+64 22 165 3681'],
-    ['Trudi Duncan',
-      'Gyro Plastics · Managing Director',
+      '+64 22 165 3681',
+    ],
+    [
+      'Trudi Duncan',
+      'Gyro Plastics',
+      'Managing Director',
       'trudi.duncan@gyroplastics.com',
-      '+64 27 258 0026'],
-    ['Jordie Peters',
-      'MotorSport NZ / Liam Lawson Motorsport · Digital/Media Manager',
+      '+64 27 258 0026',
+    ],
+    [
+      'Jordie Peters',
+      'MotorSport NZ / Liam Lawson Motorsport',
+      'Digital/ Media Manager',
       'jordie.p1@icloud.com',
-      '+64 27 479 1510'],
+      '+64 27 479 1510',
+    ],
   ],
 };
 
