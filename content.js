@@ -1276,82 +1276,85 @@ const RECOMMENDATIONS = [
     role: 'Mechanical Department Lead · SYOS Aerospace',
     pdf: 'documents/recommendation_syos.pdf',
     date: 'March 2026',
-    excerpt:
-      `To Whom It May Concern:`
+    excerpt: [
+      `To Whom It May Concern:`,
       `Jago was a summer intern at Syos from 17/11/2025 to 27/02/2026, and I was his manager in my role
       as Mechanical Lead. Jago was an absolute pleasure to work with. Not only was he always willing to
       take on any task, but he consistently saw them through to completion without requiring follow-up.
       I was able to assign him multiple tasks with differing priorities, and he managed them all
-      effectively and independently.`
+      effectively and independently.`,
       `Whenever an issue arose, Jago would not simply identify the problem and stop there. Instead, he
       would say, “We ran into issue X, but I think we could approach it through A or B.” He consistently
       came prepared with thoughtful solutions and maintained a positive attitude, which made working
-      through challenges significantly easier for the entire team.`
+      through challenges significantly easier for the entire team.`,
       `I have told Jago that he has a standing job offer at Syos — I would hire him again at any time
       without hesitation. He is the kind of engineer who can contribute across design, manufacturing,
       and testing. Whatever the task, he gives it his full effort — and that dedication is often the
       most important quality of all. It is clear that he genuinely enjoys solving problems, collaborating
-      with others, and pushing the boundaries of what is possible.`
+      with others, and pushing the boundaries of what is possible.`,
       `I look forward to seeing the engineer Jago becomes with 5, 10, or 15 years of experience under his
       belt. He is already outperforming some engineers with five or more years of experience, and he has
-      only recently graduated.`
-      `All the best, Jake Tisdale, Mechanical Department Lead`
+      only recently graduated.`,
+      `All the best, Jake Tisdale, Mechanical Department Lead`,
+    ]
   },
   {
     name: 'Trudi Duncan',
     role: 'Managing Director · Gyro Plastics',
     pdf: 'documents/recommendation_gyro.pdf',
     date: 'July 2023',
-    excerpt:
-      `To whom it may concern,`
+    excerpt: [
+      `To whom it may concern,`,
       `I am writing to highly recommend Jago Alcock for any future endeavors he may pursue.
       Jago recently completed a Product Design Internship within our business, GYRO, and I am
       thrilled to provide my utmost endorsement for his exceptional skills, work ethic, and
-      character.`
+      character.`,
       `Jago displayed an excellent work ethic from the beginning of his time with us. Taking the
       time to work in the operational department for the first few weeks allowed him to gain an
       understanding of how our manufacturing process works and the design implications for
       anything he might be working on going forward. I was extremely impressed with how Jago
       integrated himself into any team he was working alongside. He was candid, positive,
       communicative and had a healthy understanding and appreciation for workplace culture and
-      his place within it.`
+      his place within it.`,
       `Throughout his internship, Jago consistently demonstrated a remarkable level of both
       emotional and intellectual intelligence. His ability to think outside the box and resolve
       mechanical and design challenges with commercial solutions contributed to the launch of a
       new product range for our business which we will be taking to both domestic and
       international markets. In addition, Jago also displays sound commercial judgement and an
       inquiring attitude which he displayed on querying a project he was tasked to work on when
-      he thought it might not be a sound fit for the company and the product range.`
+      he thought it might not be a sound fit for the company and the product range.`,
       `His enthusiasm for supporting other team members in their projects was sincerely
       appreciated and allowed another of our colleagues to explore a lifelong passion and
-      subsequently launch another brand for our business in the education sector.`
+      subsequently launch another brand for our business in the education sector.`,
       `Throughout his time at GYRO, Jago consistently displayed maturity, professionalism, and a
       strong work ethic. His commitment to completing assigned projects, ability to prioritize tasks
-      and complete work with accuracy and urgency quickly made Jago a “go-to” team member.`
+      and complete work with accuracy and urgency quickly made Jago a “go-to” team member.`,
       `Beyond his technical skills, Jago is an exceptional team player and a pleasure to work
       alongside. Jago is an excellent communicator who actively listens to others' ideas and
-      collaborates effectively to achieve shared goals.`
+      collaborates effectively to achieve shared goals.`,
       `We would warmly extend a personal invitation to Jago at any point in the future, and wholeheartedly
-      recommend Jago without reservation.`
-      `Should you require any further information or have any questions, please do not hesitate to reach out to me.`
-      `Warm regards, Trudi Duncan Managing Director`
+      recommend Jago without reservation.`,
+      `Should you require any further information or have any questions, please do not hesitate to reach out to me.`,
+      `Warm regards, Trudi Duncan Managing Director`,
+    ]
   },
   {
     name: 'Lachlan Brewster',
     role: 'Senior Software Engineer · SPS Automation',
     pdf: 'documents/recommendation_sps.pdf',
     date: 'February 2025',
-    excerpt:
-      `To Whom It May Concern,`
-      `Jago was a mechanical engineering intern over the summer, working under my management on a wand sprayer for one of our large agricultural UAVs.`
+    excerpt: [
+      `To Whom It May Concern,`,
+      `Jago was a mechanical engineering intern over the summer, working under my management on a wand sprayer for one of our large agricultural UAVs.`,
       `Given a verbal concept and an existing product as a reference, he and another intern followed the full engineering process from design to prototype.
       They developed and tested multiple design concepts, refining them through iteration. Their work included mechanical design, component research and
-      validation, fabrication, electrical schematic design, and wiring, resulting in a complete and functional prototype with all required documentation.`
+      validation, fabrication, electrical schematic design, and wiring, resulting in a complete and functional prototype with all required documentation.`,
       `Jago was eager to contribute and made himself useful even outside his primary responsibilities, assisting with various engineering tasks while waiting
-      for parts. His willingness to learn and proactive attitude made him a helpful addition to the team.`
+      for parts. His willingness to learn and proactive attitude made him a helpful addition to the team.`,
       `I am happy to recommend Jago for future roles in mechanical engineering. Please feel free to email me for more information. After June 2025, I will no
-      longer be available, in which case you can reach out via the SPS Automation general contact.`
-      `Best regards, Lachlan Brewster`
+      longer be available, in which case you can reach out via the SPS Automation general contact.`,
+      `Best regards, Lachlan Brewster`,
+    ]
   },
 ];
 
