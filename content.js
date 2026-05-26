@@ -972,7 +972,7 @@ const HOBBIES = [
     intro: `I get absolutely pummeled most of the time.`,
     body: [
       `I like the pace of white water. It is fast, noisy, and tends to demand your full attention.
-      It is one of those things that is much more fun in hindsight.`,
+      It is often more fun in hindsight.`,
     ],
     specs: [
       ['Grade', '4'],
@@ -985,7 +985,10 @@ const HOBBIES = [
     tag: 'Climbing',
     year: 'Year-Round',
     context: `Indoor or outdoor, bouldering or top rope.`,
-    image: 'images/hobby-cover.svg',
+    image: 'images/climbing.JPEG',
+    gallery: [
+      'images/climbing.JPEG',
+    ],
     intro: `I've always enjoyed climbing, whether that's indoors, outdoors, bouldering, or top roping.`,
     body: [
       `It scratches the same problem-solving itch as engineering. Every route is a bit of a puzzle, and
@@ -1003,7 +1006,12 @@ const HOBBIES = [
     tag: 'F1',
     year: 'Race Weekends',
     context: `McLaren fan since before they were good.`,
-    image: 'images/hobby-cover.svg',
+    image: 'images/f1_car.JPEG',
+    gallery: [
+      'images/f1_car.JPEG',
+      'images/f1_crowd.JPEG',
+      'images/f1_porsche.JPEG'
+    ],
     intro: `I have been into Formula 1 for a while now. I have backed McLaren since before they were good,
     and am also a Liam Lawson fan of course. I super lucky to have attended the Melbourne Grand Prix,
     which was a very good week.`,
