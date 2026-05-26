@@ -89,7 +89,7 @@ function Body({ t }) {
         </div>
       </Row>
 
-      <Row t={t} label="Work Experience">
+      <Row t={t} label="Work Experience" reveal>
         {RESUME.jobs.map((j, i) => (
           <JobCard key={i} t={t} {...j} revealDelay={i * 80} />
         ))}

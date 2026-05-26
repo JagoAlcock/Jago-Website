@@ -20,7 +20,7 @@ function RecommendationCard({ t, r, idx }) {
   const paragraphs = r.excerpt;
   return (
     <article ref={ref} style={{
-      borderTop: `1px solid ${t.line2}`,
+      borderTop: idx === 0 ? 'none' : `1px solid ${t.line2}`,
       padding: '64px 0',
       display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)'
     }}>
