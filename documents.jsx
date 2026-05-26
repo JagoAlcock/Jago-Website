@@ -45,7 +45,7 @@ function RecommendationCard({ t, r, idx }) {
           </div>
         </div>
 
-        <div style={{ maxWidth: 720 }}>
+        <div style={{ maxWidth: 900 }}>
           <div style={{ fontFamily: t.serif, fontSize: 56, color: t.accent, lineHeight: 1, height: 28, opacity: 0.7 }}>"</div>
           {paragraphs.map((p, i) =>
           <p key={i} style={{
@@ -55,6 +55,7 @@ function RecommendationCard({ t, r, idx }) {
               {p}
             </p>
           )}
+          <div style={{ fontFamily: t.serif, fontSize: 56, color: t.accent, lineHeight: 1, height: 28, opacity: 0.7, textAlign: 'right' }}>"</div>
         </div>
       </div>
     </article>

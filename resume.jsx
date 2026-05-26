@@ -77,6 +77,7 @@ function ResumeHero({ t }) {
 function Body({ t }) {
   return (
     <section className="ja-page-pad" style={{ paddingTop: 32, paddingBottom: 0 }}>
+      <div style={{ maxWidth: 900, margin: '0 auto' }}>
       <Row t={t} label="Key Competences">
         <div style={{ fontFamily: t.head, fontSize: 'clamp(20px, 2.5vw, 28px)', color: t.text, letterSpacing: -0.4, lineHeight: 1.3 }}>
           {RESUME.competences.map((c, i) => (
@@ -144,6 +145,7 @@ function Body({ t }) {
       </Row>
 
       <div style={{ padding: '40px 0 80px' }} />
+      </div>
     </section>
   );
 }
