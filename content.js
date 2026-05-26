@@ -1295,7 +1295,7 @@ const RECOMMENDATIONS = [
       `I look forward to seeing the engineer Jago becomes with 5, 10, or 15 years of experience under his
       belt. He is already outperforming some engineers with five or more years of experience, and he has
       only recently graduated.`,
-      `All the best, Jake Tisdale, Mechanical Department Lead`,
+      `All the best, Jake Tisdale, Mechanical Department Lead.`,
     ]
   },
   {
@@ -1335,7 +1335,7 @@ const RECOMMENDATIONS = [
       `We would warmly extend a personal invitation to Jago at any point in the future, and wholeheartedly
       recommend Jago without reservation.`,
       `Should you require any further information or have any questions, please do not hesitate to reach out to me.`,
-      `Warm regards, Trudi Duncan Managing Director`,
+      `Warm regards, Trudi Duncan, Managing Director.`,
     ]
   },
   {
@@ -1353,7 +1353,7 @@ const RECOMMENDATIONS = [
       for parts. His willingness to learn and proactive attitude made him a helpful addition to the team.`,
       `I am happy to recommend Jago for future roles in mechanical engineering. Please feel free to email me for more information. After June 2025, I will no
       longer be available, in which case you can reach out via the SPS Automation general contact.`,
-      `Best regards, Lachlan Brewster`,
+      `Best regards, Lachlan Brewster.`,
     ]
   },
 ];
