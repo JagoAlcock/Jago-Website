@@ -880,7 +880,21 @@ const HOBBIES = [
     tag: 'Snow Sports',
     year: 'Every Winter',
     context: `Every winter weekend the alarm goes off at 5am.`,
-    image: 'images/ski_cover.jpg',
+    image: 'images/ski_cover.JPEG',
+    gallery: [
+      'images/ski_cover.JPEG',
+      'images/ski_chair.JPEG',
+      'images/ski_board.JPEG',
+      'images/ski_vid.mp4',
+      'images/ski_tom.JPEG',
+      'images/ski_temple.JPEG',
+      'images/ski_toastie.JPEG',
+      'images/ski_mount.JPEG',
+      'images/ski_lawson.JPEG',
+      'images/ski_sunset.JPEG',
+      'images/ski_sparkle.JPEG',
+      'images/ski_sun.JPEG'
+    ],
     intro: `I spend most winters chasing snow. On a snowboard when the conditions are good,
     or on skis when they are not quite as good (most of the time).`,
     body: [

@@ -53,7 +53,7 @@ function Hobbies({ t }) {
     <section className="ja-page-pad" style={{ paddingTop: 96, paddingBottom: 96, borderBottom: `1px solid ${t.line}` }}>
       <div className="ja-flex-between" style={{ marginBottom: 48 }}>
         <h2 className="ja-h2" style={{ fontFamily: t.head, fontWeight: 400, margin: 0, color: t.text }}>
-          Outside the workshop
+          Outside the Workplace
         </h2>
         <span style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 1.5 }}>
           {HOBBIES.length} PURSUITS
