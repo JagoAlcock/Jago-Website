@@ -1037,7 +1037,7 @@ const RESUME = {
     website: 'https://jagoalcock.wixsite.com/jago-alcock-portfoli',
   },
   pdf: 'documents/jago_alcock_resume.pdf',
-  heading: 'Graduate mechanical engineer',
+  heading: 'Graduate Mechanical Engineer',
   summary: `2+ years of research and development work experience across design, prototyping, testing,
 and manufacturing. Impassioned by finding creative solutions to design, automation, and optimisation problems. An avid
 sportsperson, having represented New Zealand as a Junior Paddle Black and spending my free time mountain biking, surfing,
@@ -1050,13 +1050,19 @@ hiking and in the snow.`,
       tag: 'AEROSPACE',
       dur: '3 months',
       bullets: [
-        `SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and commercial applications.
-Unfortunately, due to the nature of this work, some project details are classified.`,
-        `Designed and manufactured components for customer-ready UAS products, working to tight tolerances and delivery standards.`,
-        `Sole troubleshooter on a customer contract following commissioning issues. I diagnosed and resolved faults across systems under time pressure.`,
-        `Designed a ~12×12m drone test enclosure to allow safe indoor UAS flight testing, protecting both aircraft and personnel in the event of a crash.`,
-        `Redesigned a customer-facing Ground Control Station (GCS) to improve structural integrity, transmission reliability, and operator usability.`,
-        `Supported testing, manufacturing, and general operations, contributing wherever needed in a fast-moving environment.`,
+        `SYOS Aerospace develops advanced uncrewed air, ground, sea and subsurface systems for defence and
+        commercial applications. Unfortunately, due to the nature of this work, some project details are
+        classified.`,
+        `Designed and manufactured components for customer-ready UAS products, working to tight tolerances
+        and delivery standards.`,
+        `Sole troubleshooter on a customer contract following commissioning issues. I diagnosed and resolved
+        faults across systems under time pressure.`,
+        `Designed a ~12×12m drone test enclosure to allow safe indoor UAS flight testing, protecting both
+        aircraft and personnel in the event of a crash.`,
+        `Redesigned a customer-facing Ground Control Station (GCS) to improve structural integrity,
+        transmission reliability, and operator usability.`,
+        `Supported testing, manufacturing, and general operations, contributing wherever needed in a
+        fast-moving environment.`,
         `Produced technical documentation in line with customer and project requirements.`,
       ],
     },
@@ -1066,10 +1072,14 @@ Unfortunately, due to the nature of this work, some project details are classifi
       tag: 'AEROSPACE',
       dur: '3 months',
       bullets: [
-        `Developed a Wireless Aerial Nozzle Device (W.A.N.D) for drone-mounted precision spraying, from initial concept through to a flight-tested proof-of-concept product.`,
-        `Designed a dual-axis nozzle actuator with ±90° simultaneous vertical and horizontal actuation, integrating LiDAR and an IP camera for real-time range and visual feedback.`,
-        `Provided a flexible, robust and easy to use stand-alone spray system, engineered to SPS Automation's standard mounting interface, enabling compatibility across multiple aerial platforms.`,
-        `Delivered comprehensive documentation covering design rationale, technical specifications, assembly, SOPs, and recommended improvements.`,
+        `Developed a Wireless Aerial Nozzle Device (W.A.N.D) for drone-mounted precision spraying, from
+        initial concept through to a flight-tested proof-of-concept product.`,
+        `Designed a dual-axis nozzle actuator with ±90° simultaneous vertical and horizontal actuation,
+        integrating LiDAR and an IP camera for real-time range and visual feedback.`,
+        `Provided a flexible, robust and easy to use stand-alone spray system, engineered to SPS
+        Automation's standard mounting interface, enabling compatibility across multiple aerial platforms.`,
+        `Delivered comprehensive documentation covering design rationale, technical specifications,
+        assembly, SOPs, and recommended improvements.`,
       ],
     },
     {
@@ -1078,8 +1088,10 @@ Unfortunately, due to the nature of this work, some project details are classifi
       tag: 'CRITICAL COMMUNICATION INFRASTRUCTURE',
       dur: '3 months',
       bullets: [
-        `Redesigned a PCB enclosure and mounting system for the software development team, replacing a dangerous and space-inefficient existing solution.`,
-        `Led full design process: customer research, concept development, iterative prototyping, manufacturing, and testing.`,
+        `Redesigned a PCB enclosure and mounting system for the software development team, replacing a
+        dangerous and space-inefficient existing solution.`,
+        `Led full design process: customer research, concept development, iterative prototyping,
+        manufacturing, and testing.`,
         `Produced detailed handoff documentation to ensure continuity of the project after departure.`,
         `Collaborated and learnt from diverse, multi disciplined teams.`,
       ],
@@ -1092,9 +1104,12 @@ Unfortunately, due to the nature of this work, some project details are classifi
       bullets: [
         `Conducted R&D on 10+ new and existing products guiding ideas through every development stage.`,
         `Facilitated the design and implementation of workshop process and equipment improvements.`,
-        `Developed impact protection bollards all the way through to manufacturing processes and production units.`,
-        `Designed EV charging kiosks, balancing wind loading, tamper resistance, ease of installation, and mould fabrication requirements.`,
-        `Managed a hybrid remote/in-person work model, maintaining full team integration across two locations with Gyro Plastics arranged fortnightly return flights from Canterbury to Manawatu.`,
+        `Developed impact protection bollards all the way through to manufacturing processes and
+        production units.`,
+        `Designed EV charging kiosks, balancing wind loading, tamper resistance, ease of installation,
+        and mould fabrication requirements.`,
+        `Managed a hybrid remote/in-person work model, maintaining full team integration across two
+        locations with Gyro Plastics arranged fortnightly return flights from Canterbury to Manawatu.`,
       ],
     },
     {
@@ -1103,7 +1118,8 @@ Unfortunately, due to the nature of this work, some project details are classifi
       tag: 'MANUFACTURING',
       dur: '3 months',
       bullets: [
-        `Set up, operated, and maintained CNC mills and lathes in a production environment. Additionally responsible for cutting, deburring, quality checking, and workshop upkeep.`,
+        `Set up, operated, and maintained CNC mills and lathes in a production environment.
+        Additionally responsible for cutting, deburring, quality checking, and workshop upkeep.`,
       ],
     },
     {
@@ -1112,7 +1128,8 @@ Unfortunately, due to the nature of this work, some project details are classifi
       tag: 'HOUSING',
       dur: '12 months',
       bullets: [
-        `Contributed across machine programming, 3D modelling, product design, 3D printing, factory work, graphic design, conceptual site plans, 3D rendering and visualisation for prefab housing manufacture.`,
+        `Contributed across machine programming, 3D modelling, product design, 3D printing, factory work,
+        graphic design, conceptual site plans, 3D rendering and visualisation for prefab housing manufacture.`,
       ],
     },
   ],
@@ -1139,7 +1156,7 @@ Unfortunately, due to the nature of this work, some project details are classifi
       [
         'Fast Learning',
         `Picked up and trusted with new responsibilities quickly across every role, despite limited prior experience.
-One of the qualities I am most proud of.`,
+        One of the qualities I am most proud of.`,
       ],
       [
         'Problem Solving',
@@ -1195,7 +1212,7 @@ One of the qualities I am most proud of.`,
   ],
   community: [
     [
-      '2025: Tutor - Controls and Vibrations',
+      '2025/2026: Tutor - Controls and Vibrations - Mechanical Systems Design',
       'Taught undergraduate students in the Controls and Vibrations course at the University of Canterbury.',
     ],
     [
@@ -1203,10 +1220,10 @@ One of the qualities I am most proud of.`,
       'Led a team in building and launching a 1.4m rocket kit. I gained practical experience in rocket aerodynamics, fabrication, and launch procedures.',
     ],
     [
-      '2016 – 2025: Canoe Polo',
+      '2016 – 2026: Canoe Polo',
       `Represented New Zealand as part of the NZ U21 Men's team: Gold at 2019 Junior International Championship (Northern Ireland); Bronze 2022; 6th at 2022 World Championship (France).
-Captained the NZ U21 Men's team to 1st place at the 2023 Oceania Championship.
-Volunteered as referee and coach at club level.`,
+      Captained the NZ U21 Men's team to 1st place at the 2023 Oceania Championship.
+      Volunteered as referee and coach at club level.`,
     ],
   ],
   referees: [
@@ -1257,77 +1274,97 @@ const RECOMMENDATIONS = [
   {
     name: 'Jake Tisdale',
     role: 'Mechanical Department Lead · SYOS Aerospace',
-    pdf: '#',
-    date: 'October 2025',
+    pdf: 'documents/recommendation_syos.pdf',
+    date: 'March 2026',
     excerpt:
-      "Jago joined SYOS Aerospace as a Junior Engineer for a three-month placement and" +
-      " quickly proved himself a capable, self-directed contributor across our UAS programmes." +
-      " He was trusted as the sole troubleshooter on a customer contract following commissioning" +
-      " issues, diagnosing and resolving faults under significant time pressure.\n\n" +
-      "He designed a 12 × 12 m drone test enclosure for safe indoor flight testing and led a" +
-      " redesign of a customer-facing Ground Control Station, improving structural integrity," +
-      " transmission reliability, and operator usability. I would not hesitate to recommend" +
-      " Jago for any junior engineering role.",
+      `To Whom It May Concern:`
+      `Jago was a summer intern at Syos from 17/11/2025 to 27/02/2026, and I was his manager in my role
+      as Mechanical Lead. Jago was an absolute pleasure to work with. Not only was he always willing to
+      take on any task, but he consistently saw them through to completion without requiring follow-up.
+      I was able to assign him multiple tasks with differing priorities, and he managed them all
+      effectively and independently.`
+      `Whenever an issue arose, Jago would not simply identify the problem and stop there. Instead, he
+      would say, “We ran into issue X, but I think we could approach it through A or B.” He consistently
+      came prepared with thoughtful solutions and maintained a positive attitude, which made working
+      through challenges significantly easier for the entire team.`
+      `I have told Jago that he has a standing job offer at Syos — I would hire him again at any time
+      without hesitation. He is the kind of engineer who can contribute across design, manufacturing,
+      and testing. Whatever the task, he gives it his full effort — and that dedication is often the
+      most important quality of all. It is clear that he genuinely enjoys solving problems, collaborating
+      with others, and pushing the boundaries of what is possible.`
+      `I look forward to seeing the engineer Jago becomes with 5, 10, or 15 years of experience under his
+      belt. He is already outperforming some engineers with five or more years of experience, and he has
+      only recently graduated.`
+      `All the best, Jake Tisdale, Mechanical Department Lead`
   },
   {
     name: 'Trudi Duncan',
     role: 'Managing Director · Gyro Plastics',
-    pdf: '#',
-    date: 'August 2024',
+    pdf: 'documents/recommendation_gyro.pdf',
+    date: 'July 2023',
     excerpt:
-      "Over six months Jago contributed to R&D on more than ten products spanning electrical" +
-      " infrastructure and EV charging hardware. He took ideas from concept through to" +
-      " manufacturing-ready production units, including impact-protection bollards and a range" +
-      " of EV charging kiosks.\n\n" +
-      "What sets Jago apart is the speed at which he absorbs new information and turns it into" +
-      " useful output, and the calm, considered way he handles a hybrid remote/in-person" +
-      " workload across two sites. He's a genuine pleasure to work with.",
+      `To whom it may concern,`
+      `I am writing to highly recommend Jago Alcock for any future endeavors he may pursue.
+      Jago recently completed a Product Design Internship within our business, GYRO, and I am
+      thrilled to provide my utmost endorsement for his exceptional skills, work ethic, and
+      character.`
+      `Jago displayed an excellent work ethic from the beginning of his time with us. Taking the
+      time to work in the operational department for the first few weeks allowed him to gain an
+      understanding of how our manufacturing process works and the design implications for
+      anything he might be working on going forward. I was extremely impressed with how Jago
+      integrated himself into any team he was working alongside. He was candid, positive,
+      communicative and had a healthy understanding and appreciation for workplace culture and
+      his place within it.`
+      `Throughout his internship, Jago consistently demonstrated a remarkable level of both
+      emotional and intellectual intelligence. His ability to think outside the box and resolve
+      mechanical and design challenges with commercial solutions contributed to the launch of a
+      new product range for our business which we will be taking to both domestic and
+      international markets. In addition, Jago also displays sound commercial judgement and an
+      inquiring attitude which he displayed on querying a project he was tasked to work on when
+      he thought it might not be a sound fit for the company and the product range.`
+      `His enthusiasm for supporting other team members in their projects was sincerely
+      appreciated and allowed another of our colleagues to explore a lifelong passion and
+      subsequently launch another brand for our business in the education sector.`
+      `Throughout his time at GYRO, Jago consistently displayed maturity, professionalism, and a
+      strong work ethic. His commitment to completing assigned projects, ability to prioritize tasks
+      and complete work with accuracy and urgency quickly made Jago a “go-to” team member.`
+      `Beyond his technical skills, Jago is an exceptional team player and a pleasure to work
+      alongside. Jago is an excellent communicator who actively listens to others' ideas and
+      collaborates effectively to achieve shared goals.`
+      `We would warmly extend a personal invitation to Jago at any point in the future, and wholeheartedly
+      recommend Jago without reservation.`
+      `Should you require any further information or have any questions, please do not hesitate to reach out to me.`
+      `Warm regards, Trudi Duncan Managing Director`
   },
   {
-    name: 'Jordie Peters',
-    role: 'Digital / Media Manager · MotorSport NZ · Liam Lawson Motorsport',
-    pdf: '#',
-    date: 'July 2024',
+    name: 'Lachlan Brewster',
+    role: 'Senior Software Engineer · SPS Automation',
+    pdf: 'documents/recommendation_sps.pdf',
+    date: 'February 2025',
     excerpt:
-      "I've known Jago for many years through both sport and motorsport circles. He combines" +
-      " a sharp technical mind with the kind of communication skills you only build by" +
-      " captaining international teams — clear under pressure, always positive, and unfailingly" +
-      " considerate of those around him.\n\n" +
-      "Any employer would be lucky to have him. He's the rare person who is equally at home" +
-      " in a workshop, in front of a CAD station, or in front of a room.",
+      `To Whom It May Concern,`
+      `Jago was a mechanical engineering intern over the summer, working under my management on a wand sprayer for one of our large agricultural UAVs.`
+      `Given a verbal concept and an existing product as a reference, he and another intern followed the full engineering process from design to prototype.
+      They developed and tested multiple design concepts, refining them through iteration. Their work included mechanical design, component research and
+      validation, fabrication, electrical schematic design, and wiring, resulting in a complete and functional prototype with all required documentation.`
+      `Jago was eager to contribute and made himself useful even outside his primary responsibilities, assisting with various engineering tasks while waiting
+      for parts. His willingness to learn and proactive attitude made him a helpful addition to the team.`
+      `I am happy to recommend Jago for future roles in mechanical engineering. Please feel free to email me for more information. After June 2025, I will no
+      longer be available, in which case you can reach out via the SPS Automation general contact.`
+      `Best regards, Lachlan Brewster`
   },
 ];
 
 const OTHER_DOCS = [
-  {
-    title: 'Full PDF Resume',
-    url: 'https://c314a8d1-8174-43e4-879a-fd7bfad2e99b.filesusr.com/ugd/f45621_d99ade0ceb1f41a5b1f0043b400b41c2.pdf',
-    note: 'Up-to-date resume.',
-  },
   {
     title: 'BE(Hons) Academic Transcript',
     url: '#',
     note: 'University of Canterbury — first-class honours.',
   },
   {
-    title: 'CAD / CAM / CNC Certificates',
-    url: 'https://cncexpert.com/jago-alcock',
-    note: 'Technical training record.',
-  },
-  {
     title: 'Te Tāmure Award Certificate',
     url: '#',
     note: 'Service & leadership recognition.',
-  },
-  {
-    title: 'W.A.N.D Technical Documentation',
-    url: '#',
-    note: 'Design rationale, specifications, assembly, and SOPs.',
-  },
-  {
-    title: 'Selected CAD Drawings',
-    url: '#',
-    note: 'A sampling of production-ready drawings.',
   },
 ];
 
