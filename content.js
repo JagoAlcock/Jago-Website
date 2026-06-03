@@ -985,9 +985,15 @@ const HOBBIES = [
     tag: 'Climbing',
     year: 'Year-Round',
     context: `Indoor or outdoor, bouldering or top rope.`,
-    image: 'images/climbing.JPEG',
+    image: 'images/climbing_cover.JPEG',
     gallery: [
-      'images/climbing.JPEG',
+      'images/climbing_cover.JPEG',
+      'images/climbing_1.JPEG',
+      'images/climbing_indoor.JPEG',
+      'images/climbing_2.JPEG',
+      'images/climbing_cave.JPEG',
+      'images/climbing_view.JPEG',
+      'images/climbing_vid.mov'
     ],
     intro: `I've always enjoyed climbing, whether that's indoors, outdoors, bouldering, or top roping.`,
     body: [
