@@ -1007,6 +1007,36 @@ const HOBBIES = [
     ],
   },
   {
+    slug: 'architecture',
+    title: 'Architecture',
+    tag: 'Architecture',
+    year: 'Year-Round',
+    context: `Designing and visualising spaces.`,
+    image: 'images/render (1).JPG',
+    gallery: [
+      'images/render (12).JPG',
+      'images/render (8).JPG',
+      'images/render (11).JPG',
+      'images/render (9).JPG',
+      'images/render (2).JPG',
+      'images/render (4).JPG',
+      'images/render (6).JPG',
+      'images/render (7).JPG',
+      'images/render (1).JPG',
+      'images/render (10).JPG',
+      'images/render (3).JPG',
+      'images/render (5).JPG',
+    ],
+    intro: `I've always liked architecture and designing cool houses. One day I'd love to help design my own.
+    In the meantime, I model them in ArchiCAD then render them to see what they might actually look like.`,
+    body: [
+    ],
+    specs: [
+      ['Tool', 'ArchiCAD'],
+      ['Goal', 'Design my own house someday'],
+    ],
+  },
+  {
     slug: 'f1',
     title: 'Formula 1',
     tag: 'F1',
