@@ -1012,7 +1012,7 @@ const HOBBIES = [
     tag: 'Architecture',
     year: 'Year-Round',
     context: `Designing and visualising spaces.`,
-    image: 'images/render (1).JPG',
+    image: 'images/render (12).JPG',
     gallery: [
       'images/render (12).JPG',
       'images/render (8).JPG',
