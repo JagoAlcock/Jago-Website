@@ -901,7 +901,7 @@ const HOBBIES = [
     body: [
       `I love all types of skiing. That means ripping groomers in the early
       morning, getting off-piste and into the chutes, and finishing every lap
-      through the park at the bottom. The early starts have always worth it.`,
+      through the park at the bottom. The early starts have always been worth it.`,
       `Last season I was lucky enough to ski in Japan, and I have been counting down the days until
       I go back ever since.`,
     ],
