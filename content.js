@@ -227,7 +227,7 @@ const PROJECTS = [
     body: [
       `What I can share is that I spent several months embedded in a small, fast-moving team
       designing and manufacturing components for customer-ready UAS products, working to tight
-      tolerances and delivery deadlines - which I loved.`,
+      tolerances and delivery deadlines, which I loved.`,
       `One of the most challenging moments came when I was handed sole responsibility for
       troubleshooting a fleet of UAS systems on a customer contract that had run into issues
       during commissioning. Diagnosing faults across multiple aircraft under time pressure,
