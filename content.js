@@ -895,11 +895,15 @@ const HOBBIES = [
       'images/ski_sparkle.JPEG',
       'images/ski_sun.JPEG'
     ],
-    intro: `I spend most winters chasing snow. On a snowboard when the conditions are good,
-    or on skis when they are not quite as good (most of the time).`,
+    intro: `I spend most winters chasing snow at my home hill, Mt Hutt.
+    On a snowboard if the conditions are good, or on skis when they are not quite as good
+    (most of the time).`,
     body: [
-      `Early starts are worth it when the mountain is on and the queues are still short.`,
-      `I was lucky enough to go to Japan, and I have been counting down the days until I go back ever since.`,
+      `I love all types of skiing. That means ripping groomers in the early
+      morning, getting off-piste and into the chutes, and finishing every lap
+      through the park at the bottom. The early starts have always been worth it.`,
+      `Last season I was lucky enough to ski in Japan, and I have been counting down the days until
+      I go back ever since.`,
     ],
     specs: [
       ['Home Hill', 'Mt Hutt'],
