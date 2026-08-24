@@ -73,8 +73,8 @@ function Hobbies({ t }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   useSeo({
-    title: `About — ${SITE_INFO.name}`,
-    description: `About ${SITE_INFO.name} — background, experience, and interests outside engineering.`,
+    title: `About - ${SITE_INFO.name}`,
+    description: `About ${SITE_INFO.name} - background, experience, and interests outside engineering.`,
     path: 'about.html',
     imagePath: ABOUT_PHOTO || '',
     type: 'profile',

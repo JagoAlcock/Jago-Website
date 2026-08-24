@@ -93,7 +93,7 @@ const INTRO_STATS = [
 ];
 
 const INTRO_TEXT =
-  `Kia ora — I'm a {accent}graduate mechanical engineer{/accent} based in Christchurch,
+  `Kia ora - I'm a {accent}graduate mechanical engineer{/accent} based in Christchurch,
   New Zealand, with 2+ years of R&D experience across aerospace, robotics, automation and
   more. I like to work on the cutting edge, in fast paced, exciting environments.`;
 
@@ -111,7 +111,7 @@ const ABOUT_PHOTO_POSITION = 'center 20%';
 const ABOUT_TEXT = [
   `I was born on a small Royal Air Force base in England before moving to New Zealand, where
   I have spent most of my schooling. From my earliest days in primary school, I have been
-  fascinated by design and how things work — teaching myself CAD long before high school and
+  fascinated by design and how things work, teaching myself CAD long before high school and
   always sketching in the margins of my notebooks.`,
   `This early passion for design naturally evolved into a keen interest in aerospace,
   motorsport, and optimisation, driving me to pursue a degree in mechanical engineering with
@@ -227,7 +227,7 @@ const PROJECTS = [
     body: [
       `What I can share is that I spent several months embedded in a small, fast-moving team
       designing and manufacturing components for customer-ready UAS products, working to tight
-      tolerances and delivery deadlines — which I loved.`,
+      tolerances and delivery deadlines - which I loved.`,
       `One of the most challenging moments came when I was handed sole responsibility for
       troubleshooting a fleet of UAS systems on a customer contract that had run into issues
       during commissioning. Diagnosing faults across multiple aircraft under time pressure,
@@ -299,7 +299,7 @@ const PROJECTS = [
       'images/wand_internals.jpg',
     ],
     pdf: null,
-    summary: `Wireless Aerial Nozzle Device — a dual-axis ±90° drone-mounted precision spray
+    summary: `Wireless Aerial Nozzle Device - a dual-axis ±90° drone-mounted precision spray
       system, taken from concept to flight-tested proof of concept product in three months.`,
     intro: `I co-led the design of a drone-mounted spraying system featuring a multi-axis
       nozzle actuator with 90° simultaneous vertical and horizontal movement, integrated
@@ -387,7 +387,7 @@ const PROJECTS = [
       'images/warman_drawing.png'
     ],
     pdf: null,
-    summary: `Entry into the Warman international student design competition — an autonomous
+    summary: `Entry into the Warman international student design competition - an autonomous
       machine that completes a materials-handling course against the clock.`,
     intro: `The Warman Design and Build Competition is a student competition where teams
       design, build, and compete with devices that solve a specific engineering problem.
@@ -642,7 +642,7 @@ const PROJECTS = [
       'images/gearbox_housing.png',
     ],
     pdf: 'documents/gearbox_calcs.pdf',
-    summary: `A full gearbox design exercise — gear ratios, shaft sizing, bearing selection,
+    summary: `A full gearbox design exercise - gear ratios, shaft sizing, bearing selection,
       and housing design for a specific scenario.`,
     intro: `As Powertrain Lead on a theoretical logging skyline carriage project, I engineered
       a robust winch gearbox subsystem capable of hauling trees in demanding forestry
@@ -859,7 +859,7 @@ const HOBBIES = [
       'images/polo_throw.JPG'
     ],
     intro: `Canoe polo is the sport that shaped me. I have represented New Zealand as an U21 Paddle
-    Black since 2016 — including a gold medal at the 2019 Junior International Championship (Northern Ireland),
+    Black since 2016 - including a gold medal at the 2019 Junior International Championship (Northern Ireland),
     6th at the 2022 World Championships (France), and gold at the 2023 Oceania Championships, where
     I captained the side.`,
     body: [
@@ -1323,9 +1323,9 @@ const RECOMMENDATIONS = [
       would say, “We ran into issue X, but I think we could approach it through A or B.” He consistently
       came prepared with thoughtful solutions and maintained a positive attitude, which made working
       through challenges significantly easier for the entire team.`,
-      `I have told Jago that he has a standing job offer at Syos — I would hire him again at any time
+      `I have told Jago that he has a standing job offer at Syos - I would hire him again at any time
       without hesitation. He is the kind of engineer who can contribute across design, manufacturing,
-      and testing. Whatever the task, he gives it his full effort — and that dedication is often the
+      and testing. Whatever the task, he gives it his full effort - and that dedication is often the
       most important quality of all. It is clear that he genuinely enjoys solving problems, collaborating
       with others, and pushing the boundaries of what is possible.`,
       `I look forward to seeing the engineer Jago becomes with 5, 10, or 15 years of experience under his

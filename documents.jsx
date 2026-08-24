@@ -128,7 +128,7 @@ function OtherDocs({ t }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   useSeo({
-    title: `Supporting documents — ${SITE_INFO.name}`,
+    title: `Supporting documents - ${SITE_INFO.name}`,
     description: `Letters of recommendation, and document downloads for ${SITE_INFO.name}.`,
     path: 'documents.html',
     imagePath: '',

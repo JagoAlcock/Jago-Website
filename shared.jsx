@@ -281,7 +281,7 @@ function Nav({ t, mode, onToggleMode, active, pathPrefix = '' }) {
     }}>
       <a href={pathPrefix + 'index.html'} style={{ display: 'flex', alignItems: 'baseline', gap: 12, textDecoration: 'none' }}>
         <span style={{ fontFamily: t.serif, fontSize: 22, letterSpacing: -0.3, color: t.text }}>{SITE_INFO.name}</span>
-        <span className="ja-hide-mobile" style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 0.5 }}>— {SITE_INFO.tagline}</span>
+        <span className="ja-hide-mobile" style={{ fontFamily: t.mono, fontSize: 11, color: t.faint, letterSpacing: 0.5 }}>- {SITE_INFO.tagline}</span>
       </a>
       <div className="ja-nav-right">
         <nav className="ja-nav-links" style={{ fontSize: 13, letterSpacing: 0.2, fontFamily: t.sans }}>
@@ -369,7 +369,7 @@ function GalleryCard({ item, t, href, ordinal, hoverSlug, setHoverSlug, big, pat
         transition: 'border-color .2s',
       }}>
         {hasImage ? (
-          <img src={imgSrc} alt={`${item.title} — cover image`} loading="lazy" decoding="async" style={{
+          <img src={imgSrc} alt={`${item.title} - cover image`} loading="lazy" decoding="async" style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', objectPosition: item.imagePosition || 'center',
             transition: 'transform .6s cubic-bezier(.2,.7,.3,1)',

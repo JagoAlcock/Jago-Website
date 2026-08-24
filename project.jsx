@@ -30,7 +30,7 @@ function ProjectHero({ t, p }) {
       </div>
 
       <section style={{ position: 'relative', height: 'clamp(360px, 58vh, 640px)', overflow: 'hidden', borderBottom: `1px solid ${t.line}` }}>
-        <img ref={heroImgRef} src={'../' + p.image} alt={`${p.title} — project hero`} style={{
+        <img ref={heroImgRef} src={'../' + p.image} alt={`${p.title} - project hero`} style={{
           position: 'absolute', top: '-20%', left: 0, right: 0, width: '100%', height: '140%', objectFit: 'cover', objectPosition: 'center 45%',
           filter: t.mode === 'dark' ? 'brightness(0.7) contrast(1.05)' : 'brightness(0.95) contrast(1.05)',
         }} />
@@ -128,7 +128,7 @@ function GalleryItem({ entry, title, idx, t }) {
 
   if (isEmbed) return (
     <div ref={wrapperRef} className={cls} style={container}>
-      <iframe src={src} title={`${title} — video ${idx + 1}`}
+      <iframe src={src} title={`${title} - video ${idx + 1}`}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               sandbox="allow-scripts allow-same-origin allow-presentation"
@@ -147,7 +147,7 @@ function GalleryItem({ entry, title, idx, t }) {
   );
   return (
     <div ref={wrapperRef} className={cls} style={container}>
-      <img ref={mediaRef} src={'../' + src} alt={`${title} — gallery ${idx + 1}`}
+      <img ref={mediaRef} src={'../' + src} alt={`${title} - gallery ${idx + 1}`}
            loading="lazy" decoding="async" onLoad={detectImg}
            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: imgPos, display: 'block' }} />
     </div>
@@ -209,7 +209,7 @@ function App() {
   const slug = currentSlug();
   const p = PROJECTS.find(x => x.slug === slug);
   useSeo(p ? {
-    title: `${p.title} — ${SITE_INFO.name}`,
+    title: `${p.title} - ${SITE_INFO.name}`,
     description: (p.summary || p.intro || '').slice(0, 170),
     path: `projects/${p.slug}.html`,
     imagePath: p.image || '',

@@ -19,7 +19,7 @@ function Hero({ t }) {
   }, []);
   return (
     <section style={{ position: 'relative', height: 'min(82vh, 780px)', minHeight: 520, overflow: 'hidden' }}>
-      <img ref={heroImgRef} src={featured.image} alt={`${featured.title} — featured project`} style={{
+      <img ref={heroImgRef} src={featured.image} alt={`${featured.title} - featured project`} style={{
         position: 'absolute', top: '-20%', left: 0, right: 0, width: '100%', height: '140%',
         objectFit: 'cover', objectPosition: 'center 45%',
         filter: t.mode === 'dark' ? 'brightness(0.65) contrast(1.05)' : 'brightness(0.95) contrast(1.05) saturate(0.9)',
@@ -194,7 +194,7 @@ function Work({ t }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   useSeo({
-    title: `${SITE_INFO.name} — Mechanical & Aerospace Engineer`,
+    title: `${SITE_INFO.name} - Mechanical & Aerospace Engineer`,
     description: `Portfolio of ${SITE_INFO.name}, a mechanical engineer with aerospace focus. Projects, experience, and contact details.`,
     path: 'index.html',
     imagePath: (PROJECTS.find(p => p.featured)?.image) || (PROJECTS[0]?.image) || '',

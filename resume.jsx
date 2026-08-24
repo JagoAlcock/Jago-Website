@@ -18,7 +18,7 @@ function JobCard({ t, role, where, tag, dur, bullets, revealDelay = 0 }) {
     <article ref={ref} style={{ marginBottom: 40 }}>
       <div className="ja-flex-between" style={{ marginBottom: 6 }}>
         <h3 style={{ fontFamily: t.head, fontSize: 24, fontWeight: 400, margin: 0, letterSpacing: -0.4, color: t.text }}>
-          {role} <span style={{ color: t.dim }}>— {where}</span>
+          {role} <span style={{ color: t.dim }}>- {where}</span>
         </h3>
         <span style={{ fontFamily: t.mono, fontSize: 10, color: t.faint, letterSpacing: 1.5 }}>{tag} · {dur}</span>
       </div>
@@ -95,7 +95,7 @@ function Body({ t }) {
         ))}
       </Row>
 
-      <Row t={t} label="Skills — Technical" reveal>
+      <Row t={t} label="Skills - Technical" reveal>
         <div style={{ fontFamily: t.sans, fontSize: 15, lineHeight: 2, color: t.dim }}>
           {RESUME.skills.tech.map(([k, v]) => (
             <div key={k}><b style={{ color: t.text, fontWeight: 500 }}>{k}:</b> {v}</div>
@@ -103,7 +103,7 @@ function Body({ t }) {
         </div>
       </Row>
 
-      <Row t={t} label="Skills — Soft" reveal>
+      <Row t={t} label="Skills - Soft" reveal>
         <ul style={{ margin: 0, padding: 0, listStyle: 'none', fontFamily: t.sans, fontSize: 15, lineHeight: 1.7, color: t.dim }}>
           {RESUME.skills.soft.map(([k, v]) => (
             <li key={k} style={{ marginTop: 12 }}>
@@ -153,7 +153,7 @@ function Body({ t }) {
 function App() {
   const { t, tweaks, tweakOpen, setTweak, viewerMode, toggleMode } = usePageShell();
   useSeo({
-    title: `Resume — ${SITE_INFO.name}`,
+    title: `Resume - ${SITE_INFO.name}`,
     description: `Resume of ${SITE_INFO.name}: experience, education, skills, and downloadable PDF.`,
     path: 'resume.html',
     imagePath: '',
